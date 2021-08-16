@@ -1,0 +1,476 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>History | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/27/java-fundamental-method-stack/">java-fundamental-method-stack</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-27</time><div class="content"><p><img src="/images/java/fundamental/method_stack_memory/method_stacks.png" alt="" /></p>
+<h2 id="java-virtual-machine-stacks"><a class="markdownIt-Anchor" href="#java-virtual-machine-stacks"></a> Java Virtual Machine Stacks</h2>
+<ul>
+<li>
+<p>Local Variable Section</p>
+<ul>
+<li>Method Parameters음
+<ul>
+<li>float size 1</li>
+<li>long, double size 2</li>
+<li>char, byte, boolean, short, int 전체가 int형으로 선언되어 있음</li>
+</ul>
+</li>
+<li>Local variable</li>
+</ul>
+</li>
+<li>
+<p>Operand Stack</p>
+<ul>
+<li>Work Space in JVM
+<ul>
+<li>JVM 작업 공간, JVM 이 프로그램을 수행하면서 연산을 위해 사용되는 데이터 및 결과를 Operand Stack에 집어넣고 처리함</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/java/fundamental/method_stack_memory/operand_stack.png" alt="" /></p>
+<ul>
+<li>Frame Data
+<ul>
+<li>Constant pool Resolution</li>
+<li>Normal Method Return</li>
+<li>Exception Dispatch</li>
+</ul>
+</li>
+</ul>
+<h2 id="native-method-stacks"><a class="markdownIt-Anchor" href="#native-method-stacks"></a> Native Method Stacks</h2>
+<ul>
+<li>Native Code C ==&gt; C Stack</li>
+<li>Native Code C++ ==&gt; C++ Stack</li>
+</ul>
+<p><img src="/images/java/fundamental/method_stack_memory/native_method.png" alt="" /></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/23/WebAssembly-summit-2020/">WebAssembly-summit-2020</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-23</time><div class="content"><h2 id="building-a-new-kind-of-ecosystem"><a class="markdownIt-Anchor" href="#building-a-new-kind-of-ecosystem"></a> Building a new kind of ecosystem</h2>
+<p><a href="https://webassembly-summit.org/speakers/1/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/1/</a></p>
+<ul>
+<li>보안을 강화하기 위한 Web Assembly</li>
+</ul>
+<ol>
+<li>
+<p>Sandboxing</p>
+</li>
+<li>
+<p>Memory model</p>
+</li>
+</ol>
+<ul>
+<li>Memory isolation</li>
+</ul>
+<ol start="3">
+<li>Interface Types</li>
+</ol>
+<ul>
+<li>exchange high-level values between memories</li>
+<li>we can isolate the memory between modules without making it too hard to share data</li>
+</ul>
+<ol start="4">
+<li>WebAssembly System Interface</li>
+</ol>
+<ul>
+<li>
+<p>we actually have the concept of permissions baked into them</p>
+</li>
+<li>
+<p>we can give different modules, different permissions to different resource.</p>
+</li>
+<li>
+<p>WebAssembly nano process</p>
+</li>
+<li>
+<p>protect from malicious code</p>
+</li>
+<li>
+<p>vulnerable code</p>
+</li>
+</ul>
+<h2 id="shipping-tiny-web-assembly"><a class="markdownIt-Anchor" href="#shipping-tiny-web-assembly"></a> Shipping Tiny Web Assembly</h2>
+<p><a href="https://webassembly-summit.org/speakers/2/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/2/</a></p>
+<ul>
+<li>Sometimes code size is negligible(무시할만한) compared to other factors like asset size</li>
+<li>Sometimes the magic ability to run an app on the web at all is worth a large code size (ship a framework, VM, etc)</li>
+</ul>
+<h3 id="webassembly-an-opportunity-for-small-code"><a class="markdownIt-Anchor" href="#webassembly-an-opportunity-for-small-code"></a> WebAssembly : An opportunity for Small Code!</h3>
+<ul>
+<li>binary format</li>
+<li>dead code elimination is possible</li>
+</ul>
+<h3 id="advice-for-all-toolchains"><a class="markdownIt-Anchor" href="#advice-for-all-toolchains"></a> Advice For All ToolChains</h3>
+<h4 id="1-slide-of-obvious-stuff"><a class="markdownIt-Anchor" href="#1-slide-of-obvious-stuff"></a> 1 slide of obvious stuff</h4>
+<ul>
+<li>
+<p>Enable compression on the server!</p>
+</li>
+<li>
+<p>Minify your Javascript too!</p>
+</li>
+<li>
+<p>Run Binaryen’s wasm-opt</p>
+</li>
+<li>
+<p>What It Does (wasm-opt)</p>
+<ul>
+<li>Dead code elimination</li>
+<li>constant propagation</li>
+<li>Inlining</li>
+<li>Local optimizations (CoalesceLocals, SimplifyLocals, etc)</li>
+<li>memory segment optimization (MemoryPacking)</li>
+<li>Structured control flow (ReReloop, RemoveUnusedBrs)</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
+<h3 id="advice-for-specific-languages-toolchains"><a class="markdownIt-Anchor" href="#advice-for-specific-languages-toolchains"></a> Advice for specific Languages &amp; Toolchains</h3>
+<h4 id="general-cc"><a class="markdownIt-Anchor" href="#general-cc"></a> General C/C++</h4>
+<ul>
+<li>If you don’t use c++ exceptions, build with -fno-exceptions</li>
+<li>avoid RTTI if you don’t need it, build with -fno-rtti</li>
+<li>Careful with templates</li>
+<li>virtual calls may inhibit DCE</li>
+<li>prefer simple C over C++ standard library</li>
+</ul>
+<h4 id="use-web-apis-directly"><a class="markdownIt-Anchor" href="#use-web-apis-directly"></a> Use WEB APIs directly</h4>
+<ul>
+<li>Even better than printf, call a Web API, e.g. using EM_JS:</li>
+</ul>
+<h2 id="javascriptcores-new-webassembly-interpreter"><a class="markdownIt-Anchor" href="#javascriptcores-new-webassembly-interpreter"></a> JavaScriptCore’s new WebAssembly interpreter</h2>
+<p><a href="https://webassembly-summit.org/speakers/4/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/4/</a></p>
+<ul>
+<li>WebAssembly
+<ul>
+<li>BBQ :  View Bytecode Quickly (less optimize)</li>
+<li>OMG : Optimize Machine code Generator (full optimize)</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://webkit.org/blog/9329/" target="_blank" rel="noopener">https://webkit.org/blog/9329/</a></p>
+<h2 id="webassembly-music"><a class="markdownIt-Anchor" href="#webassembly-music"></a> WebAssembly Music</h2>
+<p><a href="https://webassembly-summit.org/speakers/5/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/5/</a></p>
+<h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3>
+<ul>
+<li>WebAssembly deliver performance for rendering realtime audio</li>
+<li>Low latency possible with AudioWorklet</li>
+<li>Let’s create a synthesizer and sequencer in WebAssembly</li>
+</ul>
+<h3 id="background"><a class="markdownIt-Anchor" href="#background"></a> Background</h3>
+<h3 id="warning"><a class="markdownIt-Anchor" href="#warning"></a> Warning</h3>
+<ul>
+<li>Experimenting with synthesizers can produce sudden unexpected very loud noise, witch may damage your hearing</li>
+<li>Keep the volume low, especially if using headphones</li>
+<li>Make sure you now where the mute button is 😃</li>
+</ul>
+<h3 id="the-basics"><a class="markdownIt-Anchor" href="#the-basics"></a> The Basics</h3>
+<ul>
+<li>The simplest instrument</li>
+<li>Add to the mix</li>
+</ul>
+<h3 id="app-map"><a class="markdownIt-Anchor" href="#app-map"></a> App map</h3>
+<h3 id="sequencer-same-as-in-4klang"><a class="markdownIt-Anchor" href="#sequencer-same-as-in-4klang"></a> sequencer (same as in 4klang)</h3>
+<ul>
+<li>A simple pattern sequencer</li>
+<li>Short fixed length patterns</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">[<span class="number">64</span>, <span class="number">0</span>, <span class="number">65</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">67</span>, <span class="number">64</span>, <span class="number">0</span>],</span><br><span class="line">[<span class="number">22</span>, <span class="number">23</span>, <span class="number">34</span>, <span class="number">34</span>, <span class="number">34</span>, <span class="number">0</span>, <span class="number">44</span>, <span class="number">45</span>],</span><br><span class="line">[<span class="number">22</span>, <span class="number">33</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">34</span>, <span class="number">0</span>, <span class="number">44</span>, <span class="number">55</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Track for each instrument with a list of patterns to play</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>],</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>This is all it takes ato orchestrate the instruments</li>
+</ul>
+<h3 id="generate-sequencer-data-from-code"><a class="markdownIt-Anchor" href="#generate-sequencer-data-from-code"></a> Generate sequencer data from code</h3>
+<h3 id="record-midi-and-generate-code"><a class="markdownIt-Anchor" href="#record-midi-and-generate-code"></a> Record MIDI and generate code</h3>
+<ul>
+<li>While playing, midi input data is stored to patterns</li>
+<li>If we want to use the recording, we can paste it as code</li>
+<li>Pattern data is “reverse engineered” to javascript code, with durations on the notes instead of repeated hold commands</li>
+</ul>
+<h3 id="assemblyscript-why-did-i-choose-it"><a class="markdownIt-Anchor" href="#assemblyscript-why-did-i-choose-it"></a> AssemblyScript (why did I choose it?)</h3>
+<ul>
+<li>High level readability</li>
+<li>Low level control</li>
+<li>Pure WebAssembly output (no additional js lib)</li>
+<li>Builds optimized for speed and size (Binaryen)</li>
+<li>Create WEbAssembly binaries in the browser</li>
+<li>Great for live coding: rapid development, instant results, directly in the browser!</li>
+</ul>
+<h3 id="synthesizing-instruments-in-assemblyscript"><a class="markdownIt-Anchor" href="#synthesizing-instruments-in-assemblyscript"></a> Synthesizing instruments in AssemblyScript</h3>
+<ul>
+<li>No sample data, just in code</li>
+</ul>
+<h3 id="data-driven-or-code-driven"><a class="markdownIt-Anchor" href="#data-driven-or-code-driven"></a> Data driven or code driven?</h3>
+<p>Envelope -&gt; oscillator -&gt; filter -&gt; out</p>
+<ul>
+<li>You can synthesize an instrument by connecting envelopes, oscillators, filters etc.</li>
+<li>Typical to create a data structure to be interpreted at runtime.</li>
+<li>With AssemblyScript/WebAssembly we can instead generate and compile the code in the browser</li>
+<li>Just like modern web-frameworks resolving configuration at compile-time (such as language)</li>
+<li>Out binary can contain the logic directly rather than an interpreter of data describing the logic</li>
+<li>Faster and smaller builds, no interpreter overhead</li>
+<li>Not just for synthesizers but also for e.g smart contracts</li>
+<li>Compiling is cheap, make pre-configured binaries rather than configuring at runtime.</li>
+</ul>
+<h3 id="audioworklet"><a class="markdownIt-Anchor" href="#audioworklet"></a> AudioWorklet</h3>
+<ul>
+<li>The “proper” way of using AudioWorklet would be to have one node per instrument and let WebAudio do the orchestration/mixing</li>
+<li>But then we couldn’t have music produced by a single WebAssembly executable binary</li>
+<li>Made a polyfill for the purpose of serving this app</li>
+<li>AudioWorklet model of render audio callback for WASI(Web Assembly System Interface)? (Similar to Jack and Core Audio)</li>
+</ul>
+<h3 id="sources-on-github"><a class="markdownIt-Anchor" href="#sources-on-github"></a> Sources on github</h3>
+<p><a href="https://github.com/petersalomonsen/javascriptmusic" target="_blank" rel="noopener">https://github.com/petersalomonsen/javascriptmusic</a></p>
+<ul>
+<li>project contains the WebAssembly music experiment, and also the predecessing javascript music projects for Midi synths and 4klang.</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/19/java-stream-function-interface/">java-stream-function-interface</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-19</time><div class="content"><table>
+<thead>
+<tr>
+<th>함수형 인터페이스</th>
+<th>Descriptor</th>
+<th>Method명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicate<T></td>
+<td>T -&gt; boolean</td>
+<td>test()</td>
+</tr>
+<tr>
+<td>Consumer<T></td>
+<td>T -&gt; void</td>
+<td>accept()</td>
+</tr>
+<tr>
+<td>Supplier<T></td>
+<td>() -&gt; T</td>
+<td>accept()</td>
+</tr>
+<tr>
+<td>Function&lt;T,R&gt;</td>
+<td>T -&gt; R</td>
+<td>apply()</td>
+</tr>
+<tr>
+<td>UnaryOperator<T></td>
+<td>T -&gt; T</td>
+<td>identity()</td>
+</tr>
+</tbody>
+</table>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/19/java-poi/">java-poi</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-19</time><div class="content"><p>확인해보<br />
+<a href="https://blog.naver.com/tmondev/221388780914" target="_blank" rel="noopener">https://blog.naver.com/tmondev/221388780914</a><br />
+<a href="https://blog.miyam.net/41" target="_blank" rel="noopener">https://blog.miyam.net/41</a><br />
+<a href="https://www.codejava.net/coding/java-code-example-to-export-data-from-database-to-excel-file" target="_blank" rel="noopener">https://www.codejava.net/coding/java-code-example-to-export-data-from-database-to-excel-file</a><br />
+<a href="http://jexcelapi.sourceforge.net/resources/faq/" target="_blank" rel="noopener">http://jexcelapi.sourceforge.net/resources/faq/</a><br />
+<a href="https://offbyone.tistory.com/70" target="_blank" rel="noopener">https://offbyone.tistory.com/70</a><br />
+flyweight pattern</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/19/java-stream-parallel/">java-stream-parallel</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-19</time><div class="content"><p>Java 8의 변경 사항중 하나인 lambda를 효과적으로 사용할 수 있도록 collection들은 stream을 제공한다.<br />
+stream interface는 collection을 파이프식으로 처리 가능하도록 고차함수로 그 구조를 추상화 했다.</p>
+<p>스트림을 사용하면서, 반복적인 형번환 소스코드를 간편하게 처리 할 수 있게 되었고, 가독성 또한 높아졌다. 만<br />
+또한 병렬연산을 쉽게 지원할 수 있게 도와주니 매력적으로 보인다.</p>
+<p>하지만 Thread Pool을 직접 지정하는 이전 소스코드에 비해 Java 내부에 존재하는 공유  CommonPorkJoinPool 을 사용하기 때문에<br />
+여러개의 Thread가 일을 수행하는 Web Project의 경우에는 공유 Thread Pool의 Thread가 모자랄수 있다.<br />
+Java는 내부적으로 Parallel Stream이 CommonPorkJoinPool을 가지고 있고 내부 Thread의 수를 해당 머신의 프로세서의 개수로 처음에 만들어 시작한다.</p>
+<p>그래서 Property로 Thread의 수를 지정하거나 ForkJoinPool을 명시적으로 사용해 parallelStream을 처리할 수 있게 할 수 있다.</p>
+<ol>
+<li>Property 설정</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(<span class="string">"java.util.concurrent.ForkJoinPool.common.parallelism"</span>,<span class="string">"6"</span>);</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>명시적 ForkJoinPool 사용</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ForkJoinPool forkjoinPool = <span class="keyword">new</span> ForkJoinPool(<span class="number">5</span>);</span><br><span class="line">forkjoinPool.submit(() -&gt; &#123;</span><br><span class="line">	list.parallelStream().forEach(index -&gt; &#123;</span><br><span class="line">		System.out.printIn(<span class="string">"Thread : "</span> + Thread.currentThread().getName()</span><br><span class="line">             + <span class="string">", index + "</span>, <span class="string">" + new Date());</span></span><br><span class="line"><span class="string">		try&#123;</span></span><br><span class="line"><span class="string">			Thread.sleep(500);</span></span><br><span class="line"><span class="string">		&#125; catch (InterruptedException e)&#123;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;);</span></span><br><span class="line"><span class="string">&#125;).get();</span></span><br></pre></td></tr></table></figure>
+<p>ForkJoinPool 생성자에 Thread 개수를 지정해서 사용할 수 있다.</p>
+<p>ForkJoinPool<br />
+<img src="/images/java/stream/fork_join.jpg" alt="" /></p>
+<p>기본적으로는 ExecutorService의 구현체이지만,  다른 점은 각 thread들이 개별 큐를 가지게 되며,<br />
+다음 그림의 B처럼 아무런 task가 없으면 A의 task를 가져와 처리하게 됨으로써<br />
+CPU 자원을 효율적으로 사용할 수 있게 된다.</p>
+<p><img src="/images/java/stream/fork_join_queue.jpg" alt="" /></p>
+<p>ForkJoinPool의 특성상 나누어지는 Job은 균등하게 처리가 되어야 한다.<br />
+Spliterator의 trySplit()을 사용해 작업을 분할 하는데 균등하지 않으면 순차적으로 실행하는 것보다 비효율적일 수 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Spliterator&lt;T&gt; <span class="title">trySplit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> lo = index, mid = (lo + fence) &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (lo &gt;= mid)</span><br><span class="line">           ? <span class="keyword">null</span></span><br><span class="line">           : <span class="keyword">new</span> ArraySpliterator&lt;&gt;(array,</span><br><span class="line">                                    lo, index = mid,</span><br><span class="line">                                    characteristics);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>또한, 병렬로 처리되는 작업이 독립적이지 않다면, 수행 성능에 영향이 있을 수 있다.<br />
+stream의 중간 단계 연산 중 sorted(), distinct()와 같은 작업을 수행하는 경우에는<br />
+내부적으로 상태에 대한 변수를 각 작업들이 공유(synchronized)하게 되어 있다.<br />
+이럴때 순차적으로 실행하는 경우가 더 효과적일 수 있다.</p>
+<p>참고<br />
+<a href="http://gee.cs.oswego.edu/dl/html/StreamParallelGuidance.html" target="_blank" rel="noopener">http://gee.cs.oswego.edu/dl/html/StreamParallelGuidance.html</a></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/19/java-stream/">java-stream</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-19</time><div class="content"><p>스트림의 중개 연산(intermediate operation)<br />
+스트림 API에 의해 생성된 초기 스트림은 중개 연산을 통해 또 다른 스트림으로 변환됩니다.<br />
+이러한 중개 연산은 스트림을 전달받아 스트림을 반환하므로, 중개 연산은 연속으로 연결해서 사용할 수 있습니다.<br />
+또한, 스트림의 중개 연산은 필터-맵(filter-map) 기반의 API를 사용함으로 지연(lazy) 연산을 통해 성능을 최적화할 수 있습니다.</p>
+<ol>
+<li>스트림 필터링 : filter(), distinct()</li>
+<li>스트림 변환 : map(), flatMap(), boxed()</li>
+<li>스트림 제한 : limit(), skip()</li>
+<li>스트림 정렬 : sorted()</li>
+<li>스트림 연산 결과 확인 : peek()</li>
+<li>스트림 반복 : forEach()</li>
+<li>스트림 매칭 : allMatch() =&gt; 전부 만족, anyMatch() =&gt; 최소 한개가 조건 만족, noneMatch() =&gt; 모두 불만족</li>
+<li>스트림 집계 : sum(), count(), average(), max(), min() / reduce()<br />
+peek의 경우는 특수하게 동작하는데 중간 처리 단계에서 전체 요소를 루핑하고, 추가적 작업을 위해 사용하며 최종 처리 메소드가 호출 되어야만 동작한다.<br />
+이중 스트림을 반복처리하는 forEach()는 최종 처리 메소드로 파이프 라인 마지막에 루핑하여 요소를 하나씩 처리한다.<br />
+최종 처리 메소드 뒤에는 sum() 같은 최종 처리 메소드가 호출되면 안된다.</li>
+</ol>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/18/apache-ignite-spring-boot/">apache-ignite-spring-boot</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-18</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/Cache/">Cache</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/java/">java</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/spring/">spring</a></span><div class="content"><p>cache도 전략 및 패턴을 좀 봐야함</p>
+<p><a href="https://brunch.co.kr/@springboot/151" target="_blank" rel="noopener">https://brunch.co.kr/@springboot/151</a><br />
+<a href="https://www.slideshare.net/ssuser373c87/accelerate-spring-boot-application-with-apache-ignite" target="_blank" rel="noopener">https://www.slideshare.net/ssuser373c87/accelerate-spring-boot-application-with-apache-ignite</a><br />
+<a href="https://github.com/iyboklee/boot-cache-ignite" target="_blank" rel="noopener">https://github.com/iyboklee/boot-cache-ignite</a><br />
+<a href="https://github.com/iyboklee/boot-data-ignite" target="_blank" rel="noopener">https://github.com/iyboklee/boot-data-ignite</a><br />
+<a href="https://github.com/iyboklee/boot-rw-through-ignite" target="_blank" rel="noopener">https://github.com/iyboklee/boot-rw-through-ignite</a></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/18/spring-boot-logging/">spring-boot-logging</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-18</time><div class="content"><p>스프링 부트에서는 로깅 설정을 자동적으로 지원한다.<br />
+SLF4J를 사용한 로깅 파사드를 통해 구현체를 사용하게 되며 스프링부트의 기본은 logback으로 되어 있다.<br />
+Spring Boot는 기존 Spring에서의 사용법과는 다르게 logback-spring.xml를 사용하도록 권장하고 있다.</p>
+<p>기존 logback과 다른점은 logback file 안에서 Spring context를 접근할 수 있다는 것이다.<br />
+기존 logback은 파일이름으로 프로파일을 지정해 사용했던 반면, spring boot의 logback은<br />
+내부에서 프로파일에 대한 if문 처리를 해 파일 하나로 간단하게 관리할 수 있게 도와준다.</p>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#boot-features-logging" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#boot-features-logging</a><br />
+상단 링크에 적혀있는 글이 매우 도움이 될 것이다.</p>
+<p>현재 프로젝트에서는 Spring-boot-starter-web을 기준으로 프로젝트를 진행하고 있다.<br />
+<a href="https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web/2.2.4.RELEASE" target="_blank" rel="noopener">https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web/2.2.4.RELEASE</a></p>
+<p>해당 spring-boot-starter-web은 내부에 spring-boot-starter를 참조하고 있고,<br />
+spring-boot-starter는 spring-boot-starter-logging을 참조 하고 있어서 logback 이외에 다른 구현체를 사용하고 싶으면<br />
+spring-boot-starter-logging을 exclude하고 다른 spring-boot-starter를 선언해주면 된다.</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/20/enable-annotation-spring/">enable-annotation-spring</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/Spring/">Spring</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/java/">java</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/spring/">spring</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/enableannotation/">enableannotation</a></span><div class="content"><h3 id="spring-boot에서-enable로-시작하는-annotation"><a class="markdownIt-Anchor" href="#spring-boot에서-enable로-시작하는-annotation"></a> Spring Boot에서 Enable로 시작하는 Annotation</h3>
+<ul>
+<li>
+<p>Bean을 생성할 때, 고정 값이 아닌 동적으로 값을 얻어와 빈을 생성해 주어야 하는 경우가 있다.</p>
+<ul>
+<li>ex) Url이 DB에 저장되어 있거나 File에 저장되어 있어 이를 읽어와 빈을 생성해야 하는경우</li>
+</ul>
+</li>
+<li>
+<p>선언적으로 빈을 생성하지 못하고 동적으로 빈을 생성해야 할 경우 @Enable* Annotation을 사용해 빈을 선언할 수 있다.</p>
+</li>
+</ul>
+<h4 id="enable-annotation-을-사용하는-방법은-3가지이다"><a class="markdownIt-Anchor" href="#enable-annotation-을-사용하는-방법은-3가지이다"></a> @Enable* Annotation 을 사용하는 방법은 3가지이다.</h4>
+<ul>
+<li>@Import를 사용하여 정의한 Bean을 불러와서 사용 ex) EnableScheduling</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Import</span>(SchedulingConfiguration.class)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableScheduling &#123;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SchedulingConfiguration</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line"> <span class="meta">@Bean</span>(name=AnnotationConfigUtils.SCHEDULED_ANNOTATION_PROCESSOR_BEAN_NAME)</span><br><span class="line"> <span class="meta">@Role</span>(BeanDefinition.ROLE_INFRASTRUCTURE)</span><br><span class="line"> <span class="function"><span class="keyword">public</span> ScheduledAnnotationBeanPostProcessor <span class="title">scheduledAnnotationProcessor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> ScheduledAnnotationBeanPostProcessor();</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>@ImportSelector를 사용하여 빈을 생성하는 경우
+<ul>
+<li>ImportSelector 인터페이스를 구현하고 Return하는 배열에 클래스의 이름을 적어 반환해주면 된다. Ex) EnableTransaction</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Import</span>(TransactionManagementConfigurationSelector.class)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableTransactionManagement &#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">proxyTargetClass</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</span><br><span class="line">	<span class="function">AdviceMode <span class="title">mode</span><span class="params">()</span> <span class="keyword">default</span> AdviceMode.PROXY</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">order</span><span class="params">()</span> <span class="keyword">default</span> Ordered.LOWEST_PRECEDENCE</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransactionManagementConfigurationSelector</span> <span class="keyword">extends</span> <span class="title">AdviceModeImportSelector</span>&lt;<span class="title">EnableTransactionManagement</span>&gt; </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">protected</span> String[] selectImports(AdviceMode adviceMode) &#123;</span><br><span class="line">		<span class="keyword">switch</span> (adviceMode) &#123;</span><br><span class="line">			<span class="keyword">case</span> PROXY:</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">new</span> String[] &#123;AutoProxyRegistrar.class.getName(),</span><br><span class="line">						ProxyTransactionManagementConfiguration.class.getName()&#125;;</span><br><span class="line">			<span class="keyword">case</span> ASPECTJ:</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">new</span> String[] &#123;determineTransactionAspectClass()&#125;;</span><br><span class="line">			<span class="keyword">default</span>:</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">determineTransactionAspectClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (ClassUtils.isPresent(<span class="string">"javax.transaction.Transactional"</span>, getClass().getClassLoader()) ?</span><br><span class="line">				TransactionManagementConfigUtils.JTA_TRANSACTION_ASPECT_CONFIGURATION_CLASS_NAME :</span><br><span class="line">				TransactionManagementConfigUtils.TRANSACTION_ASPECT_CONFIGURATION_CLASS_NAME);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>@ImportBeanDefinitionRegistrar를 사용한 BeanRegistry에 Bean 등록하기
+<ul>
+<li>동적으로 값을 얻어와 빈에 할당하려면 이 방법 뿐이였다.</li>
+<li>준비물 : Google Reflections Library,</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerBeanDefinitions</span><span class="params">(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry registry)</span> </span>&#123;</span><br><span class="line">    String basePackageName = ((StandardAnnotationMetadata) annotationMetadata).getIntrospectedClass().getPackage().getName();</span><br><span class="line">    Set&lt;Class&lt;?&gt;&gt; interfaces = <span class="keyword">new</span> Reflections(basePackageName).getTypesAnnotatedWith(ProjectFeignClient.class);</span><br><span class="line"></span><br><span class="line">    interfaces.forEach(type -&gt; &#123;</span><br><span class="line">      BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(ProjectFeignFactoryBean.class);</span><br><span class="line">      builder.setLazyInit(<span class="keyword">true</span>);</span><br><span class="line">      builder.addPropertyValue(<span class="string">"type"</span>, type.getName());</span><br><span class="line">      builder.setAutowireMode(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">      AbstractBeanDefinition definition = builder.getBeanDefinition();</span><br><span class="line">      definition.setPrimary(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">      BeanDefinitionReaderUtils.registerBeanDefinition(</span><br><span class="line">              <span class="keyword">new</span> BeanDefinitionHolder(definition, type.getName()), registry</span><br><span class="line">      );</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/20/annotation/">annotation</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-20</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/Java-8/">Java 8</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/java/">java</a></span><div class="content"><h3 id="java-annotation"><a class="markdownIt-Anchor" href="#java-annotation"></a> Java Annotation</h3>
+<ul>
+<li>어노테이션이란 본래 주석이란 뜻</li>
+<li>해석 되는 시점 정의</li>
+<li>주석 대체</li>
+<li>기존 자바 웹 어플리케이션들은 구성과 설정값들을 외부의 XML설정 파일에 명시하는 방법으로 프로그래밍 되었다.<br />
+변경 될 수 있는 코드가 아닌 외부 설정 파일에 분리하기 때문에 재컴파일 없이도 쉽게 변경사항을 적용 할 수 있었지만, 프로그램 작성을 위해 매번 많은 설정을 작성해야 한다는 불편함이 존재했다.</li>
+<li>어노테이션을 사용하면 기존 로직과는 별개로 필요한 정보들을 기입 할 수 있고, 런타임에서 Reflection을 통해 해당 정보를 얻어 올 수 있다.</li>
+<li>문서화 부분은 Javadoc이 존재하기 때문에 많이 사용되지 않으며, 어노테이션의 본질적 목적은 소스 코드에 메타데이터를 표현하는 것이다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomAnnotation &#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCheck</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="meta-annotation"><a class="markdownIt-Anchor" href="#meta-annotation"></a> Meta Annotation</h3>
+<ul>
+<li>
+<p>@Retention</p>
+<ul>
+<li>Java Compiler가 Annotation을 다루는 방법을 기술하며, 어느 시점까지 영향을 미치는 지 결정하는 값</li>
+<li>RetentionPolicy.SOURCE : 컴파일 전까지 유효 ( 컴파일 이후 클래스 정보에서 삭제)</li>
+<li>RetentionPolicy.CLASS : 컴파일러가 클래스를 참조하기 전까지 유효</li>
+<li>RetentionPolicy.RUNTIME : 컴파일 이후에도 JVM에 의해 계속 참조가 가능. (Runtime Code에서 Reflection을 통한 참조가 가능)</li>
+</ul>
+</li>
+<li>
+<p>@Target</p>
+<ul>
+<li>Annotation을 선언할 위치를 선택한다.</li>
+<li>ElementType.PACKAGE : 패키지 선언</li>
+<li>ElementType.TYPE : 타입 선언</li>
+<li>ElementType.ANNOTATION_TYPE : 어노테이션 타입 선언</li>
+<li>ElementType.CONSTRUCTOR : 생성자 선언</li>
+<li>ElementType.FIELD : 멤버 변수 선언</li>
+<li>ElementType.LOCAL_VARIABLE : 지역 변수 선언</li>
+<li>ElementType.METHOD : 메서드 선언</li>
+<li>ElementType.PARAMETER : 전달인자 선언</li>
+<li>ElementType.TYPE_PARAMETER : 전달인자 타입 선언</li>
+<li>ElementType.TYPE_USE : 타입 선언</li>
+</ul>
+</li>
+<li>
+<p>@Documented</p>
+<ul>
+<li>해당 어노테이션을 Javadoc에 포함시킨다.</li>
+</ul>
+</li>
+<li>
+<p>@Inherited</p>
+<ul>
+<li>어노테이션의 상속을 가능하게 한다.</li>
+<li>주의 : 어노테이션 끼리의 상속이 아닌 해당 어노테이션을 가지고 있는 클래스를 상속할 경우 자식 클래스도 해당 어노테이션을 가짐을 뜻한다.</li>
+</ul>
+</li>
+<li>
+<p>@Native</p>
+<ul>
+<li>JVM이 설치된 OS의 네이티브 메서드에 의해 참조되는 상수필드에 붙이는 어노테이션이다.</li>
+<li>JNI (Java Native Interface)</li>
+<li>Object, Atomic, file 등</li>
+</ul>
+</li>
+<li>
+<p>@Repeatable</p>
+<ul>
+<li>같은 어노테이션을 중복정의 가능한 @Repeatable 어노테이션을 제공</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// case 1</span></span><br><span class="line"><span class="meta">@GreenColor</span></span><br><span class="line"><span class="meta">@BlueColor</span></span><br><span class="line"><span class="meta">@RedColor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RGBColor</span> </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// case 2</span></span><br><span class="line"><span class="meta">@Color</span>(colors=&#123;<span class="string">"green"</span>, <span class="string">"blue"</span>, <span class="string">"red"</span>&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RGBColor</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>아래와 같이 하나의 RGB Color가 Color에 속함을 보이고</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Color</span>(<span class="string">"green"</span>)</span><br><span class="line"><span class="meta">@Color</span>(<span class="string">"blue"</span>)</span><br><span class="line"><span class="meta">@Color</span>(<span class="string">"red"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RGBColor</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Color 어노테이션과 Colors 어노테이션을 정의해 표현한다.</li>
+</ul>
+<pre class="highlight"><code class="java"> <span class="meta">@Repeatable</span>(value = Colors.class)
+ <span class="keyword">public</span> <span class="meta">@interface</span> Color {}
+ 
+ <span class="meta">@Target</span>(ElementType.TYPE)
+ <span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)
+ <span class="meta">@Documented</span>
+ <span class="keyword">public</span> <span class="meta">@interface</span> Colors {
+     Color[] value();  
+ }
+</code></pre>
+<ul>
+<li>참조 :
+<ul>
+<li><a href="https://asfirstalways.tistory.com/309" target="_blank" rel="noopener">https://asfirstalways.tistory.com/309</a></li>
+<li><a href="https://jistol.github.io/java/2018/08/31/annotation-repeatable/" target="_blank" rel="noopener">https://jistol.github.io/java/2018/08/31/annotation-repeatable/</a></li>
+<li><a href="https://stackoverflow.com/questions/23973107/how-to-use-inherited-annotation-in-java/23973331" target="_blank" rel="noopener">https://stackoverflow.com/questions/23973107/how-to-use-inherited-annotation-in-java/23973331</a></li>
+</ul>
+</li>
+</ul>
+</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

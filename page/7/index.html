@@ -1,0 +1,1008 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>History | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/13/cryptography-digital-signature/">cryptography-digital-signature</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-13</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/digital-signature/">digital signature</a></span><div class="content"><h3 id="digital-signature-characteristics"><a class="markdownIt-Anchor" href="#digital-signature-characteristics"></a> Digital signature characteristics</h3>
+<ul>
+<li>Unforgeable (위조불가)
+<ul>
+<li>서명자만이 서명문을 생성 가능</li>
+</ul>
+</li>
+<li>Authentic (서명자 인증)
+<ul>
+<li>서명문의 서명자를 확인 가능</li>
+</ul>
+</li>
+<li>Not Reusable (재사용 불가)
+<ul>
+<li>서명문의 서명은 다른 문서의 서명으로 사용 불가능</li>
+</ul>
+</li>
+<li>Unalterable (변경 불가)
+<ul>
+<li>서명된 문서의 내용 변경 불가능</li>
+</ul>
+</li>
+<li>Nonrepudiation (부인 불가)
+<ul>
+<li>서명자는 후에 서명한 사실을 부인 불가능</li>
+</ul>
+</li>
+</ul>
+<h3 id="digital-signature-requirement"><a class="markdownIt-Anchor" href="#digital-signature-requirement"></a> Digital signature Requirement</h3>
+<ul>
+<li>서명은 메세지에 의존하는 비트 형태이어야 한다.</li>
+<li>위조와 부인 방지 위해, 송신자의 유일한 정보 비트를 이용해야 함</li>
+<li>서명문을 만들기가 쉬워야 한다.</li>
+<li>서명문을 인식, 확인 하기가 쉬워야 한다.</li>
+<li>서명문을 위조하는 것이 계산적으로 실행 불가능</li>
+<li>기억장소에 서명문의 복사본을 유지하는 것이 실용적이어야 한다.</li>
+</ul>
+<h4 id="메시지에-직접-서명하는-방법"><a class="markdownIt-Anchor" href="#메시지에-직접-서명하는-방법"></a> 메시지에 직접 서명하는 방법</h4>
+<p><img src="/images/cryptography/message_signature/message_signature.png" alt="" /></p>
+<h4 id="메세지의-해시-값에-서명하는-방법"><a class="markdownIt-Anchor" href="#메세지의-해시-값에-서명하는-방법"></a> 메세지의 해시 값에 서명하는 방법</h4>
+<p><img src="/images/cryptography/message_signature/hash_signature.png" alt="" /><br />
+<img src="/images/cryptography/message_signature/hash_time_flow.png" alt="" /></p>
+<h4 id="디지털-서명에-대한-의문"><a class="markdownIt-Anchor" href="#디지털-서명에-대한-의문"></a> 디지털 서명에 대한 의문</h4>
+<ol>
+<li>
+<p>암호문이 왜 서명으로서 사용 가능한 것인가?</p>
+<ul>
+<li>개인 키로 암호화 한다는 것은, 행하고 있는 처리의 내용을 설명한 것이지, 여기에서는 기밀성을 실현하기 위해 암호화 하는 것이 아니다</li>
+<li>인증자 (authenticator) : 키를 가지고 있는 사람만이 만들 수 있는 정보</li>
+</ul>
+</li>
+<li>
+<p>기밀성을 유지할 수 없는 것은 아닐까?</p>
+<ul>
+<li>디지털 서명은 기밀성을 지키기 위한 것은 아님</li>
+<li>기밀성이 필요하다면 암호화를 별도로 행해서 보내야 한다.</li>
+</ul>
+</li>
+<li>
+<p>복사된 서명이 만들어지는 것은 아닐까?</p>
+<ul>
+<li>통상의 파일 복사처럼 서명도 복사본을 만들수 있다.</li>
+<li>서명 복사를 만들 수 있다고 해서 서명이 무의미 해 지는 것은 아니다.
+<ul>
+<li>복사한 데이터가 표현하고 있는 것은 특정의 서명자가 특정의 메세지에 서명했다고 하는 것뿐</li>
+<li>복사해도 서명자는 바뀌지 않고 메세지의 내용도 바뀌지 않는다.</li>
+</ul>
+</li>
+<li>복사된 서명
+<ul>
+<li>특정 서명자와 특정 메세지가 결부되어 있다는 사실이 중요</li>
+<li>아무리 복사를 해도 그 메세지에 누가 서명했는가는 사실에는 변화가 없다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>서명 변경이 가능한 것은 아닐까?</p>
+<ul>
+<li>서명 후 메세지와 서명의 내용을 수정할 수는 있다.</li>
+<li>수정하면 서명 검증에 실패하기 때문에, 검증하는 사람은 수정이 행해졌다는 것을 검출 할 수 있다.</li>
+<li>서명 대상의 메세지와 서명 양쪽을 수정해서 서명의 검증에 성공할 수 있도록 앞뒤를 잘 맞출 수 있지는 않을까?
+<ul>
+<li>불가능</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>서명만 재이용할 수 있는 것은 아닐까?</p>
+<ul>
+<li>서명부분만 잘라내서 다른 메세지에 첨부하는 것은 가능하나 서명의 검증에는 실패</li>
+</ul>
+</li>
+<li>
+<p>서명을 삭제하더라도 계약파기를 할 수 없는 것은 아닌가?</p>
+<ul>
+<li>디지털 서명이 붙은 차용서는 삭제해도 파기 할 수 없다.</li>
+<li>디지털 서명이 붙은 차용서를 파기하는 경우에는 영수증에 상당하는 문서를 새로 만들고, 그것에 대해 상대에게 서명을 부탁해야 한다.</li>
+</ul>
+</li>
+<li>
+<p>어떻게 해서 부인 방지가 되는 것인가?</p>
+<ul>
+<li>디지털 서명의 경우 서명을 작성할 수 있는 키(개인 키)는 송신자마ㄴ 가지고 있다. 그러므로 서명을 작성할 수 있는 것은 송신자 뿐</li>
+<li>그 서명을 내가 작성한 것이 아니다 라고 주장 할 수 없다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="활용-예"><a class="markdownIt-Anchor" href="#활용-예"></a> 활용 예</h3>
+<ol>
+<li>
+<p>보안 공지</p>
+<ul>
+<li>클리어 서명(Clearsign) : 메세지를 암호화하지 않고 서명만 한것<br />
+<img src="/images/cryptography/message_signature/digital_signature_use_case_1.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>소프트 웨어 다운로드</p>
+<ul>
+<li>소프트웨어에 디지털 서명을 작성하고, 서명 검증</li>
+</ul>
+</li>
+<li>
+<p>공개 키 인증서</p>
+<ul>
+<li>디지털 서명을 검증하려면 바른 공개 키가 필요</li>
+<li>자신이 입수한 공개키가 바른 공개 키인지 어떤지를 검증하기 위해서 공개 키를 메세지로 간주하고 디지털 서명을 한다.</li>
+<li>공개 키 인증서 : 공개키에 디지털 서명을 붙인 것</li>
+</ul>
+</li>
+<li>
+<p>TLS</p>
+<ul>
+<li>TLS에서는 서버가 올바른 것이라는 것을 인증하기 위해서 서버 인증서를 이용하며 서버의 공개키에 디지털 서명을 한 것.</li>
+</ul>
+</li>
+</ol>
+<h3 id="rsa에-의한-디지털-서명"><a class="markdownIt-Anchor" href="#rsa에-의한-디지털-서명"></a> RSA에 의한 디지털 서명</h3>
+<ul>
+<li>서명(s) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mi>D</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{m^D mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span></li>
+<li>서명으로 얻어진 메세지(m) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>s</mi><mi>E</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{s^E mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span></li>
+<li>E와 N은 서명자의 공개키</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공개키</td>
+<td>(E,N)</td>
+</tr>
+<tr>
+<td>개인키</td>
+<td>(D,N)</td>
+</tr>
+<tr>
+<td>서명의 작성</td>
+<td>서명(s) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mi>D</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{m^D mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span> (메세지를 D제곱해서 N으로 나눈 나머지)</td>
+</tr>
+<tr>
+<td>서명의 검증</td>
+<td>서명으로 얻어진 메세지(m) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>s</mi><mi>E</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{s^E mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span> (m과 원래 메세지 비교)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="디지털-서명에-대한-공격"><a class="markdownIt-Anchor" href="#디지털-서명에-대한-공격"></a> 디지털 서명에 대한 공격</h4>
+<ol>
+<li>
+<p>중간자 공격</p>
+<ul>
+<li>입수한 공개 키가 정확한 상대의 것인지 아닌지를 확인하는 것이 필요</li>
+<li>공개 키를 취급하는 소프트웨어는 공개 키의 해시 값을 표시하는 수단을 준비 (fingerprint)</li>
+</ul>
+</li>
+<li>
+<p>일방향 해시 함수 공격</p>
+<ul>
+<li>일방향 해시 함수는 충돌 내성을 가져야 한다.</li>
+</ul>
+</li>
+<li>
+<p>디지털 서명을 사용한 공개 키 암호 공격</p>
+<ul>
+<li>모르는 메세지에는 서명을 하지 말자.</li>
+</ul>
+</li>
+</ol>
+<h4 id="기술적인-방법만으로는-해결할-수-없는-문제"><a class="markdownIt-Anchor" href="#기술적인-방법만으로는-해결할-수-없는-문제"></a> 기술적인 방법만으로는 해결할 수 없는 문제</h4>
+<p><img src="/images/cryptography/message_signature/problem.png" alt="" /></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/08/cryptography-birthday-attack/">cryptography-birthday-attack</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/hash/">hash</a></span><div class="content"><h3 id="비둘기집의-원리"><a class="markdownIt-Anchor" href="#비둘기집의-원리"></a> 비둘기집의 원리</h3>
+<ul>
+<li>n+1개읜 물건을 n개의 상재에 넣을 때 적어도 어느 한 상자에는 두 개 이상의 물건이 들어 있다는 원리를 말한다.</li>
+<li>비둘기와 비둘기집의 형태로 비유되어 쓰이며, '서랍-양말’로 비유하여 서랍원칙으로 나타내기도 한다.</li>
+<li>n개의 비둘기집과 n+1마리의 비둘기가 있다고 가정한다.<br />
+만약 각 비둘기집에 한 마리 이하의 비둘기만 들어 있다면, 전체 비둘기집에는 많아야 n마리의 비둘기가 존재한다.<br />
+그런데 비둘기는 모두n+1마리이므로, 이것은 모순이다. 따라서 어느 비둘기집에는 두 마리 이상의 비둘기가 있다.</li>
+</ul>
+<h3 id="일반화"><a class="markdownIt-Anchor" href="#일반화"></a> 일반화</h3>
+<ul>
+<li>
+<p>n개의 별개의 사물을 m개의 용기에 나누어 담으면 적어도 한 개의 용기는 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">[</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mfrac><mi>n</mi><mi>m</mi></mfrac></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><annotation encoding="application/x-tex">\begin{bmatrix}\frac{n}{m}\end{bmatrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8500000000000001em;"><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35000000000000003em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">]</span></span></span></span></span></span>  이상의 사물을 담고 있어야 한다.<br />
+(여기서, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">[</mo><mtable rowspacing="0.15999999999999992em" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi>x</mi></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><annotation encoding="application/x-tex">\begin{bmatrix}{x}\end{bmatrix}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8500000000000001em;"><span style="top:-3.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35000000000000003em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">]</span></span></span></span></span></span>는 x보다 작지 않은 최소 정수를 의미한다.)</p>
+</li>
+<li>
+<p>확률론적으로 일반화 된 비둘기집 원리는 다음과 같다.<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mi>m</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{m}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>의 균일한 확률로 n개의 비둘기를 무작위로 m개의 비둘기집에 넣었다면 확률적으로 적어도 하나의 비둘기집에 두마리 이상의 비둘기가 들어가게 된다.<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mfrac><mrow><mi>m</mi><mo stretchy="false">!</mo></mrow><mrow><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">!</mo><mtext>  </mtext><msup><mi>m</mi><mi>n</mi></msup></mrow></mfrac><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mrow><mi>m</mi><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo>⋯</mo><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><msup><mi>m</mi><mi>n</mi></msup></mfrac><mtext> ⁣</mtext></mrow><annotation encoding="application/x-tex">1-{\frac  {m!}{(m-n)!\;m^{n}}}=1-{\frac  {m(m-1)(m-2)\cdots (m-n+1)}{m^{n}}}\!</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.400108em;vertical-align:-0.52em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">n</span><span class="mclose mtight">)</span><span class="mclose mtight">!</span><span class="mspace mtight" style="margin-right:0.3252777777777778em;"></span><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935428571428571em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935428571428571em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mclose mtight">)</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="minner mtight">⋯</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">m</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mclose mtight">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace" style="margin-right:-0.16666666666666666em;"></span></span></span></span></p>
+</li>
+<li>
+<p>비둘기의 수가 비둘기집의 수를 초과하지 않는다 하더라도, 비둘기 분배의 무작위적인 성질에 의하여 종종 상당한 확률로 충돌이 일어난다.</p>
+</li>
+</ul>
+<h3 id="birthday-problem"><a class="markdownIt-Anchor" href="#birthday-problem"></a> Birthday Problem</h3>
+<ul>
+<li>사람이 임의로 모였을 때 그 중에 생일이 같은 두명이 존재할 확률을 구하는 문제</li>
+<li>생일의 가능한 가짓수는 366개 이므로 366명 이상의 사람이 모인다면 비둘기집 원리에 따라 생일이 같은 두 명이 반드시 존재</li>
+<li>생일이 같은 두 사람을 찾는 것과 비슷하게, 암호학적 해시 결과가 같은(해시 충돌) 두 입력값을 찾는 것 역시 모든 입력값을 계산하지 않아도 충분히 높은 확률로 해시 충돌을 찾을 수 있다.<br />
+이러한 암호 공격을 생일 공격(birthday attack)이라고 부른다.</li>
+</ul>
+<h3 id="확률-계산"><a class="markdownIt-Anchor" href="#확률-계산"></a> 확률 계산</h3>
+<ul>
+<li>n명의 사람이 있을 때 그 중 생일이 같은 사람이 둘 이상 있을 확률을 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{p(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span> 이라고 한다면, 반대로 모든 사람의 생일이 다를 확률<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>p</mi><mo stretchy="true">‾</mo></mover><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">\overline{p}{(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.63056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">p</span></span></span><span style="top:-3.55056em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span>은 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">1-{p(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span> 이 된다. <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mi>p</mi><mo stretchy="true">‾</mo></mover><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="application/x-tex">\overline{p}{(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord overline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.63056em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">p</span></span></span><span style="top:-3.55056em;"><span class="pstrut" style="height:3em;"></span><span class="overline-line" style="border-bottom-width:0.04em;"></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span>을 구해보면 두번째 사람의 생일은 첫 번째 사람과 다르고, 세 번째 사람의 생일은 첫번째와 두번째 모두와 달라야 한다.<br />
+최종적으로 구하고자 하는 생일이 같은 사람이 둘 이상 있을 확률 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{p(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span>은<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mrow><mn>365</mn><mo stretchy="false">!</mo></mrow><mrow><mn>36</mn><msup><mn>5</mn><mi>n</mi></msup><mo>∗</mo><mo stretchy="false">(</mo><mn>365</mn><mo>−</mo><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">{p(n)} = 1 - {\frac{365!}{365^n * (365-n)!}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.400108em;vertical-align:-0.52em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">6</span><span class="mord mtight"><span class="mord mtight">5</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5935428571428571em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="mbin mtight">∗</span><span class="mopen mtight">(</span><span class="mord mtight">3</span><span class="mord mtight">6</span><span class="mord mtight">5</span><span class="mbin mtight">−</span><span class="mord mathdefault mtight">n</span><span class="mclose mtight">)</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">6</span><span class="mord mtight">5</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span> 가 된다. 여기서, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>≦</mo><mn>365</mn></mrow><annotation encoding="application/x-tex">{n\leqq365}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.01166em;vertical-align:-0.25583em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">≦</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">3</span><span class="mord">6</span><span class="mord">5</span></span></span></span></span> 인 자연수이고, !는 계승을 의미한다.<br />
+여기서 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{p(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span> 값을 특정 n 값에 대해 계산하면 다음과 같다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">n</th>
+<th style="text-align:center"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">{p(n)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0.0%</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">2.7%</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">11.7%</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">41.1%</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">50.7%</td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">70.6%</td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:center">89.1%</td>
+</tr>
+<tr>
+<td style="text-align:center">50</td>
+<td style="text-align:center">97.0%</td>
+</tr>
+<tr>
+<td style="text-align:center">60</td>
+<td style="text-align:center">99.4%</td>
+</tr>
+<tr>
+<td style="text-align:center">70</td>
+<td style="text-align:center">99.9%</td>
+</tr>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">99.99997%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>즉 23명 이상 모이면 같은 확률이 50% 이상이고, 100명이 모이면 거의 1에 가까워지는것을 알 수 있다.</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/08/jpa/">JPA</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-08</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/jpa-hibernate/">jpa, hibernate</a></span><div class="content"><p>JPA ( Java Persistent API )와 ORM ( Object Relational Mapping )</p>
+<p>JPA란 자바 ORM 기술에 대한 API 표준 명세를 의미.</p>
+<p>JPA는 ORM을 사용하기 위한 인터페이스를 모아둔 것이다.<br />
+JPA는 Java Persistence API의 약자로, 자바 어플리케이션에서 관계형 데이터베이스를 사용하는 방식을 정의한 인터페이스이다.<br />
+일반적인 백엔드 API가 클라이언트가 어떻게 서버를 사용해야 하는지를 정의한 것처럼,<br />
+JPA 역시 자바 어플리케이션에서 관계형 데이터베이스를 어떻게 사용해야 하는지를 정의하는 한 방법일 뿐이다.</p>
+<p>JPA는 단순히 명세이기 때문에 구현이 없다. JPA를 정의한 javax.persistence 패키지의<br />
+대부분은 interface, enum, Exception, 그리고 각종 Annotation으로 이루어져 있다.<br />
+예를 들어, JPA의 핵심이 되는 EntityManager는 아래와 같이 javax.persistence.EntityManager 라는 파일에 interface로 정의되어 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javax.persistence;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> ...</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EntityManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">persist</span><span class="params">(Object entity)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">merge</span><span class="params">(T entity)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(Object entity)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">find</span><span class="params">(Class&lt;T&gt; entityClass, Object primaryKey)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// More interface methods...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JPA를 사용하기 위해서는 JPA를 구현한 Hibernate, EclipseLink, DataNucleus 같은 ORM 프레임워크를 사용해야 한다.</p>
+<p><img src="/images/jpa_hibernate_relationship.png" alt="" /></p>
+<p>위와 같이 Interface의 구현체이며, EntityManagerFactory, EntityManager, EntityTransaction을  SessionFactory, Session, Transaction으로 상속받고 이를 Impl Class로 구현한다.</p>
+<p>Spring Data JPA</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/08/cryptography-block-cipher/">cryptography-block-cipher</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/pki/">pki</a></span><div class="content"><h2 id="block-cipher"><a class="markdownIt-Anchor" href="#block-cipher"></a> block cipher</h2>
+<ul>
+<li>DES : 보안 취약점 발견으로 이제 안씀</li>
+</ul>
+<h2 id="aes"><a class="markdownIt-Anchor" href="#aes"></a> AES</h2>
+<ul>
+<li>전 세계 공모를 통해 선정 벨기에의 암호학자 2명이 제출한 Rijndael</li>
+<li>AES is a block cipher with a fixed block size of 128 bit (16 byte)</li>
+</ul>
+<h3 id="padding"><a class="markdownIt-Anchor" href="#padding"></a> Padding</h3>
+<ul>
+<li>입력 데이터가 블록 사이즈의 배수가 아니라면 블록 사임ㅇㄹ호즈에 맞추기 위한 방식이 Padding</li>
+<li>부족한 size 만큼 바이트 값을 추가하는 PKCS7 Padding을 많이 사용</li>
+<li>3Byte가 부족할 경우 03d을 3개 패딩</li>
+</ul>
+<p>![](온라인 상점은 Microservice 아키텍처 패턴을 사용하므로 제품 세부 사항 데이터가 여러 서비스에 분산됩니다. 예를 들어</p>
+<p>)</p>
+<h3 id="operation-mode"><a class="markdownIt-Anchor" href="#operation-mode"></a> Operation Mode</h3>
+<ul>
+<li>입력데이터가 블록보다 크면 암/복호화시 여러 개의 블록이 생성됨</li>
+<li>각 블록간의 관계를 처리하는게 운영 모드</li>
+<li>ECB, CBC, CFR, GCM 등의 모드가 있음</li>
+</ul>
+<h4 id="ecb"><a class="markdownIt-Anchor" href="#ecb"></a> ECB</h4>
+<ul>
+<li>Electronic Code Book</li>
+<li>동일한 내용을 갖는 평문 블록은 이에 대응 되면 동일한 암호문 블록으로 변환되고 1:1 대응표를 갖게 된다.</li>
+<li>대칭키 암호화시 ECB를 사용하면 안됨</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/ECB.png" alt="" /></p>
+<h4 id="cbc"><a class="markdownIt-Anchor" href="#cbc"></a> CBC</h4>
+<ul>
+<li>Cipher Block Chaining</li>
+<li>Message Authentication Code 에 사용 불</li>
+<li>암호화</li>
+<li>직전 블록은 다음 블록의 입력으로 사용하여 안정성이 증대됨</li>
+<li>초기 블록이 유추가 어렵도록 Initial Vector 사용</li>
+<li>1단계 전에 수행되어 결과로 출력된 암호문 블록에 평문 블록을 XOR 하고 나서 암호화를 수행<br />
+그결과 생성되는 각각의 암호문 블록은 단지 현재 평문 블록뿐만 아니라 그 이전의 평문 블록들의 영향</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/CBC_encrypt.png" alt="" /></p>
+<ul>
+<li>복호화</li>
+<li>최초 암호문 블록을 XOR 하고 나서 복호화의 결과와 IV를 이용해 최초 평문 블록 P1을 만들고</li>
+<li>나머지는 복호화 XOR을 통해 최초 평문 블록을 만든다.</li>
+<li>암호문 블록이 손상되면 이후 블록들이 전부 손상된다.</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/CBC_decrypt_1.png" alt="" /><br />
+<img src="/images/cryptography/block/AES/CBC_decrypt_2.png" alt="" /></p>
+<h4 id="gcm"><a class="markdownIt-Anchor" href="#gcm"></a> GCM</h4>
+<ul>
+<li>Galois/Counter Mode</li>
+<li>Padding 불필요</li>
+<li>인증 기능 제공</li>
+<li>병렬 처리가 가능해서 암/복호화 속도가 매우 빠름, SSL/TLS 에서 많이 사용</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/GCM.png" alt="" /></p>
+<h4 id="block-size-128192256"><a class="markdownIt-Anchor" href="#block-size-128192256"></a> Block Size : 128/192/256</h4>
+<h4 id="cfb"><a class="markdownIt-Anchor" href="#cfb"></a> CFB</h4>
+<ul>
+<li>Cipher FeedBack
+<ul>
+<li>1단계 앞의 <em>암호문</em> 블록을 암호 알고리즘의 입력으로 사용</li>
+<li>피드백 : 암호화의 입력으로 사용</li>
+<li>한 단계앞의 암호문 블록을 암호화 한 후 평문 블록과 XOR 연산</li>
+<li>최초의 암호문 블록을 만들어낼 때는 1단계 앞의 출력이 존재하지 않으므로 대신에 초기화 벡터(Initial Vector) 사용</li>
+<li>replay attack 가능</li>
+</ul>
+</li>
+</ul>
+<h4 id="ofb"><a class="markdownIt-Anchor" href="#ofb"></a> OFB</h4>
+<ul>
+<li>Output FeedBack
+<ul>
+<li>암호 알고리즘의 출력을 암호 알고리즘의 입력으로 피드백</li>
+<li>평문 블록은 암호 알고리즘에 의해 직접 암호화 되고 있는 것은 아님</li>
+</ul>
+</li>
+</ul>
+<h4 id="ctr"><a class="markdownIt-Anchor" href="#ctr"></a> CTR</h4>
+<ul>
+<li>CounTeR 모드
+<ul>
+<li>1씩 증가해 가는 카운터를 암호화해서 키 스트림을 만들어 내는 스트림 암호</li>
+<li>CTR 모드에서는 블록을 암호화 할 때 마다 1씩 증가해 가는 카운터를 암호화해서 키 스트림을 만듬</li>
+<li>카운터를 암호화 한 비트열과 평문 블록과 XOR을 취한 결과가 암호문 블록이 됨</li>
+<li>카운터의 초기값은 암호화 때마다 다른 값(nonce, 비표)을 기초로 해서 만든다</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/nonce.png" alt="" /></p>
+<ul>
+<li>
+<p>CTR 암호화<br />
+<img src="/images/cryptography/block/AES/CTR_AES_encrypt.png" alt="" /></p>
+</li>
+<li>
+<p>CTR 복호화<br />
+<img src="/images/cryptography/block/AES/CTR_AES_decrypt.png" alt="" /></p>
+</li>
+<li>
+<p>CTR 모드의 암호화와 복호화는 완전히 같은 구조</p>
+</li>
+<li>
+<p>CTR 모드는 블록을 임의의 순서로 암호화, 복호화 할 수 있다.</p>
+</li>
+<li>
+<p>프로그램으로 구현하는 것이 매우 간단</p>
+</li>
+<li>
+<p>병렬 처리가 가능한 시스템에서는 CTR 모드를 이용하여 자료를 고속 처리</p>
+</li>
+<li>
+<p>CTR Counter size 16byte</p>
+</li>
+<li>
+<p>AES128/AES192/AES256 암호화 키 사이즈가 각각의 bit</p>
+</li>
+</ul>
+<h4 id="cbc-ctr을-중점으로-보자"><a class="markdownIt-Anchor" href="#cbc-ctr을-중점으로-보자"></a> CBC, CTR을 중점으로 보자</h4>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/08/cryptography-message-authentication-code/">cryptography-message-authentication-code</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/pki/">pki</a></span><div class="content"><h3 id="메세지-인증"><a class="markdownIt-Anchor" href="#메세지-인증"></a> 메세지 인증</h3>
+<ul>
+<li>Message Authentication : 메시지가 올바른 송신자로 부터 온것이다</li>
+</ul>
+<p><img src="/images/cryptography/mac/alice-bob.png" alt="" /></p>
+<ul>
+<li>Message Authentication Code (MAC)
+<ul>
+<li>무결성</li>
+<li>메세지 인증</li>
+<li>입력 : 메세지, 공유하는 키</li>
+<li>출력 : 고정 비트 길이의 코드</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/mac/messagecodevshash.png" alt="" /></p>
+<h3 id="메시지-인증-순서"><a class="markdownIt-Anchor" href="#메시지-인증-순서"></a> 메시지 인증 순서</h3>
+<ol>
+<li>앨리스와 수신자 A은행 키(K) 공유</li>
+<li>앨리스 : 송금 의뢰 메세지(M) 작성 MAC 값 (MAC(M)) 계산</li>
+<li>앨리스 : 수신자 A 은행으로 메세지와 MAC 값을 전송</li>
+<li>수신자 A은행 : 수신한 송금 의뢰 메세지를 기초로 해서 MAC 값을 계산</li>
+<li>수신자 A은행 : 앨리스로부터 수신한 MAC 값과 4에서 계산한 MAC 값을 비교</li>
+<li>수신자 A은행 : MAC 값이 같다면 인증 성공, 다르다면 인증 실패(앨리스로부터 온 것이 아니라고 판단)</li>
+</ol>
+<p><img src="/images/cryptography/mac/message_authentication_code_flow.png" alt="" /></p>
+<h3 id="메시지-인증-코드의-키-배송-문제"><a class="markdownIt-Anchor" href="#메시지-인증-코드의-키-배송-문제"></a> 메시지 인증 코드의 키 배송 문제</h3>
+<ul>
+<li>키 배송 문제 해결
+<ul>
+<li>공개키 암호</li>
+<li>Diffie-Hellman 키 교환</li>
+<li>키 배포 센터</li>
+<li>키를 안전한 방법으로 별도로 보내기</li>
+</ul>
+</li>
+</ul>
+<h3 id="메세지-인증-코드-구현"><a class="markdownIt-Anchor" href="#메세지-인증-코드-구현"></a> 메세지 인증 코드 구현</h3>
+<h4 id="hash"><a class="markdownIt-Anchor" href="#hash"></a> Hash</h4>
+<ul>
+<li>HMAC</li>
+</ul>
+<h3 id="block"><a class="markdownIt-Anchor" href="#block"></a> Block</h3>
+<ul>
+<li>triple DES, AES
+<ul>
+<li>블록 암호 키를 메세지 인증 코드의 공유키로 사용</li>
+<li>CBC 모드로 메세지 전체를 암호화</li>
+<li>메세지 인증 코드에서는 복호화를 할 필요가 없으므로 최종 블록 이외는 폐기</li>
+<li>최종 블록을 MAC 값으로 이용</li>
+</ul>
+</li>
+</ul>
+<h4 id="gcm"><a class="markdownIt-Anchor" href="#gcm"></a> GCM</h4>
+<ul>
+<li>Galois/Counter Mode</li>
+<li>Padding 불필요</li>
+<li>인증 기능 제공</li>
+<li>병렬 처리가 가능해서 암/복호화 속도가 매우 빠름, SSL/TLS 에서 많이 사용</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/GCM.png" alt="" /></p>
+<ul>
+<li>
+<p>c : Cypher message</p>
+</li>
+<li>
+<p>m : message</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>K</mi><mi>E</mi></msub></mrow><annotation encoding="application/x-tex">K_E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> : Message를 암호화 할 Key</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>K</mi><mi>I</mi></msub></mrow><annotation encoding="application/x-tex">K_I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> : Tag를 암호화 할 Key</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><msub><mi>K</mi><mi>E</mi></msub><mo separator="true">,</mo><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">E(K_E,m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span></span></span></span> : message 암호화</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><msub><mi>K</mi><mi>I</mi></msub><mo separator="true">,</mo><mi>c</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S(K_I,c)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">c</span><span class="mclose">)</span></span></span></span> : c로 MAC값 계산</p>
+</li>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><msub><mi>K</mi><mi>E</mi></msub><mo separator="true">,</mo><mi>m</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>t</mi><mi>a</mi><mi>g</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">E(K_E, m||tag)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span></p>
+</li>
+<li>
+<p>Encrypt-then-MAC</p>
+<ul>
+<li>평문을 대칭 암호로 암호화 한 후 암호문의 MAC 값을 계싼</li>
+<li>메세지 인증 코드 입력에 암호문을 부여</li>
+<li>선택 암호문 공격을 막을 수 있다.</li>
+<li>ex) IPsec</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/mac/encrypt-then-mac.png" alt="" /></p>
+<ul>
+<li>Encrypt-and-MAC
+<ul>
+<li>평문을 대칭 암호로 암호화 한 후 그와는 별도로 평문의 MAC 값을 얻는 방법</li>
+<li>ex) SSH</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/mac/encrypt-and-mac.png" alt="" /></p>
+<ul>
+<li>MAC-then-Encrypt
+<ul>
+<li>미리 평문의 MAC 값을 얻고, 평문과 MAC 값 양쪽을 정리하여 대칭 암호로 암호화 하는 방법</li>
+<li>ex) SSL</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/mac/MAC-then-Encrypt.png" alt="" /></p>
+<h4 id="gmac"><a class="markdownIt-Anchor" href="#gmac"></a> GMAC</h4>
+<ul>
+<li>Galois/Counter Mode MAC
+<ul>
+<li>GCM을 메세지 인증 코드 전용으로 사용</li>
+</ul>
+</li>
+</ul>
+<h4 id="hmac"><a class="markdownIt-Anchor" href="#hmac"></a> HMAC</h4>
+<ul>
+<li>
+<p>Hash Message Authentication Code</p>
+</li>
+<li>
+<p>일방향 해시 함수를 이용하여 메시지 인증 코드를 구성</p>
+</li>
+<li>
+<p>HMAC의 일방향 해시 함수는 모듈형으로 골라서 사용</p>
+</li>
+<li>
+<p>HMAC-SHA1 : SHA-1</p>
+</li>
+<li>
+<p>RFC 2104 정의<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mi>M</mi><mi>A</mi><mi>C</mi><mo stretchy="false">(</mo><mi>K</mi><mo separator="true">,</mo><mi>m</mi><mo stretchy="false">)</mo><mo>=</mo><mi>H</mi><mo fence="false">(</mo><mo stretchy="false">(</mo><msup><mi>K</mi><mo mathvariant="normal">′</mo></msup><mo>⊕</mo><mi>o</mi><mi>p</mi><mi>a</mi><mi>d</mi><mo stretchy="false">)</mo><mo fence="false">)</mo><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>H</mi><mo fence="false">(</mo><mo stretchy="false">(</mo><msup><mi>K</mi><mo mathvariant="normal">′</mo></msup><mo>⊕</mo><mi>i</mi><mi>p</mi><mi>a</mi><mi>d</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>m</mi><mo stretchy="false">)</mo><mo fence="false">)</mo></mrow><annotation encoding="application/x-tex">HMAC(K,m) = H\big( ({K&#x27;}\oplus opad ) \big) ||  H\big( ({K&#x27;}\oplus ipad || m)\big )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">A</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="mord mathdefault">o</span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">)</span></span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⊕</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.20001em;vertical-align:-0.35001em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">p</span><span class="mord mathdefault">a</span><span class="mord mathdefault">d</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mord"><span class="delimsizing size1">)</span></span></span></span></span><br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>K</mi><mo mathvariant="normal">′</mo></msup><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.3599999999999999em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>K</mi><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mtext>K is larger than block size</mtext></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi>K</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mtext>otherwise</mtext></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">K&#x27; = \begin{cases} 
+  H(K) &amp;\text{K is larger than block size} \\
+  K &amp;\text{otherwise}
+  \end{cases}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.751892em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.0000299999999998em;vertical-align:-1.25003em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mclose">)</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">K</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">K is larger than block size</span></span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord text"><span class="mord">otherwise</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+</li>
+<li>
+<p>HMAC의 순서</p>
+<ol>
+<li>키 패딩 : 일방향 해시 함수 블록 길이</li>
+<li>패딩한 키와 ipad (Inner Padding)의 XOR</li>
+<li>메시지 결합</li>
+<li>해시 값의 계산</li>
+<li>패딩한 키와 opad(Outer Padding)의 XOR</li>
+<li>해시 값과의 결합</li>
+<li>해시 값의 계산</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/cryptography/mac/HMAC.png" alt="" /></p>
+<ul>
+<li>Replay 공격</li>
+</ul>
+<p><img src="/images/cryptography/mac/replay_attack.png" alt="" /></p>
+<ul>
+<li>
+<p>Replay 공격 방어</p>
+<ul>
+<li>순서 번호 (Sequence number) : 송신 메세지에 매회 1씩 증가하는 번호 (순서 번호, Sequence number)
+<ul>
+<li>마지막 통신시 순서 번호를 저장</li>
+</ul>
+</li>
+<li>TimeStamp
+<ul>
+<li>송신 메세지에 현재 시각 넣기</li>
+<li>송수신자 사이의 동기화 필요</li>
+</ul>
+</li>
+<li>비표(Nonce)
+<ul>
+<li>송신자에게 일회용의 랜덤한 값을 전송</li>
+<li>메시지와 비표를 합해 MAC 값을 계산</li>
+<li>비표 값은 통신 마다 교체</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>키 추측 공격</p>
+<ul>
+<li>Brute Force</li>
+<li>Birthday Attack</li>
+</ul>
+</li>
+<li>
+<p>MAC 값만 획득한 공격자가 키를 추측하지 못하도록 해야 한다</p>
+<ul>
+<li>해시 함수의 일방향성</li>
+<li>해시 함수의 충돌내성</li>
+<li>키 생성에 의사난수 생성기 사용</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/mac/mac_algorithm_types.png" alt="" /></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/07/spring-boot-application-argument/">spring-boot-application-argument</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-07</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/">Java</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Java/Spring/">Spring</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/java/">java</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/spring/">spring</a></span><div class="content"><p>Spring boot 실행할 때 args 를 전달받기 위한 Interface.</p>
+<p>Spring boot에서 org.springframework.boot.ApplicationArguments 를 제공하고 있어서 Bean으로 받아서 사용하면 간단하게 쓸 수 있습니다.</p>
+<p>Spring boot에서 아무런 설정을 하지 않는다면 DefaultApplicationArguments를 사용해 처리한다.</p>
+<ol>
+<li>getSourceArgs</li>
+</ol>
+<ul>
+<li>입력한 args 그대로 배열로 받아 옵니다.</li>
+</ul>
+<ol start="2">
+<li>getOptionNames</li>
+</ol>
+<ul>
+<li>
+<p>args 앞에 “–” 를 붙이면 옵션으로 인식 합니다. 옵션 args 사용 형식 --NAME=VALUE</p>
+</li>
+<li>
+<p>“–fruit=apple” 이렇게 args를 사용하면</p>
+</li>
+<li>
+<p>getOptionName는 fruit 처럼 option name 들의 배열을 받아 옵니다.</p>
+</li>
+</ul>
+<ol start="3">
+<li>getNonOptionArgs</li>
+</ol>
+<ul>
+<li>
+<p>“–” 가 없는 경우 NonOption으로 인식합니다.</p>
+</li>
+<li>
+<p>“–” 가 없는 args 들의 값들을 받다 옵니다.</p>
+</li>
+</ul>
+<p><img src="/images/application-argument/DefaultApplicationArguments.png" alt="" /></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Source source;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> String[] args;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefaultApplicationArguments</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Assert.notNull(args, <span class="string">"Args must not be null"</span>);</span><br><span class="line">	<span class="keyword">this</span>.source = <span class="keyword">new</span> Source(args);</span><br><span class="line">	<span class="keyword">this</span>.args = args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>내부에 private final로 선언되어 있어 생성자를 통한 할당이 아니라면 바꿀수가 없다.<br />
+또한 Source라고 하는 내부 Class를 가지고 있고, 이는 SimpleCommandLinePropertySource를 상속해 구현하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Source</span> <span class="keyword">extends</span> <span class="title">SimpleCommandLinePropertySource</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	Source(String[] args) &#123;</span><br><span class="line">		<span class="keyword">super</span>(args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getNonOptionArgs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getNonOptionArgs();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">getOptionValues</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getOptionValues(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/application-argument/SimpleCommandLineProperty.png" alt="" /></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleCommandLinePropertySource</span> <span class="keyword">extends</span> <span class="title">CommandLinePropertySource</span>&lt;<span class="title">CommandLineArgs</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Create a new &#123;<span class="doctag">@code</span> SimpleCommandLinePropertySource&#125; having the default name</span></span><br><span class="line"><span class="comment">	 * and backed by the given &#123;<span class="doctag">@code</span> String[]&#125; of command line arguments.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> CommandLinePropertySource#COMMAND_LINE_PROPERTY_SOURCE_NAME</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> CommandLinePropertySource#CommandLinePropertySource(Object)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SimpleCommandLinePropertySource</span><span class="params">(String... args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(<span class="keyword">new</span> SimpleCommandLineArgsParser().parse(args));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Create a new &#123;<span class="doctag">@code</span> SimpleCommandLinePropertySource&#125; having the given name</span></span><br><span class="line"><span class="comment">	 * and backed by the given &#123;<span class="doctag">@code</span> String[]&#125; of command line arguments.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">SimpleCommandLinePropertySource</span><span class="params">(String name, String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(name, <span class="keyword">new</span> SimpleCommandLineArgsParser().parse(args));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Get the property names for the option arguments.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> String[] getPropertyNames() &#123;</span><br><span class="line">		<span class="keyword">return</span> StringUtils.toStringArray(<span class="keyword">this</span>.source.getOptionNames());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">containsOption</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.source.containsOption(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="meta">@Nullable</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getOptionValues</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.source.getOptionValues(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getNonOptionArgs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.source.getNonOptionArgs();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SimpleCommandLinePropertySource는 CommandLineArgs를 Source를 가지는 CommandLinePropertySource를 상속해 구현하였고,<br />
+CommandLineArgs는 내부에 HashMap으로 Option Argument들을, List로 nonOptionArgs를 가지고 있는 Source로 관리된다.</p>
+<p><img src="/images/application-argument/CommandLineArgs.png" alt="" /></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/07/cryptography-signatures/">cryptography-signatures</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-07</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/pki/">pki</a></span><div class="content"><h2 id="signatures"><a class="markdownIt-Anchor" href="#signatures"></a> Signatures</h2>
+<h3 id="electronic-signature"><a class="markdownIt-Anchor" href="#electronic-signature"></a> Electronic Signature</h3>
+<ul>
+<li>계약 또는 기타 기록에 첨부된 서명으로 서명하려는 사람이 실행하거나 채택한 전자 신호,심볼 또는 프로세스로 정의 된다.</li>
+<li>기본적으로 전자 서명은 손으로 쓴 서명을 디지털화 한 것과 동일하며 문서 내의 내용 또는 특정 문서의 용어를 확인하는 데 사용할 수 있다.</li>
+</ul>
+<h3 id="digital-signature"><a class="markdownIt-Anchor" href="#digital-signature"></a> Digital Signature</h3>
+<ul>
+<li>문서에 서명 한 사람이 본인이 맞는가?</li>
+<li>서명이 유효하고 위조되지 않았는지 어떻게 확인할 수 있는가?</li>
+<li>문서가 변경되지 않았는지 어떻게 확인할 수 있을까?</li>
+<li>Digital Signature의 경우 Certification Authority(CA)으로 알려진 신뢰할 수 있는 제 3자가 신원 확인 측면에서 공증인 역할을 한다.</li>
+<li>인증 기관은 신원을 PKI (Public Key Infrastructure) 기반 디지털 인증서에 바인딩해서 문서 및 클라우드 기반 서명 플랫폼에 디지털 서명을 적용 할 수 있다.</li>
+</ul>
+<h4 id="보장-범위"><a class="markdownIt-Anchor" href="#보장-범위"></a> 보장 범위</h4>
+<ul>
+<li>문서는 정통이며 검증된 출처에서 제공된다.</li>
+<li>서명이 변경되면 서명이 유효하지 않은 것으로 표시되어 디지털 서명 된 이후 문서가 변경되지 않았다.</li>
+<li>사용자의 신원이 신뢰할 수 있는 조직에 의해 확인되었다.</li>
+<li>Certified Signature</li>
+<li>Approval Signature</li>
+<li>Signature Line</li>
+</ul>
+<h4 id="pki-public-key-infrastructure"><a class="markdownIt-Anchor" href="#pki-public-key-infrastructure"></a> PKI (Public Key Infrastructure)</h4>
+<ul>
+<li>
+<p>RFC 2459 : Internet X.509 Public Key Infrastructure</p>
+<ul>
+<li>Message Digest (Hash Function)</li>
+<li>Symmetric Key Algorithm</li>
+<li>Asymmetric Key Algorithm</li>
+</ul>
+</li>
+<li>
+<p>Cryptographic Hash Function</p>
+<ul>
+<li>Message Digest</li>
+<li>MD5(128bit), SHA-1(160bit)</li>
+</ul>
+</li>
+<li>
+<p>Symmetric Key Algorithm</p>
+<ul>
+<li>One key (대칭키)</li>
+<li>Encryption, Decryption</li>
+<li>3DES, AES</li>
+</ul>
+</li>
+<li>
+<p>Asymmetric Key Algorithm</p>
+<ul>
+<li>Two Key (비 대칭키)</li>
+<li>RSA (Rivest, Shmir, Adelman)</li>
+</ul>
+</li>
+<li>
+<p>공개키 : 평문을 공개키로 <em>암호화</em>한후 개인키로 <em>복호화</em>해 Encrypted Text를 만든다.</p>
+</li>
+<li>
+<p>개인키 : 개인키로 <em>암호화</em>한 후 공개키로 <em>복호화</em>해 Encrypted Text를 만든다. 개인이 보낸 내용을 증명할 때 많이 사용하며 이러한 경우를<br />
+개인키 ‘전자서명’, 공개키 ‘서명검증’ 이라고 한다.</p>
+</li>
+</ul>
+<h4 id="서명-작성과-서명-검증"><a class="markdownIt-Anchor" href="#서명-작성과-서명-검증"></a> 서명 작성과 서명 검증</h4>
+<ul>
+<li>메시지의 서명을 작성하는 행위
+<ul>
+<li>디지털 서명에는 서명용 키와 검증용 키가 나누어져 있다.</li>
+<li>서명용 키는 서명을 하는 사람이 가지고 있지만, 검증용 키는 서명을 검증하는 사람이라면 누구라도 가질 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="공개키-암호와-디지털-서명"><a class="markdownIt-Anchor" href="#공개키-암호와-디지털-서명"></a> 공개키 암호와 디지털 서명</h4>
+<ul>
+<li>공개 키 암호
+<ul>
+<li>암호화키와 복호화키가 나누어져 있어 암호키로 복호화를 행할 수는 없다.</li>
+<li>복호화 키는 복호화를 행하는 사람만이 가지고 있지만 암호키는 암호화를 행하는 사람이라면 누구나 가질 수 있다.</li>
+<li>디지털 서명은 공개 키 암호를 역으로 사용함으로써 실현한다.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">개인키</th>
+<th style="text-align:center">공개키</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공개키 암호</td>
+<td style="text-align:center">수신자가 복호화에 사용</td>
+<td style="text-align:center">송신자들이 암호화에 사용</td>
+</tr>
+<tr>
+<td>디지털 서명</td>
+<td style="text-align:center">서명자가 서명 작성에 사용</td>
+<td style="text-align:center">검증자들이 서명 검증에 사용</td>
+</tr>
+<tr>
+<td>키는 누가 갖는가?</td>
+<td style="text-align:center">개인이 갖는다</td>
+<td style="text-align:center">필요한 사람은 아무나 가지고 있어도 된다.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>메세지를 개인키로 암호화 하는 것이 서명 작성<br />
+<img src="/images/cryptography/signature/public_key_enc.png" alt="" /></p>
+</li>
+<li>
+<p>암호문을 공개키로 복호화 하는 것이 서명 검증<br />
+<img src="/images/cryptography/signature/private_key_enc.png" alt="" /></p>
+</li>
+<li>
+<p>공개키 암호는 누구라도 암호화<br />
+<img src="/images/cryptography/signature/public_key_enc1.png" alt="" /></p>
+</li>
+<li>
+<p>디지털 서명은 누구라도 서명검증<br />
+<img src="/images/cryptography/signature/private_key_signature_verify.png" alt="" /></p>
+</li>
+</ul>
+<p>참조 : <a href="https://crazia.tistory.com/entry/PKI-PKI-%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-%EA%B0%84%EB%8B%A8-%EC%84%A4%EB%AA%85" target="_blank" rel="noopener">https://crazia.tistory.com/entry/PKI-PKI-의-기본-개념-간단-설명</a></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/07/network-tcp-congestion-control/">network-tcp-congestion-control</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-07</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Network/">Network</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Network/TCP/">TCP</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/tcp/">tcp</a></span><div class="content"><h2 id="congestion-control-혼잡-제어"><a class="markdownIt-Anchor" href="#congestion-control-혼잡-제어"></a> Congestion Control (혼잡 제어)</h2>
+<h3 id="tcp-fast-retransmit"><a class="markdownIt-Anchor" href="#tcp-fast-retransmit"></a> TCP Fast Retransmit</h3>
+<ul>
+<li>송신측에서 Duplicate ACK를 받게 되면 패킷 손실로 간주하고 즉시 재전송</li>
+<li>Fast Retransmit 미사용 시 손실 발생 시 재전송 Timeout 만료 후 재전송</li>
+<li>재전송 타이머 값이 종종 상대적으로 길어지므로, 손실된 패킷의 재전송 전에 지연시간이 커진다.</li>
+<li>위의 상항을 해결하고자 중복 ACKs를 통해 손실된 세그먼트를 검출한다.<br />
+송신측에서 바로바로 여러 개의 세그먼트를 전송할 경우, 세그먼트가 손실되면 수신측에서는 중복 ACK를 보내게 되는데, 타임아웃 전에 송신측에서 중복 ACK를 3번받게 되면 세그먼트를 즉시 전송한다.<br />
+즉, 수신측이 기다리는 순서번호의 세그먼트보다 큰 순서번호의 세그먼트가 3개 도착할 경우를 의미한다.</li>
+</ul>
+<p><img src="/images/network/tcp/retransmit/retransmit_1.jpeg" alt="" /><br />
+<img src="/images/network/tcp/retransmit/retransmit_2.gif" alt="" /></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/07/network-tcp-basic/">network-tcp-basic</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-07</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Network/">Network</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Network/TCP/">TCP</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/tcp/">tcp</a></span><div class="content"><h2 id="tcp-overview"><a class="markdownIt-Anchor" href="#tcp-overview"></a> TCP Overview</h2>
+<h3 id="점대점point-to-point-단일-송수신자간의-통신-ex-일대일-통신-unicast-전송"><a class="markdownIt-Anchor" href="#점대점point-to-point-단일-송수신자간의-통신-ex-일대일-통신-unicast-전송"></a> 점대점(Point-to-Point) : 단일 송/수신자간의 통신   ex) 일대일 통신, Unicast 전송</h3>
+<ul>
+<li>Unicast : 고유 주소로 식별된 하나의 네트워크 목적지에 메시지를 전송하는 방식</li>
+<li>Broadcast : 송신 가능한 모든 목적지에 동일한 데이터를 전송</li>
+<li>Multicast : 특별한 주소 지정 방식을 통해 정해진 여러 목적지로 데이터를 전송<br />
+호스트가 무수히 많은 경우, Unicast로 데이터를 전송하면, 각각의 네트워크 연결마다 호스트의 컴퓨팅 리소스(자원)을 소비할 뿐 아니라 각각 다른 네트워크 대역폭을 필요로 하기 때문에 전송 비용이 많이 든다는 단점이 있다.</li>
+</ul>
+<h3 id="파이프라인pipeline-tcp의-혼잡-제어-및-흐름-제어가-윈도우-크기window-size를-결정한다"><a class="markdownIt-Anchor" href="#파이프라인pipeline-tcp의-혼잡-제어-및-흐름-제어가-윈도우-크기window-size를-결정한다"></a> 파이프라인(Pipeline) : TCP의 혼잡 제어 및 흐름 제어가 윈도우 크기(Window size)를 결정한다.</h3>
+<ul>
+<li>Window size : ACK받지 않은 데이터 중 최대 송신가능한 바이트 수, 수신자가 한 번에 버퍼링할 수 있는 최대 데이터 크기</li>
+<li>Sliding Window : 두 개의 네트워크 호스트 간의 패킷의 흐름을 제어하기 위한 방법으로, TCP 프로토콜은 데이터의 전달을 보증해야 하므로 패킷 하나 하나가 정상적으로 전달되었음을 알리는 확인 신호(Acknowledgement, ACK)를 수신자가 송신자에게 보내야 한다.<br />
+패킷에 오류가 생겼을 경우, 송신측에서 해당 패킷을 재전송해야 하는데 이 때 Sliding Window가 Window Size(메모리 버퍼의 일정 영역)에 포함되는 모든 패킷을 전송하고, 패킷의 전달이 확인되는 대로 이 Window를 옆으로 옮김(Sliding)으로써 그 다음 패킷들을 전송할 준비를 한다.</li>
+<li>전이중성 데이터(Full-duplex Data) : 같은 연결 상에서 양방향 데이터 흐름</li>
+</ul>
+<h3 id="최대-세그먼트-크기-maximum-segment-size-mss"><a class="markdownIt-Anchor" href="#최대-세그먼트-크기-maximum-segment-size-mss"></a> 최대 세그먼트 크기 (Maximum Segment Size, MSS)</h3>
+<ul>
+<li>
+<p>헤더를 제외하고 TCP가 실을 수 있는 최대 데이터 크기<br />
+기본값은 IPv4 -&gt; 536 Byte, IPv6 -&gt; 1220 Byte이다.<br />
+최대 전송 단위(MTU)에 의해 값이 결정되며, MSS값은 헤더의 MSS 옵션 필드에 저장된다.<br />
+연결에 참여하는 두 장비가 서로 다른 MSS값을 갖을 수도 있다.</p>
+</li>
+<li>
+<p>최대 전송 단위(Maximum Transmission Unit, MTU)<br />
+데이터 링크(2계층) 또는 네트워크(3계층)에서 하나의 프레임 또는 패킷에 담아 운반할 수 있는 헤더를 포함한 최대 데이터 크기<br />
+최소 권고값은 2계층 기준 1500Byte이며, 3계층 기준 IPv4는 MSS 크기에서 40byte(IP헤더+TCP헤더)를 추가한 576Byte이고, IPv6는 1280Byte이다.<br />
+실제로는 최대 65,646바이트 범위까지 생성가능하다.</p>
+</li>
+<li>
+<p>MTU가 IP 기반의 정보인 반면, Maximum Segment Size는 TCP 기반의 정보이다.</p>
+</li>
+<li>
+<p>TCP는 연결지향형으로 제어 메시지들의 교환(Handshaking)이 이루어진다. 핸드쉐이킹을 통해 데이터 교환 전에 송신자 및 수신자의 상태를 초기화한다.</p>
+</li>
+</ul>
+<h3 id="tcp-segment"><a class="markdownIt-Anchor" href="#tcp-segment"></a> TCP Segment</h3>
+<p><img src="/images/network/tcp/tcp_segment.png" alt="" /></p>
+<ul>
+<li>Source port number : 출발지 포트 번호</li>
+<li>Destination port number : 도착지 포트 번호</li>
+<li>Sequence number : 순서번호(Seq#)로, 세그먼트에서 첫 번째 바이트의 바이트 스트림 번호값이 저장된다.</li>
+<li>Response number : 확인응답(누적된 ACK)번호로, 상대방으로부터 받아야할 다음 바이트의 순서번호값이 저장된다.</li>
+<li>Header length : 헤더의 길이로, Option이 없으면 헤더값에 5개의 비트값이 들어간다. 그러나 일반적으로 32비트이다.</li>
+<li>Reservation : 나중에 다시 설명</li>
+<li>Control flag</li>
+<li>Window : 수신측의 윈도우 크기(Window size)로, 받을 수 있는 최대 데이터 크기값이 저장되어 있다.</li>
+<li>TCP Checksum :체크섬값이란 세그먼트의 합에 1의 보수를 취한 값을 말하며, 수신측에서 체크섬과 세그먼트의 실제 데이터를 더한 결과를 통해 오류를 검출한다.</li>
+<li>Emergency Data point : 생략</li>
+<li>Option : 변수의 길이로 설명은 생략.</li>
+<li>Data : 헤더를 제외한 실제 세그먼트에 들어있는 데이터의 크기로 MSS에 의해 제한되어진다.</li>
+</ul>
+<h4 id="flag-순서"><a class="markdownIt-Anchor" href="#flag-순서"></a> FLAG 순서</h4>
+<ul>
+<li>
+<p>구체적으로 flag순서는 URG, PSH, RST, SYN, FIN이고 각각 1비트로 표현되는 값이 저장된다.</p>
+</li>
+<li>
+<p>각각 1비트로 TCP 세그먼트 필드 안에 cONTROL BIT 또는 FLAG BIT 로 정의 되어 있다.<br />
+±------±------±-----±------±------±-----+<br />
+| URG | ACK | PSH | RST | SYN | FIN |<br />
+±------±------±-----±------±------±-----+</p>
+</li>
+<li>
+<p>SYN(Synchronization:동기화) - S : 연결 요청 플래그<br />
+TCP 에서 세션을 성립할 때  가장먼저 보내는 패킷, 시퀀스 번호를 임의적으로 설정하여 세션을 연결하는 데에 사용되며 초기에 시퀀스 번호를 보내게 된다.</p>
+</li>
+<li>
+<p>ACK(Acknowledgement) - Ack : 응답<br />
+상대방으로부터 패킷을 받았다는 걸 알려주는 패킷, 다른 플래그와 같이 출력되는 경우도 있습니다.<br />
+받는 사람이 보낸 사람 시퀀스 번호에 TCP 계층에서 길이 또는 데이터 양을 더한 것과 같은 ACK를 보냅니다.(일반적으로 +1 하여 보냄)<br />
+ACK 응답을 통해 보낸 패킷에 대한 성공, 실패를 판단하여 재전송 하거나 다음 패킷을 전송한다.</p>
+</li>
+<li>
+<p>RST(Reset) - R : 제 연결 종료<br />
+재설정(Reset)을 하는 과정이며 양방향에서 동시에 일어나는 중단 작업이다. 비 정상적인 세션 연결 끊기에 해당한다.<br />
+이 패킷을 보내는 곳이 현재 접속하고 있는 곳과 즉시 연결을 끊고자 할 때 사용한다.</p>
+</li>
+<li>
+<p>PSH(Push) - P : 밀어넣기<br />
+TELNET 과 같은 상호작용이 중요한 프로토콜의 경우 빠른 응답이 중요한데, 이 때 받은 데이터를 즉시 목적지인 OSI 7 Layer 의 Application 계층으로 전송하도록 하는 FLAG.<br />
+대화형 트랙픽에 사용되는 것으로 버퍼가 채워지기를 기다리지 않고 데이터를 전달한다. 데이터는 버퍼링 없이 바로 위 계층이 아닌 7 계층의 응용프로그램으로 바로 전달한다.</p>
+</li>
+<li>
+<p>URG(Urgent) - U : 긴급 데이터<br />
+Urgent pointer 유효한 것인지를 나타낸다. Urgent pointer란 전송하는 데이터 중에서 긴급히 전당해야 할 내용이 있을 경우에 사용한다.<br />
+긴급한 데이터는 다른 데이터에 비해 우선순위가 높아야 한다.<br />
+EX) ping 명령어 실행 도중 Ctrl+c 입력</p>
+</li>
+<li>
+<p>FIN(Finish) - F : 연결 종료 요청<br />
+세션 연결을 종료시킬 때 사용되며 더이상 전송할 데이터가 없음을 나타낸다.</p>
+</li>
+<li>
+<p>Placeholder<br />
+패킷의 플래그에 SYN, FINISH, RESET, PUSH등의 플래그가 설정 되어 있지 않은 경우 이 플래그가 세팅된다. 이 플래그는 ACK플래그와 함께 사용되는 경우도 있다.</p>
+</li>
+</ul>
+<h3 id="tcp-round-trip-time-timeout"><a class="markdownIt-Anchor" href="#tcp-round-trip-time-timeout"></a> TCP Round Trip Time, Timeout</h3>
+<ul>
+<li>TCP는 신뢰적인 데이터 전송(RDT)처럼 세그먼트의 손실을 발견하기 위해 타임아웃/재전송 메커니즘을 사용한다. 이 때, 송신측에서 데이터를 전송한 후,<br />
+ACK받기까지 걸린 시간을 RTT(Rount Trip Time)이라 표현한다.</li>
+<li>타임아웃(timeout) 주기는 RTT보다 길어야 한다. 너무 짧으면 타임아웃이 자주 발생하여 세그먼트의 불필요한 재전송이 발생하므로 링크를 비효율적으로 사용하게 된다.<br />
+반대로 너무 길게 되면, 세그먼트의 손실에 대한 느린 대응으로 회복이 비효율적이게 된다.</li>
+<li>SampleRTT : 세그먼트가 송신된 시간부터 ACK 받기까지 측정된 시간으로, 재전송한 세그먼트는 무시한다. 값은 네트워크 부하에 따라 가변적이다.</li>
+<li>현재 SampleRTT 값이 아닌 최근의 값들의 평균값으로 추정한다.</li>
+<li>추정RTT : EstimatedRTT = (1-a) * EstimatedRTT + a * SampleRTT<br />
+일반적으로 a=0.125이고, 지수적 가중 이동 평균(EWMA)방식으로 과거 샘플들의 영향이 지수적으로 감소한다. a가 높을수록 SampleRTT에 더 영향을 준다.</li>
+<li>DevRTT : RTT 변화율로, SampleRTT와 EstimatedRTT의 편차값이다. 즉, 현재 RTT값이 추정 RTT값으로부터 얼마나 벗어났는가에 대한 정보이다.</li>
+<li>재전송 타임아웃 주기 (Timeout Interval) = EstimatedRTT + 4 * DevRTT</li>
+<li>타임아웃나서 세그먼트를 재전송하게 되면, 재전송한 세그먼트에 대한 타이머가 시작된다.</li>
+</ul>
+<h3 id="tcp의-rdt"><a class="markdownIt-Anchor" href="#tcp의-rdt"></a> TCP의 RDT</h3>
+<ul>
+<li>TCP는 비신뢰적인 인터넷 네트워크 계층(IP서비스)의 상위 계층에서 신뢰적인 데이터 전달(Reliable Data Transfer, RDT) 서비스를 제공한다.</li>
+<li>파이프라인되는 세그먼트 (ACK의 응답이 없어도 다수의 세그먼트를 전송가능)</li>
+<li>누적된 ACKs</li>
+<li>단 하나의 재전송 타이머</li>
+<li>재전송은 타임아웃이 되거나, 중복 ACKs를 수신했을 경우 발생한다.</li>
+<li>“간소화된 TCP 송신자”는 중복 ACKs를 무시하고 흐름제어 및 혼잡제어를 무시한다.</li>
+</ul>
+<h3 id="tcp-송신자의-3가지-상황sender-events"><a class="markdownIt-Anchor" href="#tcp-송신자의-3가지-상황sender-events"></a> TCP 송신자의 3가지 상황(Sender Events)</h3>
+<ul>
+<li>
+<p>상위 계층으로부터 수신된 데이터 : 데이터를 받았으므로 상위 계층으로부터 데이터 전송 요청이 오게 된다.<br />
+순서번호(Seq#)를 가진 세그먼트 생성 (Seq# : 세그먼트의 첫 번째 바이트의 바이트 스트림 번호)<br />
+타이머가 실행되지 않고 있으면 타이머를 시작한다.<br />
+타이머의 만료주기는 Timout Interval 로 계산한다.</p>
+</li>
+<li>
+<p>타임아웃 : 타임아웃에 의해 세그먼트가 재전송되고, 전송했으나 ACK 받지 않은 가장 오래된 세그먼트에 대해 타이머가 다시 시작한다.</p>
+</li>
+<li>
+<p>ACK를 수신한 경우 : 이전에 ACK받지 않은 세그먼트의 ACK 이면, 해당 세그먼트를 ACK 응답된 세그먼트로 표시한다.<br />
+즉, 윈도우 크기를 조정한다. 아직 ACK받지 못한 세그먼트들이 존재한다면 타이머를 시작한다.</p>
+</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/03/31/spring-security-jose/">spring-security-jose</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-31</time><div class="content"><h2 id="jose-javascript-object-signing-and-encryption"><a class="markdownIt-Anchor" href="#jose-javascript-object-signing-and-encryption"></a> JOSE (Javascript Object Signing and Encryption)</h2>
+<p><a href="https://jose.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://jose.readthedocs.io/en/latest/</a></p>
+<p>JWT (JSON WEB Token) : JWS or JWE<br />
+JWS (JSON Web Signature) : 서버에서 인증을 증거로 인증 정보를 서버의 <strong>Private Key</strong> 로 서명<br />
+JWE (Json Web Encryption) : 서버와 클라이언트 간 암호화된 데이터를 Token 화 한것<br />
+JWK (Json Web Key) : cryptographic key 표현 형식</p>
+<h2 id="jwt"><a class="markdownIt-Anchor" href="#jwt"></a> JWT</h2>
+<p><img src="/images/springboot/security/jose/jwt.png" alt="" /><br />
+Base64URL Encode</p>
+<h3 id="header"><a class="markdownIt-Anchor" href="#header"></a> Header</h3>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"typ"</span>: <span class="string">"JWT"</span>,</span><br><span class="line">  <span class="attr">"alg"</span>: <span class="string">"HS256"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="payload"><a class="markdownIt-Anchor" href="#payload"></a> Payload</h3>
+<ul>
+<li>Claim : 정보의 조각을 뜻함
+<ul>
+<li>Key/Value 의 쌍으로 구성</li>
+<li>Registerd, public, private 의 type을 가짐</li>
+</ul>
+</li>
+</ul>
+<h4 id="registered-claim"><a class="markdownIt-Anchor" href="#registered-claim"></a> Registered Claim</h4>
+<ul>
+<li>iss : 토근 발급자 (issuer)</li>
+<li>sub : 토큰 제목 (subject)</li>
+<li>aud : 토큰 대상자 (audience)</li>
+<li>exp : 토큰의 만료시간 (expiration)</li>
+<li>nbf : 토큰의 활성날짜 (Not Before)
+<ul>
+<li>nbf 이후 토큰이 활성화 되어야 함. 그전까지 처리 안됨</li>
+</ul>
+</li>
+<li>iat : 토큰이 발급된 시간 (issued at) token age 판단 가능</li>
+<li>jti : JWT 고유 식별자. 중복확인때 사용됨</li>
+</ul>
+<h4 id="public-claim"><a class="markdownIt-Anchor" href="#public-claim"></a> Public Claim</h4>
+<ul>
+<li>충돌 방지된 이름 (collision-resistant)</li>
+<li>Claim 이름을 URI 형식으로 설정함</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"https://your.domain/jwt_claims/"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="private-claim"><a class="markdownIt-Anchor" href="#private-claim"></a> Private Claim</h4>
+<ul>
+<li>클라이언트 서버 양측간 협의하에 사용되는 클레임 이름</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"username"</span>: <span class="string">"yours"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="signature"><a class="markdownIt-Anchor" href="#signature"></a> Signature</h3>
+<ul>
+<li>Header의 인코딩 값, Payload의 인코딩 값 을 합치고 <em>Private Key</em>로 해쉬를 하여 생성</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HMACSHA256(</span><br><span class="line">  base64UrlEncode(header) + &quot;.&quot; +</span><br><span class="line">  base64UrlEncode(payload),</span><br><span class="line">  secret)</span><br></pre></td></tr></table></figure></div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

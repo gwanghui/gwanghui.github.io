@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="kafka-definition-guide-6"><meta name="keywords" content="kafka"><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>kafka-definition-guide-6 | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#신뢰성-있는-시스템에서-프로듀서-사용하기"><span class="toc-number">1.</span> <span class="toc-text"> 신뢰성 있는 시스템에서 프로듀서 사용하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#확인-응답-전송"><span class="toc-number">2.</span> <span class="toc-text"> 확인 응답 전송</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">kafka-definition-guide-6</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-28</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="신뢰성-있는-시스템에서-프로듀서-사용하기"><a class="markdownIt-Anchor" href="#신뢰성-있는-시스템에서-프로듀서-사용하기"></a> 신뢰성 있는 시스템에서 프로듀서 사용하기</h3>
+<ul>
+<li>
+<p>시나리오 1</p>
+<ul>
+<li>replica 3, unclean leader election, producer ack 1</li>
+<li>프로듀서가 메세지를 전송하면 리더에 쓰게 되지만 동기화 리플리카에는 아직 쓰지 않은 상황</li>
+<li>리더는 프로듀서에게 ‘메세지를 성공적으로 썼음’ 응답 후 데이터가 다른 리플리카에 복제되기 전에 곧바로 중단</li>
+<li>이 경우 in-sync replica로 간주된 하나의 replica 가 리더가 됨</li>
+<li>메세지는 새로 리더가 된 리플리카에 쓰지 않았으므로 유실</li>
+</ul>
+</li>
+<li>
+<p>시나리오 2</p>
+<ul>
+<li>replica 3, unclean leader election, producer ack all</li>
+<li>쓰려고 하는데 해당 파티션의 리더가 방금 중단되어 새로운 리더 선출 중</li>
+<li>카프카는 ‘사용할 수 있는 리더가 없음’ 에러 응답</li>
+<li>쓰기가 성공적으로 될 때까지 프로듀서가 해당 에러를 제대로 처리하지 못해 재시도 하지 않는 다면 메세지 유실</li>
+</ul>
+</li>
+<li>
+<p>신뢰성 요구 사항에 맞도록 acks 구성 매개변수를 올바르게 설정해야 한다.</p>
+</li>
+<li>
+<p>구성 매개변수와 코드 모두에서 에러 처리를 올바르게 해야 한다.</p>
+</li>
+</ul>
+<h3 id="확인-응답-전송"><a class="markdownIt-Anchor" href="#확인-응답-전송"></a> 확인 응답 전송</h3>
+<ul>
+<li>
+<p>acks = 0 : 프로듀서가 네트어ㅜ크로 메세지를 전송했다면 카프카가 성공적으로 쓴 것으로 간주</p>
+<ul>
+<li>전송하는 개체가 직렬화 될 수 없거나, 네트워크 카드 장애가 생기면 프로듀서가 에러를 받음</li>
+<li>그러나 메세지를 쓸 파티ㅕㅅㄴ이 오프라인이거나 관련 카프카 클러스터의 처리가 늦어지는 경우는 에러를 받지 않음. 이에 리더 선출이 예상되는 상황의 메세지는 유실될 가능성 존재</li>
+</ul>
+</li>
+<li>
+<p>acks = 1 : 리더가 메시지를 수신하고 파티션 데이터 파일에 쓴 후 확인 응답 또는 에러를 전송한다.</p>
+<ul>
+<li>리더 선출 중일 경우 프로듀서는 LeaderNotAvailable Exception 예외 발생</li>
+<li>프로듀서가 이 예외를 올바르게 처리한다면 해당 메세지를 다시 전송하여 새로운 리더가 수신하게 됨</li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2021/01/28/kafka-definition-guide-6/">https://blog.devkwang.app/2021/01/28/kafka-definition-guide-6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/kafka/">kafka</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/01/29/spring-boot-application-runner/"><i class="fa fa-chevron-left">  </i><span>spring-boot-application-runner</span></a></div><div class="next-post pull-right"><a href="/2021/01/18/kafka-definition-guide-1/"><span>kafka-definition-guide-1</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

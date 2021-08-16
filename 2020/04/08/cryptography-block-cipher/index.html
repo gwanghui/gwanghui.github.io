@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cryptography-block-cipher"><meta name="keywords" content="pki"><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>cryptography-block-cipher | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#block-cipher"><span class="toc-number">1.</span> <span class="toc-text"> block cipher</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aes"><span class="toc-number">2.</span> <span class="toc-text"> AES</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#padding"><span class="toc-number">2.1.</span> <span class="toc-text"> Padding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#operation-mode"><span class="toc-number">2.2.</span> <span class="toc-text"> Operation Mode</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ecb"><span class="toc-number">2.2.1.</span> <span class="toc-text"> ECB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cbc"><span class="toc-number">2.2.2.</span> <span class="toc-text"> CBC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gcm"><span class="toc-number">2.2.3.</span> <span class="toc-text"> GCM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#block-size-128192256"><span class="toc-number">2.2.4.</span> <span class="toc-text"> Block Size : 128/192/256</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cfb"><span class="toc-number">2.2.5.</span> <span class="toc-text"> CFB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ofb"><span class="toc-number">2.2.6.</span> <span class="toc-text"> OFB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ctr"><span class="toc-number">2.2.7.</span> <span class="toc-text"> CTR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cbc-ctr을-중점으로-보자"><span class="toc-number">2.2.8.</span> <span class="toc-text"> CBC, CTR을 중점으로 보자</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">cryptography-block-cipher</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-08</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/cryptography/">cryptography</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="block-cipher"><a class="markdownIt-Anchor" href="#block-cipher"></a> block cipher</h2>
+<ul>
+<li>DES : 보안 취약점 발견으로 이제 안씀</li>
+</ul>
+<h2 id="aes"><a class="markdownIt-Anchor" href="#aes"></a> AES</h2>
+<ul>
+<li>전 세계 공모를 통해 선정 벨기에의 암호학자 2명이 제출한 Rijndael</li>
+<li>AES is a block cipher with a fixed block size of 128 bit (16 byte)</li>
+</ul>
+<h3 id="padding"><a class="markdownIt-Anchor" href="#padding"></a> Padding</h3>
+<ul>
+<li>입력 데이터가 블록 사이즈의 배수가 아니라면 블록 사임ㅇㄹ호즈에 맞추기 위한 방식이 Padding</li>
+<li>부족한 size 만큼 바이트 값을 추가하는 PKCS7 Padding을 많이 사용</li>
+<li>3Byte가 부족할 경우 03d을 3개 패딩</li>
+</ul>
+<p>![](온라인 상점은 Microservice 아키텍처 패턴을 사용하므로 제품 세부 사항 데이터가 여러 서비스에 분산됩니다. 예를 들어</p>
+<p>)</p>
+<h3 id="operation-mode"><a class="markdownIt-Anchor" href="#operation-mode"></a> Operation Mode</h3>
+<ul>
+<li>입력데이터가 블록보다 크면 암/복호화시 여러 개의 블록이 생성됨</li>
+<li>각 블록간의 관계를 처리하는게 운영 모드</li>
+<li>ECB, CBC, CFR, GCM 등의 모드가 있음</li>
+</ul>
+<h4 id="ecb"><a class="markdownIt-Anchor" href="#ecb"></a> ECB</h4>
+<ul>
+<li>Electronic Code Book</li>
+<li>동일한 내용을 갖는 평문 블록은 이에 대응 되면 동일한 암호문 블록으로 변환되고 1:1 대응표를 갖게 된다.</li>
+<li>대칭키 암호화시 ECB를 사용하면 안됨</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/ECB.png" alt="" /></p>
+<h4 id="cbc"><a class="markdownIt-Anchor" href="#cbc"></a> CBC</h4>
+<ul>
+<li>Cipher Block Chaining</li>
+<li>Message Authentication Code 에 사용 불</li>
+<li>암호화</li>
+<li>직전 블록은 다음 블록의 입력으로 사용하여 안정성이 증대됨</li>
+<li>초기 블록이 유추가 어렵도록 Initial Vector 사용</li>
+<li>1단계 전에 수행되어 결과로 출력된 암호문 블록에 평문 블록을 XOR 하고 나서 암호화를 수행<br />
+그결과 생성되는 각각의 암호문 블록은 단지 현재 평문 블록뿐만 아니라 그 이전의 평문 블록들의 영향</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/CBC_encrypt.png" alt="" /></p>
+<ul>
+<li>복호화</li>
+<li>최초 암호문 블록을 XOR 하고 나서 복호화의 결과와 IV를 이용해 최초 평문 블록 P1을 만들고</li>
+<li>나머지는 복호화 XOR을 통해 최초 평문 블록을 만든다.</li>
+<li>암호문 블록이 손상되면 이후 블록들이 전부 손상된다.</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/CBC_decrypt_1.png" alt="" /><br />
+<img src="/images/cryptography/block/AES/CBC_decrypt_2.png" alt="" /></p>
+<h4 id="gcm"><a class="markdownIt-Anchor" href="#gcm"></a> GCM</h4>
+<ul>
+<li>Galois/Counter Mode</li>
+<li>Padding 불필요</li>
+<li>인증 기능 제공</li>
+<li>병렬 처리가 가능해서 암/복호화 속도가 매우 빠름, SSL/TLS 에서 많이 사용</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/GCM.png" alt="" /></p>
+<h4 id="block-size-128192256"><a class="markdownIt-Anchor" href="#block-size-128192256"></a> Block Size : 128/192/256</h4>
+<h4 id="cfb"><a class="markdownIt-Anchor" href="#cfb"></a> CFB</h4>
+<ul>
+<li>Cipher FeedBack
+<ul>
+<li>1단계 앞의 <em>암호문</em> 블록을 암호 알고리즘의 입력으로 사용</li>
+<li>피드백 : 암호화의 입력으로 사용</li>
+<li>한 단계앞의 암호문 블록을 암호화 한 후 평문 블록과 XOR 연산</li>
+<li>최초의 암호문 블록을 만들어낼 때는 1단계 앞의 출력이 존재하지 않으므로 대신에 초기화 벡터(Initial Vector) 사용</li>
+<li>replay attack 가능</li>
+</ul>
+</li>
+</ul>
+<h4 id="ofb"><a class="markdownIt-Anchor" href="#ofb"></a> OFB</h4>
+<ul>
+<li>Output FeedBack
+<ul>
+<li>암호 알고리즘의 출력을 암호 알고리즘의 입력으로 피드백</li>
+<li>평문 블록은 암호 알고리즘에 의해 직접 암호화 되고 있는 것은 아님</li>
+</ul>
+</li>
+</ul>
+<h4 id="ctr"><a class="markdownIt-Anchor" href="#ctr"></a> CTR</h4>
+<ul>
+<li>CounTeR 모드
+<ul>
+<li>1씩 증가해 가는 카운터를 암호화해서 키 스트림을 만들어 내는 스트림 암호</li>
+<li>CTR 모드에서는 블록을 암호화 할 때 마다 1씩 증가해 가는 카운터를 암호화해서 키 스트림을 만듬</li>
+<li>카운터를 암호화 한 비트열과 평문 블록과 XOR을 취한 결과가 암호문 블록이 됨</li>
+<li>카운터의 초기값은 암호화 때마다 다른 값(nonce, 비표)을 기초로 해서 만든다</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/cryptography/block/AES/nonce.png" alt="" /></p>
+<ul>
+<li>
+<p>CTR 암호화<br />
+<img src="/images/cryptography/block/AES/CTR_AES_encrypt.png" alt="" /></p>
+</li>
+<li>
+<p>CTR 복호화<br />
+<img src="/images/cryptography/block/AES/CTR_AES_decrypt.png" alt="" /></p>
+</li>
+<li>
+<p>CTR 모드의 암호화와 복호화는 완전히 같은 구조</p>
+</li>
+<li>
+<p>CTR 모드는 블록을 임의의 순서로 암호화, 복호화 할 수 있다.</p>
+</li>
+<li>
+<p>프로그램으로 구현하는 것이 매우 간단</p>
+</li>
+<li>
+<p>병렬 처리가 가능한 시스템에서는 CTR 모드를 이용하여 자료를 고속 처리</p>
+</li>
+<li>
+<p>CTR Counter size 16byte</p>
+</li>
+<li>
+<p>AES128/AES192/AES256 암호화 키 사이즈가 각각의 bit</p>
+</li>
+</ul>
+<h4 id="cbc-ctr을-중점으로-보자"><a class="markdownIt-Anchor" href="#cbc-ctr을-중점으로-보자"></a> CBC, CTR을 중점으로 보자</h4>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2020/04/08/cryptography-block-cipher/">https://blog.devkwang.app/2020/04/08/cryptography-block-cipher/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/pki/">pki</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/04/08/jpa/"><i class="fa fa-chevron-left">  </i><span>JPA</span></a></div><div class="next-post pull-right"><a href="/2020/04/08/cryptography-message-authentication-code/"><span>cryptography-message-authentication-code</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

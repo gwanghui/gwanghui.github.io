@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cryptography-digital-signature"><meta name="keywords" content="digital signature"><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>cryptography-digital-signature | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#digital-signature-characteristics"><span class="toc-number">1.</span> <span class="toc-text"> Digital signature characteristics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#digital-signature-requirement"><span class="toc-number">2.</span> <span class="toc-text"> Digital signature Requirement</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#메시지에-직접-서명하는-방법"><span class="toc-number">2.1.</span> <span class="toc-text"> 메시지에 직접 서명하는 방법</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#메세지의-해시-값에-서명하는-방법"><span class="toc-number">2.2.</span> <span class="toc-text"> 메세지의 해시 값에 서명하는 방법</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#디지털-서명에-대한-의문"><span class="toc-number">2.3.</span> <span class="toc-text"> 디지털 서명에 대한 의문</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#활용-예"><span class="toc-number">3.</span> <span class="toc-text"> 활용 예</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rsa에-의한-디지털-서명"><span class="toc-number">4.</span> <span class="toc-text"> RSA에 의한 디지털 서명</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#디지털-서명에-대한-공격"><span class="toc-number">4.1.</span> <span class="toc-text"> 디지털 서명에 대한 공격</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#기술적인-방법만으로는-해결할-수-없는-문제"><span class="toc-number">4.2.</span> <span class="toc-text"> 기술적인 방법만으로는 해결할 수 없는 문제</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">cryptography-digital-signature</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-13</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/cryptography/">cryptography</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="digital-signature-characteristics"><a class="markdownIt-Anchor" href="#digital-signature-characteristics"></a> Digital signature characteristics</h3>
+<ul>
+<li>Unforgeable (위조불가)
+<ul>
+<li>서명자만이 서명문을 생성 가능</li>
+</ul>
+</li>
+<li>Authentic (서명자 인증)
+<ul>
+<li>서명문의 서명자를 확인 가능</li>
+</ul>
+</li>
+<li>Not Reusable (재사용 불가)
+<ul>
+<li>서명문의 서명은 다른 문서의 서명으로 사용 불가능</li>
+</ul>
+</li>
+<li>Unalterable (변경 불가)
+<ul>
+<li>서명된 문서의 내용 변경 불가능</li>
+</ul>
+</li>
+<li>Nonrepudiation (부인 불가)
+<ul>
+<li>서명자는 후에 서명한 사실을 부인 불가능</li>
+</ul>
+</li>
+</ul>
+<h3 id="digital-signature-requirement"><a class="markdownIt-Anchor" href="#digital-signature-requirement"></a> Digital signature Requirement</h3>
+<ul>
+<li>서명은 메세지에 의존하는 비트 형태이어야 한다.</li>
+<li>위조와 부인 방지 위해, 송신자의 유일한 정보 비트를 이용해야 함</li>
+<li>서명문을 만들기가 쉬워야 한다.</li>
+<li>서명문을 인식, 확인 하기가 쉬워야 한다.</li>
+<li>서명문을 위조하는 것이 계산적으로 실행 불가능</li>
+<li>기억장소에 서명문의 복사본을 유지하는 것이 실용적이어야 한다.</li>
+</ul>
+<h4 id="메시지에-직접-서명하는-방법"><a class="markdownIt-Anchor" href="#메시지에-직접-서명하는-방법"></a> 메시지에 직접 서명하는 방법</h4>
+<p><img src="/images/cryptography/message_signature/message_signature.png" alt="" /></p>
+<h4 id="메세지의-해시-값에-서명하는-방법"><a class="markdownIt-Anchor" href="#메세지의-해시-값에-서명하는-방법"></a> 메세지의 해시 값에 서명하는 방법</h4>
+<p><img src="/images/cryptography/message_signature/hash_signature.png" alt="" /><br />
+<img src="/images/cryptography/message_signature/hash_time_flow.png" alt="" /></p>
+<h4 id="디지털-서명에-대한-의문"><a class="markdownIt-Anchor" href="#디지털-서명에-대한-의문"></a> 디지털 서명에 대한 의문</h4>
+<ol>
+<li>
+<p>암호문이 왜 서명으로서 사용 가능한 것인가?</p>
+<ul>
+<li>개인 키로 암호화 한다는 것은, 행하고 있는 처리의 내용을 설명한 것이지, 여기에서는 기밀성을 실현하기 위해 암호화 하는 것이 아니다</li>
+<li>인증자 (authenticator) : 키를 가지고 있는 사람만이 만들 수 있는 정보</li>
+</ul>
+</li>
+<li>
+<p>기밀성을 유지할 수 없는 것은 아닐까?</p>
+<ul>
+<li>디지털 서명은 기밀성을 지키기 위한 것은 아님</li>
+<li>기밀성이 필요하다면 암호화를 별도로 행해서 보내야 한다.</li>
+</ul>
+</li>
+<li>
+<p>복사된 서명이 만들어지는 것은 아닐까?</p>
+<ul>
+<li>통상의 파일 복사처럼 서명도 복사본을 만들수 있다.</li>
+<li>서명 복사를 만들 수 있다고 해서 서명이 무의미 해 지는 것은 아니다.
+<ul>
+<li>복사한 데이터가 표현하고 있는 것은 특정의 서명자가 특정의 메세지에 서명했다고 하는 것뿐</li>
+<li>복사해도 서명자는 바뀌지 않고 메세지의 내용도 바뀌지 않는다.</li>
+</ul>
+</li>
+<li>복사된 서명
+<ul>
+<li>특정 서명자와 특정 메세지가 결부되어 있다는 사실이 중요</li>
+<li>아무리 복사를 해도 그 메세지에 누가 서명했는가는 사실에는 변화가 없다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>서명 변경이 가능한 것은 아닐까?</p>
+<ul>
+<li>서명 후 메세지와 서명의 내용을 수정할 수는 있다.</li>
+<li>수정하면 서명 검증에 실패하기 때문에, 검증하는 사람은 수정이 행해졌다는 것을 검출 할 수 있다.</li>
+<li>서명 대상의 메세지와 서명 양쪽을 수정해서 서명의 검증에 성공할 수 있도록 앞뒤를 잘 맞출 수 있지는 않을까?
+<ul>
+<li>불가능</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>서명만 재이용할 수 있는 것은 아닐까?</p>
+<ul>
+<li>서명부분만 잘라내서 다른 메세지에 첨부하는 것은 가능하나 서명의 검증에는 실패</li>
+</ul>
+</li>
+<li>
+<p>서명을 삭제하더라도 계약파기를 할 수 없는 것은 아닌가?</p>
+<ul>
+<li>디지털 서명이 붙은 차용서는 삭제해도 파기 할 수 없다.</li>
+<li>디지털 서명이 붙은 차용서를 파기하는 경우에는 영수증에 상당하는 문서를 새로 만들고, 그것에 대해 상대에게 서명을 부탁해야 한다.</li>
+</ul>
+</li>
+<li>
+<p>어떻게 해서 부인 방지가 되는 것인가?</p>
+<ul>
+<li>디지털 서명의 경우 서명을 작성할 수 있는 키(개인 키)는 송신자마ㄴ 가지고 있다. 그러므로 서명을 작성할 수 있는 것은 송신자 뿐</li>
+<li>그 서명을 내가 작성한 것이 아니다 라고 주장 할 수 없다.</li>
+</ul>
+</li>
+</ol>
+<h3 id="활용-예"><a class="markdownIt-Anchor" href="#활용-예"></a> 활용 예</h3>
+<ol>
+<li>
+<p>보안 공지</p>
+<ul>
+<li>클리어 서명(Clearsign) : 메세지를 암호화하지 않고 서명만 한것<br />
+<img src="/images/cryptography/message_signature/digital_signature_use_case_1.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>소프트 웨어 다운로드</p>
+<ul>
+<li>소프트웨어에 디지털 서명을 작성하고, 서명 검증</li>
+</ul>
+</li>
+<li>
+<p>공개 키 인증서</p>
+<ul>
+<li>디지털 서명을 검증하려면 바른 공개 키가 필요</li>
+<li>자신이 입수한 공개키가 바른 공개 키인지 어떤지를 검증하기 위해서 공개 키를 메세지로 간주하고 디지털 서명을 한다.</li>
+<li>공개 키 인증서 : 공개키에 디지털 서명을 붙인 것</li>
+</ul>
+</li>
+<li>
+<p>TLS</p>
+<ul>
+<li>TLS에서는 서버가 올바른 것이라는 것을 인증하기 위해서 서버 인증서를 이용하며 서버의 공개키에 디지털 서명을 한 것.</li>
+</ul>
+</li>
+</ol>
+<h3 id="rsa에-의한-디지털-서명"><a class="markdownIt-Anchor" href="#rsa에-의한-디지털-서명"></a> RSA에 의한 디지털 서명</h3>
+<ul>
+<li>서명(s) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mi>D</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{m^D mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span></li>
+<li>서명으로 얻어진 메세지(m) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>s</mi><mi>E</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{s^E mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span></li>
+<li>E와 N은 서명자의 공개키</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>공개키</td>
+<td>(E,N)</td>
+</tr>
+<tr>
+<td>개인키</td>
+<td>(D,N)</td>
+</tr>
+<tr>
+<td>서명의 작성</td>
+<td>서명(s) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>m</mi><mi>D</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{m^D mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span> (메세지를 D제곱해서 N으로 나눈 나머지)</td>
+</tr>
+<tr>
+<td>서명의 검증</td>
+<td>서명으로 얻어진 메세지(m) = <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>s</mi><mi>E</mi></msup><mi>m</mi><mi>o</mi><mi>d</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">{s^E mod N}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05764em;">E</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span></span> (m과 원래 메세지 비교)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="디지털-서명에-대한-공격"><a class="markdownIt-Anchor" href="#디지털-서명에-대한-공격"></a> 디지털 서명에 대한 공격</h4>
+<ol>
+<li>
+<p>중간자 공격</p>
+<ul>
+<li>입수한 공개 키가 정확한 상대의 것인지 아닌지를 확인하는 것이 필요</li>
+<li>공개 키를 취급하는 소프트웨어는 공개 키의 해시 값을 표시하는 수단을 준비 (fingerprint)</li>
+</ul>
+</li>
+<li>
+<p>일방향 해시 함수 공격</p>
+<ul>
+<li>일방향 해시 함수는 충돌 내성을 가져야 한다.</li>
+</ul>
+</li>
+<li>
+<p>디지털 서명을 사용한 공개 키 암호 공격</p>
+<ul>
+<li>모르는 메세지에는 서명을 하지 말자.</li>
+</ul>
+</li>
+</ol>
+<h4 id="기술적인-방법만으로는-해결할-수-없는-문제"><a class="markdownIt-Anchor" href="#기술적인-방법만으로는-해결할-수-없는-문제"></a> 기술적인 방법만으로는 해결할 수 없는 문제</h4>
+<p><img src="/images/cryptography/message_signature/problem.png" alt="" /></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2020/04/13/cryptography-digital-signature/">https://blog.devkwang.app/2020/04/13/cryptography-digital-signature/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/digital-signature/">digital signature</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/04/13/cryptography-certification/"><i class="fa fa-chevron-left">  </i><span>cryptography-certification</span></a></div><div class="next-post pull-right"><a href="/2020/04/08/cryptography-birthday-attack/"><span>cryptography-birthday-attack</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

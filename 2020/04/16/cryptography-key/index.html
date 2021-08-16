@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cryptography-key"><meta name="keywords" content="key"><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>cryptography-key | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#키"><span class="toc-number">1.</span> <span class="toc-text"> 키</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#키는-대단히-큰-수"><span class="toc-number">1.1.</span> <span class="toc-text"> 키는 대단히 큰 수</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#키는-평문과-동일한-가치를-갖는다"><span class="toc-number">1.2.</span> <span class="toc-text"> 키는 평문과 동일한 가치를 갖는다</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#암호-알고리즘과-키"><span class="toc-number">1.3.</span> <span class="toc-text"> 암호 알고리즘과 키</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#다양한-키"><span class="toc-number">1.4.</span> <span class="toc-text"> 다양한 키</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#기밀성을-위한-키와-인증을-위한-키"><span class="toc-number">1.5.</span> <span class="toc-text"> 기밀성을 위한 키와 인증을 위한 키</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#컨텐츠를-암호화-하는-키와-키를-암호화-하는-키"><span class="toc-number">1.6.</span> <span class="toc-text"> 컨텐츠를 암호화 하는 키와 키를 암호화 하는 키</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#키-관리"><span class="toc-number">1.7.</span> <span class="toc-text"> 키 관리</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">cryptography-key</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-16</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/cryptography/">cryptography</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="키"><a class="markdownIt-Anchor" href="#키"></a> 키</h2>
+<h3 id="키는-대단히-큰-수"><a class="markdownIt-Anchor" href="#키는-대단히-큰-수"></a> 키는 대단히 큰 수</h3>
+<ul>
+<li>암호 기술을 사용하려면 반드시 키라 불리는 대단히 큰 수가 필요</li>
+<li>중요한 것은 수 그 자체의 크기보다도 키 공간(Key Space)의 크기</li>
+<li>키 공간의 크기는 키의 비트 길이로 결정</li>
+<li>암호별 키 길이
+<ul>
+<li>AES: 128,192,256 비트</li>
+<li>RSA: 1024, 2048</li>
+</ul>
+</li>
+</ul>
+<h3 id="키는-평문과-동일한-가치를-갖는다"><a class="markdownIt-Anchor" href="#키는-평문과-동일한-가치를-갖는다"></a> 키는 평문과 동일한 가치를 갖는다</h3>
+<ul>
+<li>키는 평문과 같은 가치
+<ul>
+<li>도청자 이브에게 키는 평문과 같은 것</li>
+</ul>
+</li>
+</ul>
+<h3 id="암호-알고리즘과-키"><a class="markdownIt-Anchor" href="#암호-알고리즘과-키"></a> 암호 알고리즘과 키</h3>
+<ul>
+<li>암호의 기본 상식
+<ul>
+<li>검증된 암호 알고리즘을 사용</li>
+<li>정보의 기밀성은 암호 알고리즘을 비밀로 하는 것이 아님</li>
+<li>키를 비밀로 하는 것에 의해 기밀성이 지켜져야 함</li>
+</ul>
+</li>
+</ul>
+<h3 id="다양한-키"><a class="markdownIt-Anchor" href="#다양한-키"></a> 다양한 키</h3>
+<ul>
+<li>
+<p>대칭 암호</p>
+<ul>
+<li>키는 송신자와 수신자만 공유</li>
+<li>양측이 공유 키를 비밀로 유지<br />
+<img src="/images/cryptography/key/symmetric_cypher.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>공개 키 암호</p>
+<ul>
+<li>암호화와 복호화에서 다른 키 사용</li>
+<li>개인 키를 비밀로 유지<br />
+<img src="/images/cryptography/key/asymmetric_cypher.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>메세지 인증 코드</p>
+<ul>
+<li>송신자와 수신자가 공통의 키를 사용해서 인증을 수행<br />
+<img src="/images/cryptography/key/mac_key.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>디지털 서명</p>
+<ul>
+<li><em>서명 작성</em>과 <em>서명 검증</em>에 서로 다른 키를 사용<br />
+<img src="/images/cryptography/key/digital_signature_key.png" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h3 id="기밀성을-위한-키와-인증을-위한-키"><a class="markdownIt-Anchor" href="#기밀성을-위한-키와-인증을-위한-키"></a> 기밀성을 위한 키와 인증을 위한 키</h3>
+<ul>
+<li>보안 속성에 따른 분류
+<ul>
+<li>기밀성을 유지하기 위한 키
+<ul>
+<li>대칭 암호나 공개 키 암호에서 사용하는 키</li>
+<li>복호화 키를 모르면 복호화 불가</li>
+</ul>
+</li>
+<li>인증을 수행하기 위한 키
+<ul>
+<li>메세지 인증 코드나 디지털 서명에서 사용하는 키</li>
+<li>키를 모르면 데이터 변경이나 위장 불가</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>키 사용 횟수에 따른 분류
+<ul>
+<li>세션 키(Session Key)
+<ul>
+<li>통신 때마다 한 번만 사용 되는 키</li>
+</ul>
+</li>
+<li>마스터 키(Master Key)
+<ul>
+<li>반복적으로 사용 되는 키</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="컨텐츠를-암호화-하는-키와-키를-암호화-하는-키"><a class="markdownIt-Anchor" href="#컨텐츠를-암호화-하는-키와-키를-암호화-하는-키"></a> 컨텐츠를 암호화 하는 키와 키를 암호화 하는 키</h3>
+<ul>
+<li>CEK (contents encrypting key) : 정보(콘텐츠)가 암호화의 대상</li>
+<li>KEK (key encrypting key) : 키가 암호화의 대상<br />
+<img src="/images/cryptography/key/cek_kek.png" alt="" /></li>
+</ul>
+<h3 id="키-관리"><a class="markdownIt-Anchor" href="#키-관리"></a> 키 관리</h3>
+<ol>
+<li>키 생성</li>
+</ol>
+<ul>
+<li>
+<p>난수를 이용한 키 생성</p>
+<ul>
+<li>난수 사용 : 키 성질로 다른 사람이 추측하기 어려워야 한다를 가져야 하기 때문</li>
+<li>난수 생성 : 하드웨어를 사용하는 것이 좋지만, 통상적으로 암호용으로 설계된 의사 난수 생성기 소프트웨어를 사용</li>
+<li>자신이 적당한 바이트 열을 만들면 안 됨
+<ul>
+<li>스스로는 랜덤한 값이라고 생각하고 생성해도, 거기에는 인위적인 편중이 있기 때문에 랜덤한 값이 되지 못함</li>
+</ul>
+</li>
+<li>암호용으로 이용하는 의사난수 생성기
+<ul>
+<li>반드시 암호용으로 설계되어 있는 것을 선택</li>
+<li>암호용으로 설계되어 있지 않은 의사난수 생성기는 예측불가능 성질을 갖지 않기 때문</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>패스워드를 이용한 키 생성</p>
+<ul>
+<li>패스워드 (password)</li>
+<li>패스 프레이즈 (passphrase) : 복수의 단어로 이루어지는 긴 패스워드</li>
+<li>패스워드를 키로 직접 이용하지 않고, 패스워드를 일방향 해시 함수에 입력해서 얻어진 해시 값을 키로 이용</li>
+</ul>
+</li>
+<li>
+<p>PBE와 salt</p>
+<ul>
+<li>Password Based Encryption</li>
+<li>패스워드에 salt라 불리는 난수를 부가해서 일방향 해시 함수에 입력하고 그 출력을 키로 사용</li>
+<li>사전 공격(Dictinary attack)을 막기 위한 조치</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>키 배송</li>
+</ol>
+<ul>
+<li>키 배송 문제
+<ul>
+<li>키를 사전에 공유</li>
+<li>키 배포 센터</li>
+<li>공개키 암호</li>
+<li><em>Diffie-Hellman 키 교환</em></li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>키 갱신 (key updating)</li>
+</ol>
+<ul>
+<li>현재 키의 해시값을 다음 키로 사용</li>
+<li>키 노출시 과거 통신의 복호화를 막을 수 있다.</li>
+<li>이를 백워드 시큐리티라 한다.</li>
+</ul>
+<ol start="4">
+<li>키 보존</li>
+</ol>
+<ul>
+<li>키를 반복해서 사용할 경우 키 보존 문제를 고려
+<ul>
+<li>키 기억 : 보통 실용적 키의 크기나 비트화된 표현 등으로 기억할 수 없다.</li>
+<li>키 암호화 : KEK(Key Encryption Key)<br />
+<img src="/images/cryptography/key/key_hierarchy.png" alt="" /><br />
+<a href="https://www.crocus.co.kr/1233" target="_blank" rel="noopener">https://www.crocus.co.kr/1233</a><br />
+<a href="https://rsec.kr/?p=242" target="_blank" rel="noopener">https://rsec.kr/?p=242</a></li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2020/04/16/cryptography-key/">https://blog.devkwang.app/2020/04/16/cryptography-key/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/key/">key</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/04/16/msa-keyword/"><i class="fa fa-chevron-left">  </i><span>msa-keyword</span></a></div><div class="next-post pull-right"><a href="/2020/04/13/cryptography-certification/"><span>cryptography-certification</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

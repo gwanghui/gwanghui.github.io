@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="adaptive-loading"><meta name="keywords" content="javascript"><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>adaptive-loading | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">adaptive-loading</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-11</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Web/">Web</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Web/JavaScript/">JavaScript</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p><a href="https://youtu.be/puUPpVrIRkc" target="_blank" rel="noopener">https://youtu.be/puUPpVrIRkc</a></p>
+<ul>
+<li>Adaptive Loading for improving performance (slick experience)<br />
+Do we need to deliver the exact same experience to every user?<br />
+많은 웹사이트들에서 자바스크립트가 많이 사용되고 있고 자바스크립트는 single thread 기반으로 실행된다.<br />
+다양한 디바이스들의 성능은 Benchmark 를 보더라도 매년 향상되고 있지만 싱글 CPU 자체의 성능은 많이 향상되지 않았다.</li>
+</ul>
+<p>for example<br />
+youtube -&gt; 514kb js download</p>
+<p>network type change to fast 3g<br />
+youtube used low network module?</p>
+<p>Network-aware Resource Loading<br />
+react-adaptive-hooks<br />
+adaptive-vue</p>
+<p>19년 12월 기준 chrome Experimental</p>
+<p>const network = navigator.connection.effectiveType;</p>
+<figure class="highlight jsx"><figcaption><span>harmony</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useNetworkStatus &#125; <span class="keyword">from</span> <span class="string">'react-adaptive-hooks/network'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MyComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; effectiveConnectionType &#125; = useNetworkStatus();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> media;</span><br><span class="line">  <span class="keyword">switch</span>(effectiveConnectionType) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'2g'</span>:</span><br><span class="line">      media = <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">'medium-res.jpg'</span>/&gt;</span>;</span></span><br><span class="line"><span class="xml">      break;</span></span><br><span class="line"><span class="xml">    case '3g':</span></span><br><span class="line">      media = &lt;img src='high-res.jpg'/&gt;;</span><br><span class="line">      break;</span><br><span class="line">    case '4g':</span><br><span class="line">      media = &lt;video muted controls&gt;...&lt;/video&gt;;</span><br><span class="line">      break;</span><br><span class="line">    default:</span><br><span class="line">      media = &lt;video muted controls&gt;...&lt;/video&gt;;</span><br><span class="line">      break;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return &lt;div&gt;&#123;media&#125;&lt;/div&gt;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>####memory<br />
+navigator.deviceMemory</p>
+<p>####cpu<br />
+navigator.hardwareConcurrency</p>
+<p>####Adaptive Capability Toggling</p>
+<p>####Adaptive Delivery with Client Hints<br />
+Enable</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Accept-CH"</span> <span class="attr">content</span>=<span class="string">"Device-Memory, Viewport-Width Save-Data"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Added<br />
+Accept-CH : Device-Memory, Save-Data, Viewport-Width</p>
+<p>slick experience &lt;-&gt; choppy experience</p>
+<p>Do not just respond based on screen size, adapt based on actual device hardware.</p>
+<ol>
+<li>Define buckets</li>
+<li>Integrate buckets into logging</li>
+<li>Adapt loading based on buckets<br />
+<img src="/images/adaptiveLoading/adaptiveLoading_1.png" alt="" /><br />
+<img src="/images/adaptiveLoading/adaptiveLoading_2.png" alt="" /><br />
+<img src="/images/adaptiveLoading/adaptiveLoading_3.png" alt="" /><br />
+<img src="/images/adaptiveLoading/adaptiveLoading_4.png" alt="" /><br />
+<img src="/images/adaptiveLoading/adaptiveLoading_5.png" alt="" /><br />
+<img src="/images/adaptiveLoading/adaptiveLoading_6.png" alt="" /><br />
+<img src="/images/adaptiveLoading/adaptiveLoading_7.png" alt="" /></li>
+</ol>
+<p>browser 기준으로</p>
+<ol>
+<li>Log hardwareConcurrency and deviceMemory</li>
+<li>Group by hardwareConcurrency, DeviceMemory, and OS when looking at perf data</li>
+<li>figure out buckets based on groupings.</li>
+</ol>
+<p>adaptivity should be considered in your core frameworks</p>
+<p>Think about animations</p>
+<p>Low End &lt;- animation 제거<br />
+High End</p>
+<p>Mobile Websites (Viewport-Width, CPU 등)</p>
+<p>Load fast vs respond fast</p>
+<p>Trade-off</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (isLowEndDevice()) &#123;</span><br><span class="line">    scheduler.unstable_forceFrameRate(<span class="number">15</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2019/12/11/adaptive-loading/">https://blog.devkwang.app/2019/12/11/adaptive-loading/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/javascript/">javascript</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/12/13/next-generation-web-styling/"><i class="fa fa-chevron-left">  </i><span>next-generation-web-styling</span></a></div><div class="next-post pull-right"><a href="/2019/11/22/spring-security/"><span>spring-security</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

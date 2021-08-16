@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="WebAssembly-summit-2020"><meta name="keywords" content=""><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>WebAssembly-summit-2020 | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#building-a-new-kind-of-ecosystem"><span class="toc-number">1.</span> <span class="toc-text"> Building a new kind of ecosystem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shipping-tiny-web-assembly"><span class="toc-number">2.</span> <span class="toc-text"> Shipping Tiny Web Assembly</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webassembly-an-opportunity-for-small-code"><span class="toc-number">2.1.</span> <span class="toc-text"> WebAssembly : An opportunity for Small Code!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#advice-for-all-toolchains"><span class="toc-number">2.2.</span> <span class="toc-text"> Advice For All ToolChains</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-slide-of-obvious-stuff"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 1 slide of obvious stuff</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#advice-for-specific-languages-toolchains"><span class="toc-number">2.3.</span> <span class="toc-text"> Advice for specific Languages &amp; Toolchains</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#general-cc"><span class="toc-number">2.3.1.</span> <span class="toc-text"> General C/C++</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#use-web-apis-directly"><span class="toc-number">2.3.2.</span> <span class="toc-text"> Use WEB APIs directly</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#javascriptcores-new-webassembly-interpreter"><span class="toc-number">3.</span> <span class="toc-text"> JavaScriptCore’s new WebAssembly interpreter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webassembly-music"><span class="toc-number">4.</span> <span class="toc-text"> WebAssembly Music</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#introduction"><span class="toc-number">4.1.</span> <span class="toc-text"> Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background"><span class="toc-number">4.2.</span> <span class="toc-text"> Background</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#warning"><span class="toc-number">4.3.</span> <span class="toc-text"> Warning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#the-basics"><span class="toc-number">4.4.</span> <span class="toc-text"> The Basics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#app-map"><span class="toc-number">4.5.</span> <span class="toc-text"> App map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sequencer-same-as-in-4klang"><span class="toc-number">4.6.</span> <span class="toc-text"> sequencer (same as in 4klang)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#generate-sequencer-data-from-code"><span class="toc-number">4.7.</span> <span class="toc-text"> Generate sequencer data from code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#record-midi-and-generate-code"><span class="toc-number">4.8.</span> <span class="toc-text"> Record MIDI and generate code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assemblyscript-why-did-i-choose-it"><span class="toc-number">4.9.</span> <span class="toc-text"> AssemblyScript (why did I choose it?)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synthesizing-instruments-in-assemblyscript"><span class="toc-number">4.10.</span> <span class="toc-text"> Synthesizing instruments in AssemblyScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-driven-or-code-driven"><span class="toc-number">4.11.</span> <span class="toc-text"> Data driven or code driven?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#audioworklet"><span class="toc-number">4.12.</span> <span class="toc-text"> AudioWorklet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sources-on-github"><span class="toc-number">4.13.</span> <span class="toc-text"> Sources on github</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">WebAssembly-summit-2020</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-23</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="building-a-new-kind-of-ecosystem"><a class="markdownIt-Anchor" href="#building-a-new-kind-of-ecosystem"></a> Building a new kind of ecosystem</h2>
+<p><a href="https://webassembly-summit.org/speakers/1/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/1/</a></p>
+<ul>
+<li>보안을 강화하기 위한 Web Assembly</li>
+</ul>
+<ol>
+<li>
+<p>Sandboxing</p>
+</li>
+<li>
+<p>Memory model</p>
+</li>
+</ol>
+<ul>
+<li>Memory isolation</li>
+</ul>
+<ol start="3">
+<li>Interface Types</li>
+</ol>
+<ul>
+<li>exchange high-level values between memories</li>
+<li>we can isolate the memory between modules without making it too hard to share data</li>
+</ul>
+<ol start="4">
+<li>WebAssembly System Interface</li>
+</ol>
+<ul>
+<li>
+<p>we actually have the concept of permissions baked into them</p>
+</li>
+<li>
+<p>we can give different modules, different permissions to different resource.</p>
+</li>
+<li>
+<p>WebAssembly nano process</p>
+</li>
+<li>
+<p>protect from malicious code</p>
+</li>
+<li>
+<p>vulnerable code</p>
+</li>
+</ul>
+<h2 id="shipping-tiny-web-assembly"><a class="markdownIt-Anchor" href="#shipping-tiny-web-assembly"></a> Shipping Tiny Web Assembly</h2>
+<p><a href="https://webassembly-summit.org/speakers/2/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/2/</a></p>
+<ul>
+<li>Sometimes code size is negligible(무시할만한) compared to other factors like asset size</li>
+<li>Sometimes the magic ability to run an app on the web at all is worth a large code size (ship a framework, VM, etc)</li>
+</ul>
+<h3 id="webassembly-an-opportunity-for-small-code"><a class="markdownIt-Anchor" href="#webassembly-an-opportunity-for-small-code"></a> WebAssembly : An opportunity for Small Code!</h3>
+<ul>
+<li>binary format</li>
+<li>dead code elimination is possible</li>
+</ul>
+<h3 id="advice-for-all-toolchains"><a class="markdownIt-Anchor" href="#advice-for-all-toolchains"></a> Advice For All ToolChains</h3>
+<h4 id="1-slide-of-obvious-stuff"><a class="markdownIt-Anchor" href="#1-slide-of-obvious-stuff"></a> 1 slide of obvious stuff</h4>
+<ul>
+<li>
+<p>Enable compression on the server!</p>
+</li>
+<li>
+<p>Minify your Javascript too!</p>
+</li>
+<li>
+<p>Run Binaryen’s wasm-opt</p>
+</li>
+<li>
+<p>What It Does (wasm-opt)</p>
+<ul>
+<li>Dead code elimination</li>
+<li>constant propagation</li>
+<li>Inlining</li>
+<li>Local optimizations (CoalesceLocals, SimplifyLocals, etc)</li>
+<li>memory segment optimization (MemoryPacking)</li>
+<li>Structured control flow (ReReloop, RemoveUnusedBrs)</li>
+<li>etc</li>
+</ul>
+</li>
+</ul>
+<h3 id="advice-for-specific-languages-toolchains"><a class="markdownIt-Anchor" href="#advice-for-specific-languages-toolchains"></a> Advice for specific Languages &amp; Toolchains</h3>
+<h4 id="general-cc"><a class="markdownIt-Anchor" href="#general-cc"></a> General C/C++</h4>
+<ul>
+<li>If you don’t use c++ exceptions, build with -fno-exceptions</li>
+<li>avoid RTTI if you don’t need it, build with -fno-rtti</li>
+<li>Careful with templates</li>
+<li>virtual calls may inhibit DCE</li>
+<li>prefer simple C over C++ standard library</li>
+</ul>
+<h4 id="use-web-apis-directly"><a class="markdownIt-Anchor" href="#use-web-apis-directly"></a> Use WEB APIs directly</h4>
+<ul>
+<li>Even better than printf, call a Web API, e.g. using EM_JS:</li>
+</ul>
+<h2 id="javascriptcores-new-webassembly-interpreter"><a class="markdownIt-Anchor" href="#javascriptcores-new-webassembly-interpreter"></a> JavaScriptCore’s new WebAssembly interpreter</h2>
+<p><a href="https://webassembly-summit.org/speakers/4/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/4/</a></p>
+<ul>
+<li>WebAssembly
+<ul>
+<li>BBQ :  View Bytecode Quickly (less optimize)</li>
+<li>OMG : Optimize Machine code Generator (full optimize)</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://webkit.org/blog/9329/" target="_blank" rel="noopener">https://webkit.org/blog/9329/</a></p>
+<h2 id="webassembly-music"><a class="markdownIt-Anchor" href="#webassembly-music"></a> WebAssembly Music</h2>
+<p><a href="https://webassembly-summit.org/speakers/5/" target="_blank" rel="noopener">https://webassembly-summit.org/speakers/5/</a></p>
+<h3 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h3>
+<ul>
+<li>WebAssembly deliver performance for rendering realtime audio</li>
+<li>Low latency possible with AudioWorklet</li>
+<li>Let’s create a synthesizer and sequencer in WebAssembly</li>
+</ul>
+<h3 id="background"><a class="markdownIt-Anchor" href="#background"></a> Background</h3>
+<h3 id="warning"><a class="markdownIt-Anchor" href="#warning"></a> Warning</h3>
+<ul>
+<li>Experimenting with synthesizers can produce sudden unexpected very loud noise, witch may damage your hearing</li>
+<li>Keep the volume low, especially if using headphones</li>
+<li>Make sure you now where the mute button is 😃</li>
+</ul>
+<h3 id="the-basics"><a class="markdownIt-Anchor" href="#the-basics"></a> The Basics</h3>
+<ul>
+<li>The simplest instrument</li>
+<li>Add to the mix</li>
+</ul>
+<h3 id="app-map"><a class="markdownIt-Anchor" href="#app-map"></a> App map</h3>
+<h3 id="sequencer-same-as-in-4klang"><a class="markdownIt-Anchor" href="#sequencer-same-as-in-4klang"></a> sequencer (same as in 4klang)</h3>
+<ul>
+<li>A simple pattern sequencer</li>
+<li>Short fixed length patterns</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">[<span class="number">64</span>, <span class="number">0</span>, <span class="number">65</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">67</span>, <span class="number">64</span>, <span class="number">0</span>],</span><br><span class="line">[<span class="number">22</span>, <span class="number">23</span>, <span class="number">34</span>, <span class="number">34</span>, <span class="number">34</span>, <span class="number">0</span>, <span class="number">44</span>, <span class="number">45</span>],</span><br><span class="line">[<span class="number">22</span>, <span class="number">33</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">34</span>, <span class="number">0</span>, <span class="number">44</span>, <span class="number">55</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Track for each instrument with a list of patterns to play</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>],</span><br><span class="line">[<span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>This is all it takes ato orchestrate the instruments</li>
+</ul>
+<h3 id="generate-sequencer-data-from-code"><a class="markdownIt-Anchor" href="#generate-sequencer-data-from-code"></a> Generate sequencer data from code</h3>
+<h3 id="record-midi-and-generate-code"><a class="markdownIt-Anchor" href="#record-midi-and-generate-code"></a> Record MIDI and generate code</h3>
+<ul>
+<li>While playing, midi input data is stored to patterns</li>
+<li>If we want to use the recording, we can paste it as code</li>
+<li>Pattern data is “reverse engineered” to javascript code, with durations on the notes instead of repeated hold commands</li>
+</ul>
+<h3 id="assemblyscript-why-did-i-choose-it"><a class="markdownIt-Anchor" href="#assemblyscript-why-did-i-choose-it"></a> AssemblyScript (why did I choose it?)</h3>
+<ul>
+<li>High level readability</li>
+<li>Low level control</li>
+<li>Pure WebAssembly output (no additional js lib)</li>
+<li>Builds optimized for speed and size (Binaryen)</li>
+<li>Create WEbAssembly binaries in the browser</li>
+<li>Great for live coding: rapid development, instant results, directly in the browser!</li>
+</ul>
+<h3 id="synthesizing-instruments-in-assemblyscript"><a class="markdownIt-Anchor" href="#synthesizing-instruments-in-assemblyscript"></a> Synthesizing instruments in AssemblyScript</h3>
+<ul>
+<li>No sample data, just in code</li>
+</ul>
+<h3 id="data-driven-or-code-driven"><a class="markdownIt-Anchor" href="#data-driven-or-code-driven"></a> Data driven or code driven?</h3>
+<p>Envelope -&gt; oscillator -&gt; filter -&gt; out</p>
+<ul>
+<li>You can synthesize an instrument by connecting envelopes, oscillators, filters etc.</li>
+<li>Typical to create a data structure to be interpreted at runtime.</li>
+<li>With AssemblyScript/WebAssembly we can instead generate and compile the code in the browser</li>
+<li>Just like modern web-frameworks resolving configuration at compile-time (such as language)</li>
+<li>Out binary can contain the logic directly rather than an interpreter of data describing the logic</li>
+<li>Faster and smaller builds, no interpreter overhead</li>
+<li>Not just for synthesizers but also for e.g smart contracts</li>
+<li>Compiling is cheap, make pre-configured binaries rather than configuring at runtime.</li>
+</ul>
+<h3 id="audioworklet"><a class="markdownIt-Anchor" href="#audioworklet"></a> AudioWorklet</h3>
+<ul>
+<li>The “proper” way of using AudioWorklet would be to have one node per instrument and let WebAudio do the orchestration/mixing</li>
+<li>But then we couldn’t have music produced by a single WebAssembly executable binary</li>
+<li>Made a polyfill for the purpose of serving this app</li>
+<li>AudioWorklet model of render audio callback for WASI(Web Assembly System Interface)? (Similar to Jack and Core Audio)</li>
+</ul>
+<h3 id="sources-on-github"><a class="markdownIt-Anchor" href="#sources-on-github"></a> Sources on github</h3>
+<p><a href="https://github.com/petersalomonsen/javascriptmusic" target="_blank" rel="noopener">https://github.com/petersalomonsen/javascriptmusic</a></p>
+<ul>
+<li>project contains the WebAssembly music experiment, and also the predecessing javascript music projects for Midi synths and 4klang.</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2020/02/23/WebAssembly-summit-2020/">https://blog.devkwang.app/2020/02/23/WebAssembly-summit-2020/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/02/27/java-fundamental-method-stack/"><i class="fa fa-chevron-left">  </i><span>java-fundamental-method-stack</span></a></div><div class="next-post pull-right"><a href="/2020/02/19/java-stream-function-interface/"><span>java-stream-function-interface</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

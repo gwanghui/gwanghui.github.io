@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="java-calendar-locale-timezone"><meta name="keywords" content="java"><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>java-calendar-locale-timezone | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-date-calendar"><span class="toc-number">1.</span> <span class="toc-text"> Java Date &amp; Calendar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-locale"><span class="toc-number">2.</span> <span class="toc-text"> Java Locale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-timezone"><span class="toc-number">3.</span> <span class="toc-text"> Java TimeZone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#유닉스-시간-posix-epoch"><span class="toc-number">4.</span> <span class="toc-text"> 유닉스 시간 (POSIX, Epoch)</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">java-calendar-locale-timezone</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-03-16</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Date/">Date</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Date/Calendar/">Calendar</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="java-date-calendar"><a class="markdownIt-Anchor" href="#java-date-calendar"></a> Java Date &amp; Calendar</h2>
+<p>Locale Extension : buddhist, japanese, gregory 형태의 달력 선택 가능</p>
+<ul>
+<li>BuddhistCalendar (불멸기원 : 석가모니가 입멸한 해를 기준으로 삼는 연대 표기)</li>
+<li>JapaneseImperialCalendar (일본 연호 : 일본에서는 새 천황이 즉위하거나 나라에 자연재해가 계속될 때 연호를 바꾼다. )</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BEFORE_MEIJI = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MEIJI = <span class="number">1</span>; (<span class="number">1868</span>년 ~ <span class="number">1912</span>년)</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TAISHO = <span class="number">2</span>; </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SHOWA = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> HEISEI = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> REIWA = <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>GregorianCalendar
+<ul>
+<li>율리우스력의 바탕이 된 이집트력을 기본으로 하고 1년의 길이를 365.2425일로 정하는 역법체계. 윤년을 포함하는 양력을 말한다.</li>
+<li>율리우스력의 오차를 수정한 달력이며, 기본 구조는 율리우스력을 그대로 따르되 윤년을 정하는 규칙을 추가했다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="java-locale"><a class="markdownIt-Anchor" href="#java-locale"></a> Java Locale</h2>
+<ul>
+<li>A Locale object represents a specific geographical, political, or cultural region.</li>
+<li>Language, Script, Country</li>
+<li><a href="https://docs.oracle.com/cd/E13214_01/wli/docs92/xref/xqisocodes.html" target="_blank" rel="noopener">Country Code &amp; Language Code</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Language Code</th>
+<th style="text-align:center">Script Code</th>
+<th style="text-align:center">Country</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">한국어</td>
+<td style="text-align:center">ko</td>
+<td style="text-align:center">Kore</td>
+<td style="text-align:center">KR</td>
+</tr>
+<tr>
+<td style="text-align:center">일본어</td>
+<td style="text-align:center">ja</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">JP</td>
+</tr>
+<tr>
+<td style="text-align:center">영어</td>
+<td style="text-align:center">en</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">US</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Locale 은 Display 속성과 Format 속성을 따로 관리한다.</li>
+<li>Display 속성은 언어를 표현하는 단어를 어울러서 가지고 있다.</li>
+<li>Format 속성은 Locale 에 해당하는 숫자, 연도 포멧을 가지고 있다.</li>
+</ul>
+<h2 id="java-timezone"><a class="markdownIt-Anchor" href="#java-timezone"></a> Java TimeZone</h2>
+<ul>
+<li>
+<p><a href="https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%A6%AC%EB%8B%88%EC%B9%98_%ED%8F%89%EA%B7%A0%EC%8B%9C" target="_blank" rel="noopener">GMT(Greenwich Mean Time)</a></p>
+<ul>
+<li>그리니치 천문대를 기준으로 하는 평균 태양시</li>
+</ul>
+</li>
+<li>
+<p><a href="https://ko.wikipedia.org/wiki/%ED%98%91%EC%A0%95_%EC%84%B8%EA%B3%84%EC%8B%9C" target="_blank" rel="noopener">UTC(universal time coordinated)</a></p>
+<ul>
+<li>세슘 원자의 진동수에 기반한 것으로 오차가 30만년에 1초 수준</li>
+</ul>
+</li>
+<li>
+<p>UTC vs GMT</p>
+<ul>
+<li>초의 소수점 차이만 난다. ms 이하의 값들이 중요하다면 UTC를 쓰고 아니면 GMT를 써도 무방</li>
+</ul>
+</li>
+<li>
+<p>타국 타임존</p>
+<ul>
+<li>UTC, GMT(세계 표준시 ) : 한국시간에 9시간을 빼어 계산한다.</li>
+<li>CEST(중부 유럽 서머타임)  : UTC+2 hours , 한국시간에 7시간을 빼어 계산한다.</li>
+<li>BST(영국 서머타임)     : UTC+1 hour , 한국시간에 8시간을 빼어 계산한다.</li>
+<li>EDT(미국동부 서머타임, 예:뉴욕)   : UTC-4 hours , 한국시간에 13시간을 빼어 계산한다.</li>
+<li>CDT(미국중부 서머타임, 예:시카고)   : UTC-5 hours , 한국시간에 14시간을 빼어 계산한다.</li>
+<li>CST(중국표준시, 예:타이페이)  : UTC+8 hours , 한국시간에 1시간을 빼어 계산한다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="유닉스-시간-posix-epoch"><a class="markdownIt-Anchor" href="#유닉스-시간-posix-epoch"></a> 유닉스 시간 (POSIX, Epoch)</h2>
+<ul>
+<li>UTC 1970년 1월 1일 00:00:00 부터 경과 시간을 초로 환산하여 정수로 나타낸 것</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2020/03/16/java-calendar-locale-timezone/">https://blog.devkwang.app/2020/03/16/java-calendar-locale-timezone/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/03/26/java-map-marker/"><i class="fa fa-chevron-left">  </i><span>java-map-marker</span></a></div><div class="next-post pull-right"><a href="/2020/03/12/spring-util-reflection/"><span>spring-util-reflection</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
