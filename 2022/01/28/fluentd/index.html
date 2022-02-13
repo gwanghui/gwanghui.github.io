@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="fluentd"><meta name="keywords" content=""><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>fluentd | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#fluentd"><span class="toc-number">1.</span> <span class="toc-text"> Fluentd</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#event-structure"><span class="toc-number">1.1.</span> <span class="toc-text"> Event Structure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#processing-event"><span class="toc-number">1.2.</span> <span class="toc-text"> Processing Event</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buffer"><span class="toc-number">1.3.</span> <span class="toc-text"> Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#configuration"><span class="toc-number">1.4.</span> <span class="toc-text"> configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#docker"><span class="toc-number">1.4.1.</span> <span class="toc-text"> docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#directives"><span class="toc-number">1.5.</span> <span class="toc-text"> Directives</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#source-where-all-the-data-come-from"><span class="toc-number">1.5.1.</span> <span class="toc-text"> Source: where all the data come from</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#match-tell-fluentd-what-to-do"><span class="toc-number">1.5.2.</span> <span class="toc-text"> match: Tell fluentd what to do!</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter-event-processing-pipeline"><span class="toc-number">1.5.3.</span> <span class="toc-text"> filter: Event processing pipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system-set-system-wide-configuration"><span class="toc-number">1.5.4.</span> <span class="toc-text"> System: Set system-wide configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#label-group-filter-and-output"><span class="toc-number">1.5.5.</span> <span class="toc-text"> label: Group filter and output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#include-reuse-your-config"><span class="toc-number">1.5.6.</span> <span class="toc-text"> include: Reuse your config</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how-do-the-match-patterns-work"><span class="toc-number">1.6.</span> <span class="toc-text"> How do the match patterns work?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#wildcards-expansions-and-other-tips"><span class="toc-number">1.6.1.</span> <span class="toc-text"> Wildcards, Expansions and other tips</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#match-order"><span class="toc-number">1.6.2.</span> <span class="toc-text"> Match Order</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#supported-data-types-for-values"><span class="toc-number">1.6.3.</span> <span class="toc-text"> Supported Data Types for Values</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#common-plugin-parameters"><span class="toc-number">1.6.4.</span> <span class="toc-text"> Common Plugin Parameters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#check-configuration-file"><span class="toc-number">1.6.5.</span> <span class="toc-text"> Check Configuration File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#format-tips"><span class="toc-number">1.6.6.</span> <span class="toc-text"> Format Tips</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">fluentd</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-01-28</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="fluentd"><a class="markdownIt-Anchor" href="#fluentd"></a> Fluentd</h1>
+<h2 id="event-structure"><a class="markdownIt-Anchor" href="#event-structure"></a> Event Structure</h2>
+<ul>
+<li>A Fluentd event consists of three components
+<ul>
+<li>tag: Specifies the origin where an event comes from. It is used for message routing.</li>
+<li>time: Specifies the time when an event happens with nanosecond resolution.</li>
+<li>record: Specifies the actual log as a JSON Object</li>
+</ul>
+</li>
+</ul>
+<h2 id="processing-event"><a class="markdownIt-Anchor" href="#processing-event"></a> Processing Event</h2>
+<ul>
+<li>Input -&gt; filter -&gt; Output</li>
+</ul>
+<h2 id="buffer"><a class="markdownIt-Anchor" href="#buffer"></a> Buffer</h2>
+<ul>
+<li>non-buffered output Mode: default</li>
+<li>buffered mode를 사용할 경우 plug-in 필요</li>
+<li>flush condition을 만날때 버퍼를 출력하기 때문에 stdout 처럼 즉시 log를 볼수는 없음.</li>
+</ul>
+<h2 id="configuration"><a class="markdownIt-Anchor" href="#configuration"></a> configuration</h2>
+<h3 id="docker"><a class="markdownIt-Anchor" href="#docker"></a> docker</h3>
+<ul>
+<li>For a Docker container, the default location of the config file is /fluentd/etc/fluent.conf.<br />
+To mount a config file from outside of Docker, use a bind-mount.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/&lt;conf-file&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="directives"><a class="markdownIt-Anchor" href="#directives"></a> Directives</h2>
+<ul>
+<li>source directives determine the input sources</li>
+<li>match directives determine the output destinations</li>
+<li>filter directives determine the event processing pipelines</li>
+<li>system directives set system-wide configuration<br />
+`- label directives group the output and filter for internal routing</li>
+<li>@include directives include other files</li>
+</ul>
+<h3 id="source-where-all-the-data-come-from"><a class="markdownIt-Anchor" href="#source-where-all-the-data-come-from"></a> Source: where all the data come from</h3>
+<ul>
+<li>standard input plugins : http, forward(tcp)</li>
+<li>source directive must include @type parameter</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Receive events from 24224/tcp</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is used by <span class="built_in">log</span> forwarding and the fluent-cat <span class="built_in">command</span></span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type forward</span><br><span class="line">  port 24224</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://&lt;ip&gt;:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type http</span><br><span class="line">  port 9880</span><br><span class="line">&lt;/source&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> generated by http://&lt;ip&gt;:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">tag: myapp.access</span><br><span class="line">time: (current time)</span><br><span class="line">record: &#123;"event":"data"&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>event consists of three entities
+<ul>
+<li>tag, time, record</li>
+<li>tag: string separated by dots (e.g. myapp.access), and is used as the directions for Fluentd internal routing engine
+<ul>
+<li><strong>it is strongly recommended that you stick to the lower-case alphabets, digits and underscore</strong></li>
+</ul>
+</li>
+<li>time: specified by input plugins, and it must be in the Unix time format.</li>
+<li>record: JSON Object</li>
+<li><a href="https://docs.fluentd.org/input" target="_blank" rel="noopener">Input plugin</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="match-tell-fluentd-what-to-do"><a class="markdownIt-Anchor" href="#match-tell-fluentd-what-to-do"></a> match: Tell fluentd what to do!</h3>
+<ul>
+<li>The match directive looks for events with <strong>matching tags</strong> and processes them</li>
+<li>the plugins that correspond to the match directive are called <strong>output plugins</strong></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Receive events from 24224/tcp</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is used by <span class="built_in">log</span> forwarding and the fluent-cat <span class="built_in">command</span></span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type forward</span><br><span class="line">  port 24224</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://&lt;ip&gt;:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type http</span><br><span class="line">  port 9880</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Match events tagged with <span class="string">"myapp.access"</span> and</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> store them to /var/<span class="built_in">log</span>/fluent/access.%Y-%m-%d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Of course, you can control how you partition your data</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> with the time_slice_format option.</span></span><br><span class="line">&lt;match myapp.access&gt;</span><br><span class="line">  @type file</span><br><span class="line">  path /var/log/fluent/access</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Each match directive must include a match pattern and a <strong>@type</strong> parameter</li>
+<li>Only events with a <strong>tag matching</strong> the pattern will be sent to the output destination</li>
+<li>in the above example, only the events with the tag myapp.access are matched</li>
+</ul>
+<h3 id="filter-event-processing-pipeline"><a class="markdownIt-Anchor" href="#filter-event-processing-pipeline"></a> filter: Event processing pipeline</h3>
+<ul>
+<li>The filter directive has the same syntax as match but <strong>filter could be chained for processing pipeline.</strong> Using filters, event flow is like this:</li>
+<li>Input -&gt; filter 1 -&gt; … -&gt; filter N -&gt; Output</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> http://this.host:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type http</span><br><span class="line">  port 9880</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line">&lt;filter myapp.access&gt;</span><br><span class="line">  @type record_transformer</span><br><span class="line">  &lt;record&gt;</span><br><span class="line">    host_param "#&#123;Socket.gethostname&#125;"</span><br><span class="line">  &lt;/record&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line"></span><br><span class="line">&lt;match myapp.access&gt;</span><br><span class="line">  @type file</span><br><span class="line">  path /var/log/fluent/access</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>The received event {“event”:“data”} goes to record_transformer filter first. The record_transformer filter adds host_param field to the event; and, then the filtered event {“event”:“data”,“host_param”:“webserver1”} goes to the file output plugin.</li>
+</ul>
+<h3 id="system-set-system-wide-configuration"><a class="markdownIt-Anchor" href="#system-set-system-wide-configuration"></a> System: Set system-wide configuration</h3>
+<ul>
+<li>log_level</li>
+<li>suppress_repeated_stacktrace</li>
+<li>emit_error_log_interval</li>
+<li>suppress_config_dump</li>
+<li>without_source</li>
+<li>process_name (Only available in system directive. No fluentd option)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;system&gt;</span><br><span class="line"><span class="meta">  #</span><span class="bash"> equal to -qq option</span></span><br><span class="line">  log_level error</span><br><span class="line"><span class="meta">  #</span><span class="bash"> equal to --without-source option</span></span><br><span class="line">  without_source</span><br><span class="line"><span class="meta">  #</span><span class="bash"> ...</span></span><br><span class="line">&lt;/system&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="label-group-filter-and-output"><a class="markdownIt-Anchor" href="#label-group-filter-and-output"></a> label: Group filter and output</h3>
+<ul>
+<li>The label directive groups filter and output for <strong>internal routing</strong></li>
+<li>The label reduces the complexity of tag handling.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;source&gt;</span><br><span class="line">  @type forward</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type tail</span><br><span class="line">  @label @SYSTEM</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line">&lt;filter access.**&gt;</span><br><span class="line">  @type record_transformer</span><br><span class="line">  &lt;record&gt;</span><br><span class="line">    # ...</span><br><span class="line">  &lt;/record&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;match **&gt;</span><br><span class="line">  @type elasticsearch</span><br><span class="line"><span class="meta">  #</span><span class="bash"> ...</span></span><br><span class="line">&lt;/match&gt;</span><br><span class="line"></span><br><span class="line">&lt;label @SYSTEM&gt;</span><br><span class="line">  &lt;filter var.log.middleware.**&gt;</span><br><span class="line">    @type grep</span><br><span class="line">    # ...</span><br><span class="line">  &lt;/filter&gt;</span><br><span class="line">  &lt;match **&gt;</span><br><span class="line">    @type s3</span><br><span class="line">    # ...</span><br><span class="line">  &lt;/match&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/fluentd/configuration/fluentd_configuration_label.png" alt="" /></p>
+<ul>
+<li>The @ERROR label is a builtin label used for error record emitted by plugin’s emit_error_event API.</li>
+<li>If &lt;label @ERROR&gt; is set, the events are routed to this label when the related errors are emitted e.g. the buffer is full or the record is invalid.</li>
+<li>The @ROOT label is a builtin label used for getting root router by plugin’s event_emitter_router API.</li>
+<li>This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records are handled by the concat filter can be sent to the default route.</li>
+</ul>
+<h3 id="include-reuse-your-config"><a class="markdownIt-Anchor" href="#include-reuse-your-config"></a> include: Reuse your config</h3>
+<ul>
+<li>The directives in separate configuration files can be imported using the @include directive:</li>
+<li>The @include directive can be used under sections to share the same parameters:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Include config files <span class="keyword">in</span> the ./config.d directory</span></span><br><span class="line">@include config.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is bad</span></span><br><span class="line">@include *.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is good</span></span><br><span class="line">@include a.conf</span><br><span class="line">@include config.d/*.conf</span><br><span class="line">@include z.conf</span><br></pre></td></tr></table></figure>
+<h2 id="how-do-the-match-patterns-work"><a class="markdownIt-Anchor" href="#how-do-the-match-patterns-work"></a> How do the match patterns work?</h2>
+<h3 id="wildcards-expansions-and-other-tips"><a class="markdownIt-Anchor" href="#wildcards-expansions-and-other-tips"></a> Wildcards, Expansions and other tips</h3>
+<ul>
+<li>
+<ul>
+<li>matches a single tag part.</li>
+</ul>
+<ul>
+<li>For example, the pattern a.* matches a.b, but does not match a or a.b.c</li>
+</ul>
+</li>
+<li>** matches zero or more tag parts.
+<ul>
+<li>For example, the pattern a.** matches a, a.b and a.b.c</li>
+</ul>
+</li>
+<li>{X,Y,Z} matches X, Y, or Z, where X, Y, and Z are match patterns.
+<ul>
+<li>For example, the pattern {a,b} matches a and b, but does not match c</li>
+<li>This can be used in combination with * or ** patterns.</li>
+<li>Examples include a.{b,c}.* and a.{b,c.**}.</li>
+</ul>
+</li>
+<li>/regular expression/ is for complex patterns
+<ul>
+<li>For example, the pattern /(?!a.).*/ matches non-a. started tags like <a href="http://b.xxx" target="_blank" rel="noopener">b.xxx</a></li>
+<li>This feature is supported since fluentd v1.11.2</li>
+</ul>
+</li>
+<li>When multiple patterns are listed inside a single tag (delimited by one or more whitespaces), it matches any of the listed patterns. For example
+<ul>
+<li>The patterns <match a b> match a and b.</li>
+<li>The patterns &lt;match a.** b.*&gt; match a, a.b, a.b.c (from the first pattern) and b.d (from the second pattern)</li>
+</ul>
+</li>
+</ul>
+<h3 id="match-order"><a class="markdownIt-Anchor" href="#match-order"></a> Match Order</h3>
+<ul>
+<li>Fluentd tries to match tags in the order that they appear in the config file.</li>
+</ul>
+<h3 id="supported-data-types-for-values"><a class="markdownIt-Anchor" href="#supported-data-types-for-values"></a> Supported Data Types for Values</h3>
+<ul>
+<li>string: the field is parsed as a string. This is the most generic type, where each plugin decides how to process the string.
+<ul>
+<li>The string has three literals: non-quoted one line string, ’ single-quoted string and &quot; double-quoted string.</li>
+<li><a href="https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf" target="_blank" rel="noopener">literal examples</a></li>
+</ul>
+</li>
+<li>integer: the field is parsed as an integer.</li>
+<li>float: the field is parsed as a float.</li>
+<li>size: the field is parsed as the number of bytes. There are several notational variations
+<ul>
+<li><INTEGER>k or <INTEGER>K: number of kilobytes</li>
+<li><INTEGER>m or <INTEGER>M: number of megabytes</li>
+<li><INTEGER>g or <INTEGER>G: number of gigabytes</li>
+<li><INTEGER>t or <INTEGER>T: number of terabytes</li>
+<li>Otherwise, the field is parsed as an integer, and that integer is the number of bytes.</li>
+</ul>
+</li>
+<li>time: the field is parsed as a time duration.
+<ul>
+<li><INTEGER>s: seconds</li>
+<li><INTEGER>m: minutes</li>
+<li><INTEGER>h: hours</li>
+<li><INTEGER>d: days</li>
+<li>Otherwise, the field is parsed as float, and that float is the number of seconds. This option is useful for specifying sub-second time durations such as 0.1 (0.1 second = 100 milliseconds).</li>
+</ul>
+</li>
+<li>array:the field is parsed as a JSON array. It also supports the shorthand syntax. These are the same values
+<ul>
+<li>normal: [“key1”, “key2”]</li>
+<li>shorthand: key1,key2</li>
+</ul>
+</li>
+<li>hash: the field is parsed as a JSON object. It also supports the shorthand syntax. These are the same values:
+<ul>
+<li>normal: {“key1”: “value1”, “key2”: “value2”}</li>
+<li>shorthand: key1:value1,key2:value2</li>
+</ul>
+</li>
+</ul>
+<h3 id="common-plugin-parameters"><a class="markdownIt-Anchor" href="#common-plugin-parameters"></a> Common Plugin Parameters</h3>
+<ul>
+<li>The type, id and log_level parameters are supported for backward compatibility.
+<ul>
+<li>@type: specifies the plugin type</li>
+<li>@id: specifies the plugin id. in_monitor_agent uses this value for plugin_id field</li>
+<li>@label: specifies the label symbol. See label section.</li>
+<li>@log_level: specifies per plugin log level. See Per Plugin Log section.</li>
+</ul>
+</li>
+</ul>
+<h3 id="check-configuration-file"><a class="markdownIt-Anchor" href="#check-configuration-file"></a> Check Configuration File</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fluentd --dry-run -c fluent.conf</span></span><br></pre></td></tr></table></figure>
+<h3 id="format-tips"><a class="markdownIt-Anchor" href="#format-tips"></a> Format Tips</h3>
+<ul>
+<li>Multiline support for &quot; quoted string, array and hash values</li>
+<li>Example # 1: mail plugin</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;match **&gt;</span><br><span class="line">  @type mail</span><br><span class="line">  subject "[CRITICAL] foo's alert system"</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Example #2: map plugin</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;match tag&gt;</span><br><span class="line">  @type map</span><br><span class="line">  map '[["code." + tag, time, &#123; "code" =&gt; record["code"].to_i&#125;], ["time." + tag, time, &#123; "time" =&gt; record["time"].to_i&#125;]]'</span><br><span class="line">  multi true</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2022/01/28/fluentd/">https://blog.devkwang.app/2022/01/28/fluentd/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/02/08/cka-section2-core-concept/"><i class="fa fa-chevron-left">  </i><span>cka-section2-core-concept</span></a></div><div class="next-post pull-right"><a href="/2022/01/28/linux-IORedirection/"><span>linux-IORedirection</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

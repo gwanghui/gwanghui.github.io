@@ -7,7 +7,132 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/23/project-jenkins-ssh-deploy/">jenkins-ssh-deploy</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-23</time><div class="content"><h3 id="jenkins-ssh-deploy"><a class="markdownIt-Anchor" href="#jenkins-ssh-deploy"></a> Jenkins SSH Deploy</h3>
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/25/linux-run-level/">linux-run-level</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-25</time><div class="content"><h4 id="linux-run-level"><a class="markdownIt-Anchor" href="#linux-run-level"></a> Linux Run Level</h4>
+<table>
+<thead>
+<tr>
+<th>런레벨</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>시스템 중지</td>
+</tr>
+<tr>
+<td>1</td>
+<td>단일 사용자 모드(복구 모드)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NFS 없는 다중 사용자 모드</td>
+</tr>
+<tr>
+<td>3</td>
+<td>완전한 다중 사용자 모드</td>
+</tr>
+<tr>
+<td>4</td>
+<td>미사용</td>
+</tr>
+<tr>
+<td>5</td>
+<td>그래픽 인터페이스 모드</td>
+</tr>
+<tr>
+<td>6</td>
+<td>시스템 재시작</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Debian, Ubuntu : Run Level 2</li>
+<li>RedHat, fedora, CentOS, gentoo : Run Level 3</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/25/project-Security/">project-nginx</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-25</time><div class="content"><h3 id="nginx-설치"><a class="markdownIt-Anchor" href="#nginx-설치"></a> Nginx 설치</h3>
+<h4 id="사전-설치-필요-library"><a class="markdownIt-Anchor" href="#사전-설치-필요-library"></a> 사전 설치 필요 Library</h4>
+<ul>
+<li>GCC (GNU) : GNU Compiler Collection</li>
+<li>PCRE (Perl Compatible Regular Expression) : URL 재작성 모듈 및 HTTP 핵심 모듈이 정규식을 사용한다.</li>
+<li>zlib : nginx gzip 압축 하는데 필요</li>
+<li>OPENSSL : SSL v2/v3, TLS v1 protocol 지원<br />
+sudo apt-get install build-essential<br />
+sudo apt-get install libpcre3 libpcre3-dev<br />
+sudo apt install zlib zlib-devel<br />
+sudo apt install zlib1g zlib1g-dev<br />
+sudo apt install openssl libssl-dev</li>
+</ul>
+<p>sudo yum install gcc gcc-c++ make<br />
+sudo yum install pcre pcre-devel<br />
+sudo yum install zlib zlib-devel<br />
+sudo yum install openssl openssl-devel</p>
+<h4 id="make-compile"><a class="markdownIt-Anchor" href="#make-compile"></a> Make Compile</h4>
+<ul>
+<li>./configure --prefix=/home/lscns/project/nginx --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_gzip_static_module
+<ul>
+<li>prefix = base nginx folder</li>
+<li>make</li>
+<li>make install</li>
+</ul>
+</li>
+</ul>
+<h4 id="make-compile-2"><a class="markdownIt-Anchor" href="#make-compile-2"></a> Make Compile</h4>
+<ul>
+<li>./configure --prefix=/DATA/nginx --with-http_ssl_module --with-http_v2_module --with-http_realip_module --with-http_gzip_static_module
+<ul>
+<li>prefix = base nginx folder</li>
+<li>make</li>
+<li>make install</li>
+</ul>
+</li>
+</ul>
+<h3 id="response-header"><a class="markdownIt-Anchor" href="#response-header"></a> Response Header</h3>
+<ul>
+<li>X-Content-Type-Option : 리소스를 다운로드할때 해당 리소스의 MIMETYPE이 일치하지 않는 경우 차단
+<ul>
+<li>해당 헤더 추가</li>
+<li>X-Content-Type-Options: nosniff</li>
+</ul>
+</li>
+<li>Strict-Transport-Security : 한번 https로 접속하는 경우 이후의 모든 요청을 http로 요청하더라도 브라우저가 자동으로 https로 요청
+<ul>
+<li>해당 헤더 추가</li>
+<li>Strict-Transport-Security: max-age=63072000; includeSubdomains; preload</li>
+</ul>
+</li>
+<li>X-XSS-Protection : (XSS) 공격을 감지 할 때 페이지 로드를 중지시킬 수 있습니다.
+<ul>
+<li>해당 헤더 추가</li>
+<li>X-XSS-Protection: 1;mode=block</li>
+</ul>
+</li>
+<li>X-Frame-Options : 해당 페이지를 <frame> 또는 <iframe>, <object> 에서 렌더링할 수 있는지 여부를 나타내는데 사용됩니다.
+<ul>
+<li>해당 헤더 추가</li>
+<li>X-Frame-Options: sameorigin</li>
+</ul>
+</li>
+<li>Referrer-Policy
+<ul>
+<li>해당 헤더 추가</li>
+<li>‘Referrer-Policy’ ‘origin’;</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">add_header X-Content-Type-Options &quot;nosniff&quot;;</span><br><span class="line">add_header X-XSS-Protection &quot;1;mode=block&quot;;</span><br><span class="line">add_header X-Frame-Options &quot;sameorigin&quot;;</span><br><span class="line">add_header Strict-Transport-Security &quot;max-age=63072000; includeSubdomains; preload&quot;;</span><br><span class="line">add_header &apos;Referrer-Policy&apos; &apos;origin&apos;;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">### Java</span><br><span class="line">- 모든 중요한 쿠키에 &apos;Secure&apos; 속성을 더할 것</span><br><span class="line">- The set-cookie was blocked because it has the secure </span><br><span class="line">```yaml</span><br><span class="line">server:</span><br><span class="line">  servlet:</span><br><span class="line">    session:</span><br><span class="line">      cookie:</span><br><span class="line">        secure: true</span><br></pre></td></tr></table></figure>
+<h3 id="nginx-cors"><a class="markdownIt-Anchor" href="#nginx-cors"></a> nginx CORS</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">     if ($request_method = &apos;OPTIONS&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Vary: Origin&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Custom headers and headers various browsers *should* be OK with but aren&apos;t</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range&apos;;</span><br><span class="line">        #</span><br><span class="line">        # Tell client that this pre-flight info is valid for 20 days</span><br><span class="line">        #</span><br><span class="line">        add_header &apos;Access-Control-Max-Age&apos; 1728000;</span><br><span class="line">        add_header &apos;Content-Type&apos; &apos;text/plain; charset=utf-8&apos;;</span><br><span class="line">        add_header &apos;Content-Length&apos; 0;</span><br><span class="line">        return 204;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;POST&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Expose-Headers&apos; &apos;Content-Length,Content-Range&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">     if ($request_method = &apos;GET&apos;) &#123;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Origin&apos; &apos;*&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Methods&apos; &apos;GET, POST, OPTIONS&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Allow-Headers&apos; &apos;DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range&apos;;</span><br><span class="line">        add_header &apos;Access-Control-Expose-Headers&apos; &apos;Content-Length,Content-Range&apos;;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="on-site-request-forgery-attack"><a class="markdownIt-Anchor" href="#on-site-request-forgery-attack"></a> On-Site Request Forgery Attack</h3>
+<h3 id="cross-site-request-forgery-attack"><a class="markdownIt-Anchor" href="#cross-site-request-forgery-attack"></a> Cross-Site Request Forgery Attack</h3>
+<p><img src="/images/project/security/access_control_allow.png" alt="" /></p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/24/project-jasypt/">project-jasypt</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-24</time><div class="content"><h3 id="jasypt"><a class="markdownIt-Anchor" href="#jasypt"></a> jasypt</h3>
+<ul>
+<li>Java Simplified Encryption</li>
+<li>Gradle 추가 compile “com.github.ulisesbocchio:jasypt-spring-boot-starter:1.17”</li>
+<li>StringEncryptor Bean 생성 후 application.yml에 jasypt: encryptor: bean에 해당 bean 이름 선언</li>
+</ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/06/23/project-jenkins-ssh-deploy/">jenkins-ssh-deploy</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-06-23</time><div class="content"><h3 id="jenkins-ssh-deploy"><a class="markdownIt-Anchor" href="#jenkins-ssh-deploy"></a> Jenkins SSH Deploy</h3>
 <ol>
 <li>
 <p>Jenkins Plug-in 설치</p>
@@ -462,663 +587,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/19/blog-migration-gatsby/">blog-migration-gatsby</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-19</time><div class="content"><p><a href="https://github.com/JaeYeopHan/gatsby-starter-bee" target="_blank" rel="noopener">https://github.com/JaeYeopHan/gatsby-starter-bee</a><br />
 <a href="https://rinae.dev/posts/creating-new-blog-with-gatsby" target="_blank" rel="noopener">https://rinae.dev/posts/creating-new-blog-with-gatsby</a><br />
 <a href="https://dev.kyoungah.com/2019-07-04-blog-migration/" target="_blank" rel="noopener">https://dev.kyoungah.com/2019-07-04-blog-migration/</a></p>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/16/msa-keyword/">msa-keyword</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/MicroServiceArchitecture/">MicroServiceArchitecture</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/keyword/">keyword</a></span><div class="content"><h3 id="bus-factor"><a class="markdownIt-Anchor" href="#bus-factor"></a> Bus Factor</h3>
-<ul>
-<li>팀원들 사이에 공유디ㅗ지 않은 지식의 위험에 대한 척도.</li>
-<li>'만약 버스에 치이면’이라면 표현에서 비롯된 것으로 Truck Factor로도 알려져 있다. 버스 팩터가 낮을수록 더 나쁘다.</li>
-</ul>
-<h3 id="운영-준비-상태"><a class="markdownIt-Anchor" href="#운영-준비-상태"></a> 운영 준비 상태</h3>
-<ul>
-<li>신뢰성
-<ul>
-<li>서비스가 가용하고 에러에 대응 할 수 있는가?</li>
-<li>배포 프로세스가 새로운 기능을 배포할 때 불안정성과 결함을 유발하지 않을 것을 신뢰할 수 있는가?</li>
-</ul>
-</li>
-<li>확장성
-<ul>
-<li>서비스가 필요로 하는 리소스와 용량을 이해하는가?</li>
-<li>부하 상황에서 어떻게 서비스의 응답성을 유지할 것인가?</li>
-</ul>
-</li>
-<li>투명성
-<ul>
-<li>로그와 메트릭을 통해 서비스의 운영을 관찰할 수 있는가?</li>
-<li>뭔가 잘못되면 누군가 알림을 받는가?</li>
-</ul>
-</li>
-<li>장애 내성
-<ul>
-<li>단일 장애 지점을 어떻게 극복할 것인가?</li>
-<li>의존하는 다른 서비스의 장애를 어떻게 대응할 것인가?</li>
-</ul>
-</li>
-</ul>
-<h3 id="msa-초기-단계-기본-원칙"><a class="markdownIt-Anchor" href="#msa-초기-단계-기본-원칙"></a> MSA 초기 단계 기본 원칙</h3>
-<ul>
-<li>품질 관리 : 코드 변경을 리뷰하고, 적절한 테스트를 작성하고 소스 코드의 버전 제어를 관리한다.</li>
-<li>자동 배포 : 코드 변경을 운영으로 전달하는 것을 완전하게 검증하고 엔지니어의 개입을 최소화 해야한다.</li>
-<li>회복성 : 서비스가 어떻게 실패할 수 있고 능동적으로 어떻게 사전에 대책을 강구할 수 있는지를 고려해야 한다.</li>
-<li>투명성 : 서비스의 상태와 행동은 관측 가능해야 한다.</li>
-</ul>
-<h3 id="콘웨이의-법칙conways-law"><a class="markdownIt-Anchor" href="#콘웨이의-법칙conways-law"></a> 콘웨이의 법칙(Conway’s law)</h3>
-<ul>
-<li>소프트웨어 구조는 해당 소프트웨어를 개발한 조직의 커뮤니케이션 구조를 닮게 된다.<br />
-<a href="https://johngrib.github.io/wiki/Conway-s-law/" target="_blank" rel="noopener">https://johngrib.github.io/wiki/Conway-s-law/</a></li>
-</ul>
-<h3 id="아키텍처-원칙"><a class="markdownIt-Anchor" href="#아키텍처-원칙"></a> 아키텍처 원칙</h3>
-<ul>
-<li>개발 실무는 외부 표준을 준수해야 한다. (ISO 27001)</li>
-<li>모든 데이터는 이동 가능해야 하고 보관 기간을 제한하는 것을 염두에 둬야 한다.</li>
-<li>개인 정보는 어플리케이션을 통해 명확하게 추적할 수 있어야 한다.</li>
-</ul>
-<h3 id="bounded-context"><a class="markdownIt-Anchor" href="#bounded-context"></a> Bounded Context</h3>
-<ul>
-<li>컨텍스트 내의 모델은 응집도가 높고 실 세계와 동일한 뷰를 가진다</li>
-<li>명확한 범위와 경계를 가지는 응집된 단위</li>
-</ul>
-<h3 id="openapi-specification"><a class="markdownIt-Anchor" href="#openapi-specification"></a> OpenAPI Specification</h3>
-<ul>
-<li><a href="https://github.com/OAI/OpenAPI-Specification" target="_blank" rel="noopener">https://github.com/OAI/OpenAPI-Specification</a></li>
-<li>Community-driven open specification within the OpenAPI Initiative (<a href="https://www.openapis.org/" target="_blank" rel="noopener">https://www.openapis.org/</a>)</li>
-</ul>
-<h3 id="yangi"><a class="markdownIt-Anchor" href="#yangi"></a> YANGI</h3>
-<ul>
-<li>You Aren’t Gonna Need It.</li>
-</ul>
-<h3 id="dry"><a class="markdownIt-Anchor" href="#dry"></a> DRY</h3>
-<ul>
-<li>don`t repeat yourself. 중복된 반복 작업</li>
-</ul>
-<h3 id="cap"><a class="markdownIt-Anchor" href="#cap"></a> CAP</h3>
-<ul>
-<li>Consistency (일관성)</li>
-<li>Availability (가용성)</li>
-<li>Partition Tolerance (파티션 내성)</li>
-<li>CAP Twelve Years Later : How the ‘Rules’ have changed / <a href="Http://mng.bz/HGA3" target="_blank" rel="noopener">Http://mng.bz/HGA3</a></li>
-<li><a href="http://ksat.me/a-plain-english-introduction-to-cap-theorem" target="_blank" rel="noopener">http://ksat.me/a-plain-english-introduction-to-cap-theorem</a></li>
-</ul>
-<h3 id="cqrs"><a class="markdownIt-Anchor" href="#cqrs"></a> CQRS</h3>
-<h3 id="choreographed"><a class="markdownIt-Anchor" href="#choreographed"></a> choreographed</h3>
-<ul>
-<li>자율적으로 구성된</li>
-</ul>
-<h3 id="saga-pattern"><a class="markdownIt-Anchor" href="#saga-pattern"></a> SAGA pattern</h3>
-<ul>
-<li>Life Beyond Distributed Transactions <a href="http://queue.acm.org/detail/cfm?id=3025012" target="_blank" rel="noopener">http://queue.acm.org/detail/cfm?id=3025012</a></li>
-</ul>
-<h4 id="choreography-saga-pattern"><a class="markdownIt-Anchor" href="#choreography-saga-pattern"></a> Choreography SAGA Pattern</h4>
-<h4 id="orchestration-saga-pattern-조율된-사가-패턴"><a class="markdownIt-Anchor" href="#orchestration-saga-pattern-조율된-사가-패턴"></a> Orchestration SAGA Pattern (조율된 사가 패턴)</h4>
-<ul>
-<li>netflix conductor</li>
-</ul>
-<h4 id="inten-saga-pattern-중첩된-사가-패턴"><a class="markdownIt-Anchor" href="#inten-saga-pattern-중첩된-사가-패턴"></a> Inten SAGA Pattern (중첩된 사가 패턴)</h4>
-<ul>
-<li>회로 차단하기 (short-circuiting)</li>
-<li>잠그기 (Locking)</li>
-<li>인터럽트 (Interruption)</li>
-</ul>
-<h3 id="일관성-패턴"><a class="markdownIt-Anchor" href="#일관성-패턴"></a> 일관성 패턴</h3>
-<ol>
-<li>보상 동작 : 이전 동작을 없던 일로 하는 동작을 수행한다.</li>
-<li>재시도 : 성공 또는 시간 만료될 때가지 재시도한다.</li>
-<li>무시 : 에러 이벤트가 발생해도 아무것도 하지 않는다.</li>
-<li>재시작 : 원래 상태로 초기화하고 다시 시작한다.</li>
-<li>잠정적 동작 : 잠정적 동작을 수행하고 나중에 확정 또는 취소한다.</li>
-</ol>
-<h3 id="이벤트-소싱-패턴"><a class="markdownIt-Anchor" href="#이벤트-소싱-패턴"></a> 이벤트 소싱 패턴</h3>
-<ul>
-<li>Nick Chamberlain : awesome-ddd (<a href="https://github.com/heynickc/awesome-ddd" target="_blank" rel="noopener">https://github.com/heynickc/awesome-ddd</a>)</li>
-</ul>
-<h3 id="cache-problem"><a class="markdownIt-Anchor" href="#cache-problem"></a> Cache Problem</h3>
-<ul>
-<li><a href="https://markheath.net/post/troublehooting-caching-problems" target="_blank" rel="noopener">https://markheath.net/post/troublehooting-caching-problems</a></li>
-</ul>
-<h3 id="idempotent"><a class="markdownIt-Anchor" href="#idempotent"></a> Idempotent</h3>
-<ul>
-<li>멱등성 : 연산을 여러번 적용 하더라도 결과가 달라지지 않는 성질</li>
-</ul>
-<h3 id="신뢰할-수-있는-커뮤니케이션-설계하기"><a class="markdownIt-Anchor" href="#신뢰할-수-있는-커뮤니케이션-설계하기"></a> 신뢰할 수 있는 커뮤니케이션 설계하기</h3>
-<ul>
-<li>재시도 : 기하급수적 백-오프(exponential back-off)
-<ul>
-<li>항상 최대 재시도 횟수를 제한한다.</li>
-<li>기하급수적 백-오프와 지터(무작위 요소; jitter)를 포함해서 재시도 요청을 부드럽게 분산시키고 부하가 몰리는 것을 회피한다.</li>
-<li>어떤 에러 조건에서 재시도를 해야 할지, 그래서 어떤 재시도가 실패할 것 같은지를 고려한다.</li>
-</ul>
-</li>
-<li>폴백
-<ul>
-<li>우아한 서비스의 저하(graceful degradation)</li>
-<li>캐싱 (Caching)</li>
-<li>기능 중복 (Functional redundancy)</li>
-<li>대체 데이터 (Stubbed data)</li>
-</ul>
-</li>
-<li>타임 아웃</li>
-<li>회로 차단기 (서킷 브레이커)
-<ul>
-<li>half open</li>
-</ul>
-</li>
-</ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/16/cryptography-key/">cryptography-key</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-16</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/key/">key</a></span><div class="content"><h2 id="키"><a class="markdownIt-Anchor" href="#키"></a> 키</h2>
-<h3 id="키는-대단히-큰-수"><a class="markdownIt-Anchor" href="#키는-대단히-큰-수"></a> 키는 대단히 큰 수</h3>
-<ul>
-<li>암호 기술을 사용하려면 반드시 키라 불리는 대단히 큰 수가 필요</li>
-<li>중요한 것은 수 그 자체의 크기보다도 키 공간(Key Space)의 크기</li>
-<li>키 공간의 크기는 키의 비트 길이로 결정</li>
-<li>암호별 키 길이
-<ul>
-<li>AES: 128,192,256 비트</li>
-<li>RSA: 1024, 2048</li>
-</ul>
-</li>
-</ul>
-<h3 id="키는-평문과-동일한-가치를-갖는다"><a class="markdownIt-Anchor" href="#키는-평문과-동일한-가치를-갖는다"></a> 키는 평문과 동일한 가치를 갖는다</h3>
-<ul>
-<li>키는 평문과 같은 가치
-<ul>
-<li>도청자 이브에게 키는 평문과 같은 것</li>
-</ul>
-</li>
-</ul>
-<h3 id="암호-알고리즘과-키"><a class="markdownIt-Anchor" href="#암호-알고리즘과-키"></a> 암호 알고리즘과 키</h3>
-<ul>
-<li>암호의 기본 상식
-<ul>
-<li>검증된 암호 알고리즘을 사용</li>
-<li>정보의 기밀성은 암호 알고리즘을 비밀로 하는 것이 아님</li>
-<li>키를 비밀로 하는 것에 의해 기밀성이 지켜져야 함</li>
-</ul>
-</li>
-</ul>
-<h3 id="다양한-키"><a class="markdownIt-Anchor" href="#다양한-키"></a> 다양한 키</h3>
-<ul>
-<li>
-<p>대칭 암호</p>
-<ul>
-<li>키는 송신자와 수신자만 공유</li>
-<li>양측이 공유 키를 비밀로 유지<br />
-<img src="/images/cryptography/key/symmetric_cypher.png" alt="" /></li>
-</ul>
-</li>
-<li>
-<p>공개 키 암호</p>
-<ul>
-<li>암호화와 복호화에서 다른 키 사용</li>
-<li>개인 키를 비밀로 유지<br />
-<img src="/images/cryptography/key/asymmetric_cypher.png" alt="" /></li>
-</ul>
-</li>
-<li>
-<p>메세지 인증 코드</p>
-<ul>
-<li>송신자와 수신자가 공통의 키를 사용해서 인증을 수행<br />
-<img src="/images/cryptography/key/mac_key.png" alt="" /></li>
-</ul>
-</li>
-<li>
-<p>디지털 서명</p>
-<ul>
-<li><em>서명 작성</em>과 <em>서명 검증</em>에 서로 다른 키를 사용<br />
-<img src="/images/cryptography/key/digital_signature_key.png" alt="" /></li>
-</ul>
-</li>
-</ul>
-<h3 id="기밀성을-위한-키와-인증을-위한-키"><a class="markdownIt-Anchor" href="#기밀성을-위한-키와-인증을-위한-키"></a> 기밀성을 위한 키와 인증을 위한 키</h3>
-<ul>
-<li>보안 속성에 따른 분류
-<ul>
-<li>기밀성을 유지하기 위한 키
-<ul>
-<li>대칭 암호나 공개 키 암호에서 사용하는 키</li>
-<li>복호화 키를 모르면 복호화 불가</li>
-</ul>
-</li>
-<li>인증을 수행하기 위한 키
-<ul>
-<li>메세지 인증 코드나 디지털 서명에서 사용하는 키</li>
-<li>키를 모르면 데이터 변경이나 위장 불가</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>키 사용 횟수에 따른 분류
-<ul>
-<li>세션 키(Session Key)
-<ul>
-<li>통신 때마다 한 번만 사용 되는 키</li>
-</ul>
-</li>
-<li>마스터 키(Master Key)
-<ul>
-<li>반복적으로 사용 되는 키</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="컨텐츠를-암호화-하는-키와-키를-암호화-하는-키"><a class="markdownIt-Anchor" href="#컨텐츠를-암호화-하는-키와-키를-암호화-하는-키"></a> 컨텐츠를 암호화 하는 키와 키를 암호화 하는 키</h3>
-<ul>
-<li>CEK (contents encrypting key) : 정보(콘텐츠)가 암호화의 대상</li>
-<li>KEK (key encrypting key) : 키가 암호화의 대상<br />
-<img src="/images/cryptography/key/cek_kek.png" alt="" /></li>
-</ul>
-<h3 id="키-관리"><a class="markdownIt-Anchor" href="#키-관리"></a> 키 관리</h3>
-<ol>
-<li>키 생성</li>
-</ol>
-<ul>
-<li>
-<p>난수를 이용한 키 생성</p>
-<ul>
-<li>난수 사용 : 키 성질로 다른 사람이 추측하기 어려워야 한다를 가져야 하기 때문</li>
-<li>난수 생성 : 하드웨어를 사용하는 것이 좋지만, 통상적으로 암호용으로 설계된 의사 난수 생성기 소프트웨어를 사용</li>
-<li>자신이 적당한 바이트 열을 만들면 안 됨
-<ul>
-<li>스스로는 랜덤한 값이라고 생각하고 생성해도, 거기에는 인위적인 편중이 있기 때문에 랜덤한 값이 되지 못함</li>
-</ul>
-</li>
-<li>암호용으로 이용하는 의사난수 생성기
-<ul>
-<li>반드시 암호용으로 설계되어 있는 것을 선택</li>
-<li>암호용으로 설계되어 있지 않은 의사난수 생성기는 예측불가능 성질을 갖지 않기 때문</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>패스워드를 이용한 키 생성</p>
-<ul>
-<li>패스워드 (password)</li>
-<li>패스 프레이즈 (passphrase) : 복수의 단어로 이루어지는 긴 패스워드</li>
-<li>패스워드를 키로 직접 이용하지 않고, 패스워드를 일방향 해시 함수에 입력해서 얻어진 해시 값을 키로 이용</li>
-</ul>
-</li>
-<li>
-<p>PBE와 salt</p>
-<ul>
-<li>Password Based Encryption</li>
-<li>패스워드에 salt라 불리는 난수를 부가해서 일방향 해시 함수에 입력하고 그 출력을 키로 사용</li>
-<li>사전 공격(Dictinary attack)을 막기 위한 조치</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li>키 배송</li>
-</ol>
-<ul>
-<li>키 배송 문제
-<ul>
-<li>키를 사전에 공유</li>
-<li>키 배포 센터</li>
-<li>공개키 암호</li>
-<li><em>Diffie-Hellman 키 교환</em></li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>키 갱신 (key updating)</li>
-</ol>
-<ul>
-<li>현재 키의 해시값을 다음 키로 사용</li>
-<li>키 노출시 과거 통신의 복호화를 막을 수 있다.</li>
-<li>이를 백워드 시큐리티라 한다.</li>
-</ul>
-<ol start="4">
-<li>키 보존</li>
-</ol>
-<ul>
-<li>키를 반복해서 사용할 경우 키 보존 문제를 고려
-<ul>
-<li>키 기억 : 보통 실용적 키의 크기나 비트화된 표현 등으로 기억할 수 없다.</li>
-<li>키 암호화 : KEK(Key Encryption Key)<br />
-<img src="/images/cryptography/key/key_hierarchy.png" alt="" /><br />
-<a href="https://www.crocus.co.kr/1233" target="_blank" rel="noopener">https://www.crocus.co.kr/1233</a><br />
-<a href="https://rsec.kr/?p=242" target="_blank" rel="noopener">https://rsec.kr/?p=242</a></li>
-</ul>
-</li>
-</ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/04/13/cryptography-certification/">cryptography-certification</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-04-13</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/cryptography/">cryptography</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/pki/">pki</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/certification/">certification</a></span><div class="content"><h2 id="인증서"><a class="markdownIt-Anchor" href="#인증서"></a> 인증서</h2>
-<ul>
-<li>공개키 인증서(public-key certificate: PKC)
-<ul>
-<li>이름이나 소속, 메일 주소 등의 개인 정보</li>
-<li>당사자의 공개 키가 기재</li>
-<li>인증기관(CA; certification authority)의 개인 키로 디지털 서명</li>
-</ul>
-</li>
-</ul>
-<h3 id="인증서를-사용하는-시나리오"><a class="markdownIt-Anchor" href="#인증서를-사용하는-시나리오"></a> 인증서를 사용하는 시나리오</h3>
-<p><img src="/images/cryptography/certification/public_key_certification_senario.png" alt="" /></p>
-<h3 id="공인-인증서-종류"><a class="markdownIt-Anchor" href="#공인-인증서-종류"></a> 공인 인증서 종류</h3>
-<ul>
-<li>전자서명용 인증서(Digital Signature Certificate)
-<ul>
-<li>거래 상대방에 대한 신원확인(인증), 전자문서의 위.변조여부의 검출(무결성), 전자문서 송.수신자간의 송.수신사실 여부에 대한 ⑨부인방지(부인봉쇄) 목적으로 사용</li>
-</ul>
-</li>
-<li>암호화용 인증서(Encryption Certificate)
-<ul>
-<li>적법한 송.수신자를 제외한 제3자가 전송중인 메시지를 보지 못하도록 하는데 사용(비밀성)</li>
-</ul>
-</li>
-<li>클라언트 SSL 인증서(Client SSL Certificate)
-<ul>
-<li>클라이언트와 서버가 안전한 통신을 하고자 할 때, 서버가 클라이언트의 신원확인을 위해 사용</li>
-<li>Form Signing, SSO(Single Sign On)에서 사용</li>
-</ul>
-</li>
-<li>서버 SSL 인증서(Sever SSL Certificate)
-<ul>
-<li>클라이언트와 서버가 안전한 통신을 하고자 할 때, 클라이언트가 서버의 신원확인을 위해 사용</li>
-</ul>
-</li>
-<li>ⓓS/MIME 인증서(S/MIME Certificate)
-<ul>
-<li>전자메일에 전자서명 하거나 전자메일의 암호화를 위해서 사용</li>
-</ul>
-</li>
-<li>소프트웨어 배포용 인증서(Code-Signing Certificate)
-<ul>
-<li>인터넷과 같은 안전하지 않은 통신망을 통해 소프트웨어를 안전하게 배포할 목적으로 사용하는 인증서로서 Java code, Javascript 등<br />
-소프트웨어 코드에 그 제작자가 전자서명을 함으로써, 제작자의 신원확인과 전송과정에서의 소프트웨어의 위.변조를 확인할 용도로 사용합니다.</li>
-</ul>
-</li>
-<li>인증기관용 인증서(CA Certificate)
-<ul>
-<li>CA의 확인을 위해 사용</li>
-<li>클라이언트와 서버의 S/W에서 다른 인증서의 신뢰여부를 검증할 때 사용</li>
-</ul>
-</li>
-</ul>
-<h3 id="verisign-무료-서비스"><a class="markdownIt-Anchor" href="#verisign-무료-서비스"></a> Verisign 무료 서비스</h3>
-<ul>
-<li>
-<p>개인을 위한 인증서(digital ID) 를 60일간 무료 시험판으로 만들어서 제공</p>
-</li>
-<li>
-<p>웹 브라우저만 있으면 온라인에서 바로 발행할 수 있으며 본인 인증은 메일이 도착했는지 여부만으로 확인</p>
-</li>
-<li>
-<p>Https로 보호된 웹 사이트에서 이름, 메일 주소, 패스워드를 입력하고 인증서 작성</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">• Organization = KECA, Inc.</span><br><span class="line">• Organizational Unit = CrossCert Class 1 Consumer Individual Subscriber CA</span><br><span class="line">• Organizational Unit = Terms of use at www.crosscert.com/rpa (c)01</span><br><span class="line">• Organizational Unit = Authenticated by CrossCert</span><br><span class="line">• Organizational Unit = Member, VeriSign Trust Network</span><br><span class="line">• Organizational Unit = Persona Not Validated</span><br><span class="line">• Organizational Unit = Digital ID Class 1 - Netscape</span><br><span class="line">• Common Name = Gil Dong Hong</span><br><span class="line">• Email Address = gildong@gmail.com</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="인증서의-표준-규격-x509"><a class="markdownIt-Anchor" href="#인증서의-표준-규격-x509"></a> 인증서의 표준 규격 X.509</h3>
-<ul>
-<li>
-<p>X.509</p>
-<ul>
-<li>가장 널리 사용</li>
-<li>ITU, ISO에서 규정한 규격으로 인증서의 생성 교환을 수행할 때 사용</li>
-</ul>
-</li>
-<li>
-<p>X.509 v3 디지털 인증서의 구조</p>
-</li>
-<li>
-<p>Certificate</p>
-<ul>
-<li>Version 인증서의 버전을 나타냄</li>
-<li>Serial Number CA가 할당한 정수로 된 고유 번호</li>
-<li>Signature 서명 알고리즘 식별자</li>
-<li>Issuer 발행자</li>
-<li>Validity 유효기간
-<ul>
-<li>Not Before 유효기간 시작 날짜</li>
-<li>Not After 유효기간 끝나는 날짜</li>
-</ul>
-</li>
-<li>Subject 소유자</li>
-<li>Subject Public Key Info 소유자 공개 키 정보
-<ul>
-<li>Public Key Algorithm 공개 키 알고리즘</li>
-<li>Subject Public Key</li>
-</ul>
-</li>
-<li>Issuer Unique Identifier (Optional) 발행자 고유 식별자</li>
-<li>Subject Unique Identifier (Optional) 소유자 고유 식별자</li>
-<li>Extensions (Optional) 확장</li>
-</ul>
-</li>
-<li>
-<p>Certificate Signature Algorithm</p>
-</li>
-<li>
-<p>Certificate Signature</p>
-</li>
-<li>
-<p>인증서 파일 확장<br />
-.CER(Window) .CRT(Linux) - CER 암호화 된 인증서. 복수의 인자증서도 가능.<br />
-.DER - DER 암호화 된 인증서.<br />
-.PEM - (Privacy Enhanced Mail) Base64로 인코딩 된 인증서. &quot;-----BEGIN CERTIFICATE-----&quot;와 “-----END CERTIFICATE-----” 가운데에 들어간다.<br />
-.P7B - .p7c 참조.<br />
-.P7C - PKCS#7 서명 자료 구조(자료는 제외), 인증서이거나 CRL(복수도 가능).<br />
-.PFX - .p12 참조.<br />
-.P12 - PKCS#12, 공개 인증서와 암호로 보호되는 개인 키를 가질 수 있다(복수도 가능).</p>
-</li>
-</ul>
-<h3 id="공개-키-기반-구조-pki"><a class="markdownIt-Anchor" href="#공개-키-기반-구조-pki"></a> 공개 키 기반 구조 (PKI)</h3>
-<ul>
-<li>
-<p>공개 키 기반(public key infrastructure)</p>
-<ul>
-<li>공개 키를 효과적으로 운용하기 위해 정한 규격이나 선택사양의 총칭</li>
-<li>PKCS(Public-Key Cryptography Standards) : RSA사가 정하고 있는 규격의 집합</li>
-<li>RFC(Requests for Comments) 중에서도 PKI에 관련된 문서</li>
-<li>X.509</li>
-<li>API 사양서</li>
-</ul>
-</li>
-<li>
-<p>PKI 구성 요소</p>
-<ul>
-<li>이용자 : PKI를 이용하는 사람</li>
-<li>인증기관 : 인증서를 발행 하는 사람</li>
-<li>저장소 : 인증서를 보관하고 있는 데이터 베이스</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/cryptography/certification/PKI_info.png" alt="" /></p>
-<ul>
-<li>
-<p>이용자</p>
-<ul>
-<li>PKI를 사용해서 자신의 공개 키를 등록하고 싶어 하는 사람과 등록되어 있는 공개 키를 사용하고 싶어 하는 사람</li>
-</ul>
-</li>
-<li>
-<p>이용자가 하는일</p>
-<ul>
-<li>키 쌍을 작성한다</li>
-<li>인증 기관에 공개 키를 등록한다</li>
-<li>인증 기관으로부터 인증서를 발행 받는다</li>
-<li>수신한 암호문을 복호화 한다.</li>
-<li>메세지에 디지털 서명을 한다.</li>
-</ul>
-</li>
-<li>
-<p>공개키 사용자가 하는</p>
-<ul>
-<li>메시지를 암호화해서 수신자에게 송신한다</li>
-<li>디지털 서명을 검증한다.일</li>
-</ul>
-</li>
-<li>
-<p>인증 기관 (CA; certification authority)</p>
-<ul>
-<li>인증서의 관리를 행하는 기관</li>
-<li>키 쌍을 작성한다</li>
-<li>공개키 등록 때 본인을 인증한다</li>
-<li>인증서 작성 발행, 폐지</li>
-</ul>
-</li>
-<li>
-<p>등록 기관 (RA; registration authority)</p>
-<ul>
-<li>인증 기관의 일중 공개키의 등록과 본인에 대한 인증을 대행 하는 기관</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/cryptography/certification/ds_management_korea.png" alt="" /></p>
-<p>한국 공인 인증 기관</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">공인인증기관</th>
-<th style="text-align:center">웹페이지</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">힌국정보인증(주)</td>
-<td style="text-align:center"><a href="http://www.signgate.com" target="_blank" rel="noopener">http://www.signgate.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">(주)코스콤</td>
-<td style="text-align:center"><a href="http://www.signkorea.com" target="_blank" rel="noopener">http://www.signkorea.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">금융결제원</td>
-<td style="text-align:center"><a href="http://www.yessign.com" target="_blank" rel="noopener">http://www.yessign.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">한국전자인증(주)</td>
-<td style="text-align:center"><a href="http://www.crosscert.com" target="_blank" rel="noopener">http://www.crosscert.com</a></td>
-</tr>
-<tr>
-<td style="text-align:center">한국무역정보통신</td>
-<td style="text-align:center"><a href="http://tradesign.net" target="_blank" rel="noopener">http://tradesign.net</a></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>
-<p>저장소 (repository)</p>
-<ul>
-<li>인증서를 보존해 두고, PKI의 이용자가 인증서를 입수할 수 있도록 한 데이터 베이스</li>
-<li>인증서 디렉토리</li>
-</ul>
-</li>
-<li>
-<p>인증 기관의 역할</p>
-<ul>
-<li>
-<p>키 쌍의 작성</p>
-<ul>
-<li>PKI의 이용자가 작성하거나</li>
-<li>인증기관이 이용자의 키 쌍을 생성할 경우 개인 키를 이용자에게 보내는 추가 업무를 해야한다.
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/PKCS" target="_blank" rel="noopener">PKCS</a> #12 (Personal Information Exchange Syntax Standard)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>인증서 등록</p>
-<ul>
-<li>이용자는 인증 기관에 인증서 작성을 의뢰
-<ul>
-<li>규격 : <a href="https://en.wikipedia.org/wiki/PKCS" target="_blank" rel="noopener">PKCS</a> #10 (Certification Request Syntax Standard)</li>
-</ul>
-</li>
-<li>운용 규격 (CPS; certification practice statement)에 근거해서 이용자를 인증하고, 인증서를 작성
-<ul>
-<li>인증서 형식 : <a href="https://en.wikipedia.org/wiki/PKCS" target="_blank" rel="noopener">PKCS</a> #6 (Extended-Certificate Syntax Standard)나 X.509로 정의</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>인증서의 폐지</p>
-<ul>
-<li>이용자가 개인키에 대한 권한을 잃거나 개인키를 분실 혹은 도난 당했을 경우 인증기관은 인증서를 폐지(revoke)해서 무효화 해야한다.</li>
-<li>인증서를 폐지하는 경우 인증기관은 인증서 폐지 목록(CRL) 을 작성한다.</li>
-</ul>
-</li>
-<li>
-<p>CRL(Certification revocation list)관리</p>
-<ul>
-<li>인증기관이 폐지한 인증서의 일련번호의 목록에 대해 인증기관이 디지털 서명을 붙인 것이다.</li>
-<li><em>인증기관의 최신 CRL을 조사해서 그 인증서가 유효한지 아닌지를 확실히 확인 할 필요가 있다</em></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="계층-구조를-갖는-인증서"><a class="markdownIt-Anchor" href="#계층-구조를-갖는-인증서"></a> 계층 구조를 갖는 인증서</h3>
-<ul>
-<li>루트 CA
-<ul>
-<li>최상위 인증기관</li>
-</ul>
-</li>
-<li>셀프 서명(Self-signature)
-<ul>
-<li>자기 자신의 공개 키에 대해서 자신의 개인 키로 서명하는 디지털 서명</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/cryptography/certification/hierarchy_structure_CA.png" alt="" /><br />
-<img src="/images/cryptography/certification/flow.png" alt="" /></p>
-<ul>
-<li>한국의 PKI
-<ul>
-<li>한국인터넷진흥원 전자서명인증관리센터(<a href="http://rootca.kisa.or.kr" target="_blank" rel="noopener">http://rootca.kisa.or.kr</a>)</li>
-</ul>
-</li>
-</ul>
-<h3 id="공인-인증서-대체-기술"><a class="markdownIt-Anchor" href="#공인-인증서-대체-기술"></a> 공인 인증서 대체 기술</h3>
-<ul>
-<li>핸드폰 개통할 때 계좌 인증, 카드 인증 사용</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">구분</th>
-<th style="text-align:center">주요 내용</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">휴대폰 본인 확인</td>
-<td style="text-align:center">본인 확인 기관으로 지정된 통신 3사가 휴대폰 개통 과정에서 수집된 개인정보를 활용해 본인 여부 확인</td>
-</tr>
-<tr>
-<td style="text-align:center">계좌 인증</td>
-<td style="text-align:center">신분 확인을 통해 개설된 은행계좌에 소액입금과 함께 임의적 문자를 송부해 본인 여부 확인</td>
-</tr>
-<tr>
-<td style="text-align:center">카드 인증</td>
-<td style="text-align:center">신분확인을 통해 발급된 신용카드의 정보입력을 통해 본인 여부 확인</td>
-</tr>
-</tbody>
-</table>
-<h3 id="공공-민간-전자-서명"><a class="markdownIt-Anchor" href="#공공-민간-전자-서명"></a> 공공 민간 전자 서명</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">공인인증기관</th>
-<th style="text-align:center">본인확인기관</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">정의</td>
-<td style="text-align:center">공인인증업무를 제공 하기 위한 기관</td>
-<td style="text-align:center">주민등록번호 외 본인 확인 업무를 제공하는 기관</td>
-</tr>
-<tr>
-<td style="text-align:center">업체</td>
-<td style="text-align:center">한국정보인증,코스콤,금융결제원 등</td>
-<td style="text-align:center">6개 공인인증 기관,3사 통신사, 카드사 등</td>
-</tr>
-</tbody>
-</table>
-</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
   $('#top-container').addClass('is-mobile')

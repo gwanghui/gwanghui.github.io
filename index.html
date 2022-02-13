@@ -7,137 +7,432 @@
     error: 'Copy error',
     noSupport: 'The browser does not support'
   }
-} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">100</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2021/08/16/architect-course-software-quality-attribute/">architect-course-software-quality-attribute</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-08-16</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/architect-course/">architect course</a></span><div class="content"><h3 id="국체-표준-약자"><a class="markdownIt-Anchor" href="#국체-표준-약자"></a> 국체 표준 약자</h3>
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2022/02/08/cka-section2-core-concept/">cka-section2-core-concept</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-02-08</time><div class="content"><h2 id="cluster-architecture"><a class="markdownIt-Anchor" href="#cluster-architecture"></a> Cluster Architecture</h2>
+<h3 id="node"><a class="markdownIt-Anchor" href="#node"></a> Node</h3>
 <ul>
-<li>ISO : International Organization for Standardization, 국제표준화기구</li>
-<li>IEC : International Electrotechnical Commission, 국제전기기술위원회</li>
-<li>IEEE : Institute of Electrical and Electronics Engineers, 국제전기기술자협회</li>
-</ul>
-<h3 id="isoiec-9126-isoiec-25010"><a class="markdownIt-Anchor" href="#isoiec-9126-isoiec-25010"></a> ISO/IEC 9126, ISO/IEC 25010</h3>
+<li>Master Nodes: Manage, Plan, Schedule, Monitor Nodes
 <ul>
-<li>소프트웨어 제품의 품질특성을 정의하고 품질을 평가하기 위한 기준(Metrics)을 정의한 표준</li>
-<li>소프트웨어 제품을 사용하는 사용자의 입장에서 어떤 특징을 가진 소프트웨어가 품질이 높은 소프트웨어라 할 수 있는가? 에 대한 관점으로 접근</li>
-<li>ISO/IEC 9126 : Software Engineering - Product Quality
+<li>ETCD Cluster: Etcd is a database that stores information in a key-value format</li>
+<li>kube-scheduler: identifies that right node to place a container
 <ul>
-<li>기능성, 신뢰성, 사용성, 효율성, 유지보수성, 이식성</li>
+<li>based on the containers Resource requirements the worker nodes capacity</li>
+<li>any other policies or constraints such as taint(얼룩) and toleration(관용) or node affinity rules that are on them</li>
+<li></li>
 </ul>
 </li>
-<li>ISO/IEC 25010 : Systems and software engineering - Systems and software quality requirements and evaluation
+<li>Controller Manager
 <ul>
-<li>기능적합성, 신뢰성, 사용성, 실행효율성, 유지보수성, 이식성, 호환성, 보안성</li>
+<li>Node-Controller: takes care of nodes
+<ul>
+<li>they’re responsible for onboarding new nodes to the cluster handling situations where nodes become unavailable or gets destroyed</li>
 </ul>
 </li>
-</ul>
-<h3 id="제품-품질-특성"><a class="markdownIt-Anchor" href="#제품-품질-특성"></a> 제품 품질 특성</h3>
-<p><img src="/images/architect-course/ISO_25010.png" alt="" /></p>
-<ul>
-<li>기능 적합성 (Functional suitability) : 제품(시스템)이 명시된 조건에서 사용될경우, 명시되거나 암시된 요구를 충족시키는 기능을 제공하는 정도
-<ul>
-<li>기능 성숙도 (Functional Completeness) : 해당 기능들이 사용자의 모든목적을 만족하는 정도</li>
-<li>기능 정확도 (Functional Correctness) : 제품(시스템)이 정밀도의 필요 정도에따라 정확한 결과를 제공하는 정도</li>
-<li>기능 타당성 (Functional Appropriateness) : 기능이 명시된 작업 및 목적의 완수를 용이하게 하는 정도</li>
+<li>Replication-Controller: ensures that the desired number of containers are running at all times in your replication</li>
 </ul>
 </li>
-<li>수행 효율성 (Performance efficiency) : 주어진 조건에서 자원의 양에 따른 성능
+<li>Kube-api server
 <ul>
-<li>시간반응성(Time Behavior) : 기능을 수행할 때 제품(시스템)의 응답 및 처리시간과 처리율이 요구사항을 충족시키는 정도</li>
-<li>자원 활용(Resource Utilization) : 기능을 수행할 때 제품(시스템)에서 사용하는 자원의 유형이나 양이 요구사항을 만족시키는 정도</li>
-<li>기억용량 : (Capacity)	제품(시스템파라미터)의 최대 한계가 요구사항을 만족시키는 정도</li>
+<li>primary management component of kubernetes</li>
+<li>kube-api server is responsible for orchestrating all operations within the cluster</li>
+<li>it exposes the kubernetes API which is used by external user to perform management operations on the cluster as well as the various controllers to monitor the state of the cluster</li>
+<li>make the necessary changes as required and by the worker nodes to communicate with the server.</li>
 </ul>
 </li>
-<li>호환성 (Compatibility) : 다른 제품과 함께 동일한 SW(HW)  환경을 공유하면서 필요한 기능을 수행할 수 있는 정도
-<ul>
-<li>상호 공존성(Co-existence) : 제품(시스템)이 다른 제품(시스템)에 유해를 가하지 않고 일반적인 환경 및 자원을 공유하면서 제품에 요구된 기능을 효과적으로 수행할 수 있는 정도</li>
-<li>상호 운용성(Interoperability) : 둘 이상의 제품(시스템, 구성요소)이 서로 정보를 교환하거나 교환한 정보를 사용할 수 있는 정도</li>
+<li>DNS Server</li>
 </ul>
 </li>
-<li>사용성 (Usability) : 명시된 사용 환경에서 제품(시스템)이 사용자에 의해 유효성, 효율성 및 만족의 목적을 달성하는 정도
+<li>Worker Nodes: Host Application as Containers
 <ul>
-<li>타당성 식별력(Appropriateness Recognizability) : 제품(시스템)의 기능이 사용자의 요구에 적절한지 여부를 식별할 수 있는 정도</li>
-<li>학습성(Learnability) : 사용자가 제품(시스템)의 목적에 맞게 사용 방법을 학습하여 사용할 수 있는 정도</li>
-<li>운용성(Operability) : 제품(시스템)을 제어하거나 동작하는 것을 쉽게 할 수 있는 정도</li>
-<li>사용자 오류보호(User error Protection) : 발생한 오류로부터 시스템이 사용자를 보호하는 정도</li>
-<li>사용자 인터페이스 미학(User Interface Aesthetics) : 사용자 인터페이스가 사용자와의 상호작용에서 유쾌하고 만족스러울수 있는 정도</li>
-<li>접근성(Accessibility) : 지정한 상황에서 제품(시스템)이 다양한 특성을 가진(연령/장애) 사람에의해 명시된 목표를 달성하며 사용할 수 있는 정도</li>
+<li>Container Runtime Engine: Docker,</li>
+<li>kubelet
+<ul>
+<li>kubelet is responsible for managing all activities on these nodes.</li>
+<li>a kubelet is an agent that runs on each node in a cluster.</li>
+<li>it listens for instructions from the kube-api and deploys or destroys containers on the nodes as required.</li>
+<li></li>
 </ul>
 </li>
-<li>신뢰성 (Reliability) : 제품(시스템, 구성요소)이 명시된 기간과 조건하에서 명시된 기능을 유지하는 정도
+<li>kube-proxy
 <ul>
-<li>성숙도 (Maturity) : 제품(시스템, 구성요소)이 표준 환경에서 고장을 회피하며 신뢰도를 충족시키는 정도</li>
-<li>가용성 (Availability) : 제품(시스템, 구성요소)을 사용할 필요가 있을 때 사용하거나 접근할 수 있는 정도</li>
-<li>오류 허용성 (Fault Tolerance) : 제품(시스템, 구성요소)에 SW(HW)  결함이 존재해도 의도한 성능 수준을 유지할 수 있는 정도</li>
-<li>회복 가능성 (Recoverbility) : 고장이 발생하였을 때 제품(시스템)이 직접 원하는 성능 수준으로 회복하며 데이터를 복구할 수 있는 정도</li>
-</ul>
-</li>
-<li>보안(Security) : 제품(시스템)이 정보(데이터를) 보호하는 정도
-<ul>
-<li>기밀성 (Confidentiality) : 제품(시스템)이 접근 허가된 권한만 있는 다른 제품(시스템)만 접근할 수 있게 하는 정도</li>
-<li>무결성 (Integrity) : 제품(시스템, 구성요소)이 컴퓨터 프로그램 혹은 데이터를 무단으로 접근(변경)하는것을 방지하는 정도</li>
-<li>부인방지 (Non-repudiation) : 사건(행동)이 발생한 뒤 그 사실을 거부할 수 없도록 사건(행동)에 대해 입증하는 정도</li>
-<li>책임성 (Accountability) : 사용자의 행동을 고유하게 식별하여 그 사용자의 행동을 추정할 수 있는 정도</li>
-<li>인증성 (Authenticity) : 사건 및 행동에 대해 주체임을 증명할 수 있는 능력</li>
-</ul>
-</li>
-<li>유지보수성(Maintainability) : 제품(시스템)을 효과적이고 효율적으로 의도된대로 변경할 수 있는 정도
-<ul>
-<li>모듈성 (Modularity) : 외부에 대하여 최소의 영향을 가진 개별 구성 요소로 시스템(SW)이 구성된 정도</li>
-<li>재사용성 (Reusability) : 자산(모듈)이 한 개 이상의 시스템에서 사용될 수 있거나, 다른 자산에 구축할 수 있는 정도</li>
-<li>분석성 (Analyzability) : 제품(시스템)의 문제를 식별하고, 고장의 원인을 진단하고 변경사항을 반영하기 위하여 수정하여야 하는 부분을 식별하기 쉬운 정도</li>
-<li>수정 가능성 (Modifiability) : 제품(시스템)을 수정할때, 기존 제품의 품질을 저하시키거나 장애를 발생시키지 않으면서 효과적이고 효율적으로 수정할 수 있는 정도</li>
-<li>시험 가능성 (Testability) : 제품(시스템, 구성요소)을 검증한 근거가 충분한지를 확인할 수 있는 정도</li>
-</ul>
-</li>
-<li>이식성 (Portability) : 제품(시스템, 구성요소)이 다른 다양한 환경(SW/HW/Network) 등으로의 전환이 용이한 정도
-<ul>
-<li>적합성 (Adaptability) : 제품(시스템)을 다른 SW(HW)나 사용환경에 효과적이고 효율적으로 적용할 수 있는 정도</li>
-<li>설치 가능성 (Installability) : 제품(시스템)이 성공적으로 설치/제거될 수 있는 정도</li>
-<li>대치성 (Replaceability) : 제품이 동일한 환경에서 동일한 목적을 위해 다른 지정된 SW 제품으로 대체될 수 있는 정도</li>
+<li>Communication between worker nodes are enabled by another component that runs on the worker node known as the kube-proxy service.</li>
+<li>kube-proxy service ensures that the necessary rules are in place on the worker nodes to allow the containers running on them to reach each other</li>
 </ul>
 </li>
 </ul>
-<table>
-<thead>
-<tr>
-<th>characteristic</th>
-<th>definition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>기능적합성</td>
-<td>제품 혹은 시스템이 명시된 조건에서 사용될 경우 명시되거나 암시된 요구를 충족시키는 기능을 제공하는 정도</td>
-</tr>
-<tr>
-<td>수행 효율성</td>
-<td>규정된 조건 하에 사용된 자원의 크기에 대한 상대적 성능</td>
-</tr>
-<tr>
-<td>호환성</td>
-<td>같은 하드웨어 혹은 SW 환경을 공유하는 동안 기타 제품,시스템 혹은 구성요소를 교환할 수 있고/혹은 요구된 기능을 구성할 수 있는 정도</td>
-</tr>
-<tr>
-<td>유용성</td>
-<td>제품 및 시스템이 명시된 사용 환경에서 유효성, 효율성 및 만족의 명시된 목적을 달성하는 명시된 사용자에 인해 사용될 수 있는 정도</td>
-</tr>
-<tr>
-<td>신뢰성</td>
-<td>시스템, 제품 혹은 구성요소가 시간이 명시된 기간에 대해 명시된 조건 하에서 명시된 기능을 구성하는 정도</td>
-</tr>
-<tr>
-<td>보안</td>
-<td>제품 혹은 시스템은 정보 및 데이터를 보호한다. 그래서 사람 혹은 기타 제품 혹은 시스템이 자신의 유형 및 인증 정도에 적절한 데이터 접근의 정도를 가지고 있다</td>
-</tr>
-<tr>
-<td>유지관리성</td>
-<td>제품 혹은 시스템의 유효성이 유지관리자로 인해 변경될 수 있는 정도</td>
-</tr>
-<tr>
-<td>이동성</td>
-<td>시스템, 제품 혹은 구성요소는 하드웨어, SW 혹은 기타 운영 혹은 다른 하나의 사용 환경으로 전환될 수 있는 유효성 및 효율성의 정도</td>
-</tr>
-</tbody>
-</table>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/08/10/ctf_solution2020/">ctf_solution2020</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-08-10</time><div class="content"><h2 id="reverse-engineering"><a class="markdownIt-Anchor" href="#reverse-engineering"></a> reverse engineering</h2>
+</li>
+</ul>
+<p><a href="https://medium.com/finda-tech/overview-8d169b2a54ff" target="_blank" rel="noopener">쿠버네티스(k8s)설치 및 환경 구성하기</a></p>
+<h2 id="etcd-cluster"><a class="markdownIt-Anchor" href="#etcd-cluster"></a> ETCD Cluster</h2>
+<ul>
+<li>ETCD datastore stores information regarding the cluster
+<ul>
+<li>nodes</li>
+<li>pods</li>
+<li>config</li>
+<li>secrets</li>
+<li>accounts</li>
+<li>roles</li>
+<li>bindings</li>
+<li>others</li>
+</ul>
+</li>
+<li>two type of kubernetes deployment
+<ul>
+<li>scratch
+<ul>
+<li>set up a cluster we set ot up from scratch</li>
+</ul>
+</li>
+<li>other using kubeadm tool.
+<ul>
+<li>The practice test environments are deployed using the kubeadm tool</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>setup
+<ul>
+<li>kubectl get pods -n kube-system<br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/kubectl_get_pods.png" alt="" /></li>
+<li>kubectl exec etcd-master -n kube-system etcdctl get get / --prefix -keys-only<br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/keys_only.png" alt="" /><br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/registry.png" alt="" /><br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/registry.png" alt="" /><br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/HA.png" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="kube-api-server"><a class="markdownIt-Anchor" href="#kube-api-server"></a> Kube-API server</h2>
+<ul>
+<li>primary management component in kubernetes<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-apiserver/kube-apiserver-main.png" alt="" /></li>
+<li>view api-server options - kubeadm
+<ul>
+<li>cat /etc/kubernetes/manifests/kube-apiserver.yaml</li>
+</ul>
+</li>
+<li>view api-server options
+<ul>
+<li>cat /etc/systemd/system/kube-apiserver.service</li>
+<li>ps -aux | grep kube-apiserver</li>
+</ul>
+</li>
+</ul>
+<h2 id="kube-controller-manager"><a class="markdownIt-Anchor" href="#kube-controller-manager"></a> kube controller manager</h2>
+<p><img src="/images/certification/k8s/administrator/sections2/kube-contoller/controller.png" alt="" /></p>
+<ul>
+<li>
+<p>node controller</p>
+<ul>
+<li>Watch status</li>
+<li>Remediate Situation</li>
+<li>Node Monitor period = 5s</li>
+<li>Node Monitor Grace Period = 40s</li>
+<li>POD Eviction Timeout = 5m<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/node_contoller.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>installing kube-controller-manager<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/install.png" alt="" /></p>
+</li>
+<li>
+<p>view kube-controller-manager - kubeadm</p>
+<ul>
+<li>kubectl get pods -n kube-system<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/kubeadm.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>view kube-controller-manager options - install kubeadm</p>
+<ul>
+<li>cat /etc/kubernetes/manifests/kube-controller-manager.yaml<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/option_adm.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>view kube-controller-manager options - non kubeadm setup</p>
+<ul>
+<li>cat /etc/systemd/system/kube-controller-manager.service</li>
+</ul>
+</li>
+</ul>
+<h2 id="kube-scheduler"><a class="markdownIt-Anchor" href="#kube-scheduler"></a> kube-Scheduler</h2>
+<ul>
+<li>
+<p>scheduling pods on nodes.</p>
+<ul>
+<li>only responsible for deciding which pod goes on which node.</li>
+<li>It doesn’t actually place the pod on the nodes. That’s the job of the kubelet.</li>
+<li>The kubelet is who creates the pod on the nodes.</li>
+<li>The scheduler only decides which pod goes where.</li>
+</ul>
+</li>
+<li>
+<p>how to work scheduler in high level architecture</p>
+<ul>
+<li>node status</li>
+<li>filter nodes</li>
+<li>rank nodes</li>
+</ul>
+</li>
+<li>
+<p>install</p>
+</li>
+<li></li>
+<li>
+<p>view kube-controller-manager options- install kubeadm</p>
+<ul>
+<li>cat /etc/kubernetes/manifests/kube-scheduler.yaml</li>
+</ul>
+</li>
+<li>
+<p>view kube-scheduler options</p>
+<ul>
+<li>ps -aux | grep kube-scheduler</li>
+</ul>
+</li>
+</ul>
+<h2 id="pod-with-yaml"><a class="markdownIt-Anchor" href="#pod-with-yaml"></a> POD with YAML</h2>
+<ul>
+<li>pod-definition.yml</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp-pod</span></span><br><span class="line"><span class="attr">  labels:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2022/01/28/fluentd/">fluentd</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-01-28</time><div class="content"><h1 id="fluentd"><a class="markdownIt-Anchor" href="#fluentd"></a> Fluentd</h1>
+<h2 id="event-structure"><a class="markdownIt-Anchor" href="#event-structure"></a> Event Structure</h2>
+<ul>
+<li>A Fluentd event consists of three components
+<ul>
+<li>tag: Specifies the origin where an event comes from. It is used for message routing.</li>
+<li>time: Specifies the time when an event happens with nanosecond resolution.</li>
+<li>record: Specifies the actual log as a JSON Object</li>
+</ul>
+</li>
+</ul>
+<h2 id="processing-event"><a class="markdownIt-Anchor" href="#processing-event"></a> Processing Event</h2>
+<ul>
+<li>Input -&gt; filter -&gt; Output</li>
+</ul>
+<h2 id="buffer"><a class="markdownIt-Anchor" href="#buffer"></a> Buffer</h2>
+<ul>
+<li>non-buffered output Mode: default</li>
+<li>buffered mode를 사용할 경우 plug-in 필요</li>
+<li>flush condition을 만날때 버퍼를 출력하기 때문에 stdout 처럼 즉시 log를 볼수는 없음.</li>
+</ul>
+<h2 id="configuration"><a class="markdownIt-Anchor" href="#configuration"></a> configuration</h2>
+<h3 id="docker"><a class="markdownIt-Anchor" href="#docker"></a> docker</h3>
+<ul>
+<li>For a Docker container, the default location of the config file is /fluentd/etc/fluent.conf.<br />
+To mount a config file from outside of Docker, use a bind-mount.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/&lt;conf-file&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="directives"><a class="markdownIt-Anchor" href="#directives"></a> Directives</h2>
+<ul>
+<li>source directives determine the input sources</li>
+<li>match directives determine the output destinations</li>
+<li>filter directives determine the event processing pipelines</li>
+<li>system directives set system-wide configuration<br />
+`- label directives group the output and filter for internal routing</li>
+<li>@include directives include other files</li>
+</ul>
+<h3 id="source-where-all-the-data-come-from"><a class="markdownIt-Anchor" href="#source-where-all-the-data-come-from"></a> Source: where all the data come from</h3>
+<ul>
+<li>standard input plugins : http, forward(tcp)</li>
+<li>source directive must include @type parameter</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Receive events from 24224/tcp</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is used by <span class="built_in">log</span> forwarding and the fluent-cat <span class="built_in">command</span></span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type forward</span><br><span class="line">  port 24224</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://&lt;ip&gt;:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type http</span><br><span class="line">  port 9880</span><br><span class="line">&lt;/source&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> generated by http://&lt;ip&gt;:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">tag: myapp.access</span><br><span class="line">time: (current time)</span><br><span class="line">record: &#123;"event":"data"&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>event consists of three entities
+<ul>
+<li>tag, time, record</li>
+<li>tag: string separated by dots (e.g. myapp.access), and is used as the directions for Fluentd internal routing engine
+<ul>
+<li><strong>it is strongly recommended that you stick to the lower-case alphabets, digits and underscore</strong></li>
+</ul>
+</li>
+<li>time: specified by input plugins, and it must be in the Unix time format.</li>
+<li>record: JSON Object</li>
+<li><a href="https://docs.fluentd.org/input" target="_blank" rel="noopener">Input plugin</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="match-tell-fluentd-what-to-do"><a class="markdownIt-Anchor" href="#match-tell-fluentd-what-to-do"></a> match: Tell fluentd what to do!</h3>
+<ul>
+<li>The match directive looks for events with <strong>matching tags</strong> and processes them</li>
+<li>the plugins that correspond to the match directive are called <strong>output plugins</strong></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Receive events from 24224/tcp</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is used by <span class="built_in">log</span> forwarding and the fluent-cat <span class="built_in">command</span></span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type forward</span><br><span class="line">  port 24224</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://&lt;ip&gt;:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type http</span><br><span class="line">  port 9880</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Match events tagged with <span class="string">"myapp.access"</span> and</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> store them to /var/<span class="built_in">log</span>/fluent/access.%Y-%m-%d</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Of course, you can control how you partition your data</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> with the time_slice_format option.</span></span><br><span class="line">&lt;match myapp.access&gt;</span><br><span class="line">  @type file</span><br><span class="line">  path /var/log/fluent/access</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Each match directive must include a match pattern and a <strong>@type</strong> parameter</li>
+<li>Only events with a <strong>tag matching</strong> the pattern will be sent to the output destination</li>
+<li>in the above example, only the events with the tag myapp.access are matched</li>
+</ul>
+<h3 id="filter-event-processing-pipeline"><a class="markdownIt-Anchor" href="#filter-event-processing-pipeline"></a> filter: Event processing pipeline</h3>
+<ul>
+<li>The filter directive has the same syntax as match but <strong>filter could be chained for processing pipeline.</strong> Using filters, event flow is like this:</li>
+<li>Input -&gt; filter 1 -&gt; … -&gt; filter N -&gt; Output</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> http://this.host:9880/myapp.access?json=&#123;<span class="string">"event"</span>:<span class="string">"data"</span>&#125;</span></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type http</span><br><span class="line">  port 9880</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line">&lt;filter myapp.access&gt;</span><br><span class="line">  @type record_transformer</span><br><span class="line">  &lt;record&gt;</span><br><span class="line">    host_param "#&#123;Socket.gethostname&#125;"</span><br><span class="line">  &lt;/record&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line"></span><br><span class="line">&lt;match myapp.access&gt;</span><br><span class="line">  @type file</span><br><span class="line">  path /var/log/fluent/access</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>The received event {“event”:“data”} goes to record_transformer filter first. The record_transformer filter adds host_param field to the event; and, then the filtered event {“event”:“data”,“host_param”:“webserver1”} goes to the file output plugin.</li>
+</ul>
+<h3 id="system-set-system-wide-configuration"><a class="markdownIt-Anchor" href="#system-set-system-wide-configuration"></a> System: Set system-wide configuration</h3>
+<ul>
+<li>log_level</li>
+<li>suppress_repeated_stacktrace</li>
+<li>emit_error_log_interval</li>
+<li>suppress_config_dump</li>
+<li>without_source</li>
+<li>process_name (Only available in system directive. No fluentd option)</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;system&gt;</span><br><span class="line"><span class="meta">  #</span><span class="bash"> equal to -qq option</span></span><br><span class="line">  log_level error</span><br><span class="line"><span class="meta">  #</span><span class="bash"> equal to --without-source option</span></span><br><span class="line">  without_source</span><br><span class="line"><span class="meta">  #</span><span class="bash"> ...</span></span><br><span class="line">&lt;/system&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="label-group-filter-and-output"><a class="markdownIt-Anchor" href="#label-group-filter-and-output"></a> label: Group filter and output</h3>
+<ul>
+<li>The label directive groups filter and output for <strong>internal routing</strong></li>
+<li>The label reduces the complexity of tag handling.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;source&gt;</span><br><span class="line">  @type forward</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line">&lt;source&gt;</span><br><span class="line">  @type tail</span><br><span class="line">  @label @SYSTEM</span><br><span class="line">&lt;/source&gt;</span><br><span class="line"></span><br><span class="line">&lt;filter access.**&gt;</span><br><span class="line">  @type record_transformer</span><br><span class="line">  &lt;record&gt;</span><br><span class="line">    # ...</span><br><span class="line">  &lt;/record&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;match **&gt;</span><br><span class="line">  @type elasticsearch</span><br><span class="line"><span class="meta">  #</span><span class="bash"> ...</span></span><br><span class="line">&lt;/match&gt;</span><br><span class="line"></span><br><span class="line">&lt;label @SYSTEM&gt;</span><br><span class="line">  &lt;filter var.log.middleware.**&gt;</span><br><span class="line">    @type grep</span><br><span class="line">    # ...</span><br><span class="line">  &lt;/filter&gt;</span><br><span class="line">  &lt;match **&gt;</span><br><span class="line">    @type s3</span><br><span class="line">    # ...</span><br><span class="line">  &lt;/match&gt;</span><br><span class="line">&lt;/label&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/fluentd/configuration/fluentd_configuration_label.png" alt="" /></p>
+<ul>
+<li>The @ERROR label is a builtin label used for error record emitted by plugin’s emit_error_event API.</li>
+<li>If &lt;label @ERROR&gt; is set, the events are routed to this label when the related errors are emitted e.g. the buffer is full or the record is invalid.</li>
+<li>The @ROOT label is a builtin label used for getting root router by plugin’s event_emitter_router API.</li>
+<li>This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records are handled by the concat filter can be sent to the default route.</li>
+</ul>
+<h3 id="include-reuse-your-config"><a class="markdownIt-Anchor" href="#include-reuse-your-config"></a> include: Reuse your config</h3>
+<ul>
+<li>The directives in separate configuration files can be imported using the @include directive:</li>
+<li>The @include directive can be used under sections to share the same parameters:</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Include config files <span class="keyword">in</span> the ./config.d directory</span></span><br><span class="line">@include config.d/*.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is bad</span></span><br><span class="line">@include *.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> This is good</span></span><br><span class="line">@include a.conf</span><br><span class="line">@include config.d/*.conf</span><br><span class="line">@include z.conf</span><br></pre></td></tr></table></figure>
+<h2 id="how-do-the-match-patterns-work"><a class="markdownIt-Anchor" href="#how-do-the-match-patterns-work"></a> How do the match patterns work?</h2>
+<h3 id="wildcards-expansions-and-other-tips"><a class="markdownIt-Anchor" href="#wildcards-expansions-and-other-tips"></a> Wildcards, Expansions and other tips</h3>
+<ul>
+<li>
+<ul>
+<li>matches a single tag part.</li>
+</ul>
+<ul>
+<li>For example, the pattern a.* matches a.b, but does not match a or a.b.c</li>
+</ul>
+</li>
+<li>** matches zero or more tag parts.
+<ul>
+<li>For example, the pattern a.** matches a, a.b and a.b.c</li>
+</ul>
+</li>
+<li>{X,Y,Z} matches X, Y, or Z, where X, Y, and Z are match patterns.
+<ul>
+<li>For example, the pattern {a,b} matches a and b, but does not match c</li>
+<li>This can be used in combination with * or ** patterns.</li>
+<li>Examples include a.{b,c}.* and a.{b,c.**}.</li>
+</ul>
+</li>
+<li>/regular expression/ is for complex patterns
+<ul>
+<li>For example, the pattern /(?!a.).*/ matches non-a. started tags like <a href="http://b.xxx" target="_blank" rel="noopener">b.xxx</a></li>
+<li>This feature is supported since fluentd v1.11.2</li>
+</ul>
+</li>
+<li>When multiple patterns are listed inside a single tag (delimited by one or more whitespaces), it matches any of the listed patterns. For example
+<ul>
+<li>The patterns <match a b> match a and b.</li>
+<li>The patterns &lt;match a.** b.*&gt; match a, a.b, a.b.c (from the first pattern) and b.d (from the second pattern)</li>
+</ul>
+</li>
+</ul>
+<h3 id="match-order"><a class="markdownIt-Anchor" href="#match-order"></a> Match Order</h3>
+<ul>
+<li>Fluentd tries to match tags in the order that they appear in the config file.</li>
+</ul>
+<h3 id="supported-data-types-for-values"><a class="markdownIt-Anchor" href="#supported-data-types-for-values"></a> Supported Data Types for Values</h3>
+<ul>
+<li>string: the field is parsed as a string. This is the most generic type, where each plugin decides how to process the string.
+<ul>
+<li>The string has three literals: non-quoted one line string, ’ single-quoted string and &quot; double-quoted string.</li>
+<li><a href="https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf" target="_blank" rel="noopener">literal examples</a></li>
+</ul>
+</li>
+<li>integer: the field is parsed as an integer.</li>
+<li>float: the field is parsed as a float.</li>
+<li>size: the field is parsed as the number of bytes. There are several notational variations
+<ul>
+<li><INTEGER>k or <INTEGER>K: number of kilobytes</li>
+<li><INTEGER>m or <INTEGER>M: number of megabytes</li>
+<li><INTEGER>g or <INTEGER>G: number of gigabytes</li>
+<li><INTEGER>t or <INTEGER>T: number of terabytes</li>
+<li>Otherwise, the field is parsed as an integer, and that integer is the number of bytes.</li>
+</ul>
+</li>
+<li>time: the field is parsed as a time duration.
+<ul>
+<li><INTEGER>s: seconds</li>
+<li><INTEGER>m: minutes</li>
+<li><INTEGER>h: hours</li>
+<li><INTEGER>d: days</li>
+<li>Otherwise, the field is parsed as float, and that float is the number of seconds. This option is useful for specifying sub-second time durations such as 0.1 (0.1 second = 100 milliseconds).</li>
+</ul>
+</li>
+<li>array:the field is parsed as a JSON array. It also supports the shorthand syntax. These are the same values
+<ul>
+<li>normal: [“key1”, “key2”]</li>
+<li>shorthand: key1,key2</li>
+</ul>
+</li>
+<li>hash: the field is parsed as a JSON object. It also supports the shorthand syntax. These are the same values:
+<ul>
+<li>normal: {“key1”: “value1”, “key2”: “value2”}</li>
+<li>shorthand: key1:value1,key2:value2</li>
+</ul>
+</li>
+</ul>
+<h3 id="common-plugin-parameters"><a class="markdownIt-Anchor" href="#common-plugin-parameters"></a> Common Plugin Parameters</h3>
+<ul>
+<li>The type, id and log_level parameters are supported for backward compatibility.
+<ul>
+<li>@type: specifies the plugin type</li>
+<li>@id: specifies the plugin id. in_monitor_agent uses this value for plugin_id field</li>
+<li>@label: specifies the label symbol. See label section.</li>
+<li>@log_level: specifies per plugin log level. See Per Plugin Log section.</li>
+</ul>
+</li>
+</ul>
+<h3 id="check-configuration-file"><a class="markdownIt-Anchor" href="#check-configuration-file"></a> Check Configuration File</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> fluentd --dry-run -c fluent.conf</span></span><br></pre></td></tr></table></figure>
+<h3 id="format-tips"><a class="markdownIt-Anchor" href="#format-tips"></a> Format Tips</h3>
+<ul>
+<li>Multiline support for &quot; quoted string, array and hash values</li>
+<li>Example # 1: mail plugin</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;match **&gt;</span><br><span class="line">  @type mail</span><br><span class="line">  subject "[CRITICAL] foo's alert system"</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Example #2: map plugin</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;match tag&gt;</span><br><span class="line">  @type map</span><br><span class="line">  map '[["code." + tag, time, &#123; "code" =&gt; record["code"].to_i&#125;], ["time." + tag, time, &#123; "time" =&gt; record["time"].to_i&#125;]]'</span><br><span class="line">  multi true</span><br><span class="line">&lt;/match&gt;</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2022/01/28/linux-IORedirection/">linux-IORedirection</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-01-28</time><div class="content"><h1 id="io-redirection"><a class="markdownIt-Anchor" href="#io-redirection"></a> IO Redirection</h1>
+<h2 id="three-default-file"><a class="markdownIt-Anchor" href="#three-default-file"></a> three default file</h2>
+<ul>
+<li>stdin: the keyboard</li>
+<li>stdout: the screen</li>
+<li>stderr: error messages output to the screen</li>
+</ul>
+<h2 id="assigned-a-file-descriptor"><a class="markdownIt-Anchor" href="#assigned-a-file-descriptor"></a> assigned a file descriptor</h2>
+<ul>
+<li>stdin: 0</li>
+<li>stdout: 1</li>
+<li>stderr: 2</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt;</span><span class="bash">filename</span></span><br><span class="line"><span class="meta">   #</span><span class="bash"> Redirect stdout to file <span class="string">"filename."</span></span></span><br><span class="line"><span class="meta">1&gt;</span><span class="bash">&gt;filename</span></span><br><span class="line"><span class="meta">   #</span><span class="bash"> Redirect and append stdout to file <span class="string">"filename."</span></span></span><br><span class="line"><span class="meta">2&gt;</span><span class="bash">filename</span></span><br><span class="line"><span class="meta">   #</span><span class="bash"> Redirect stderr to file <span class="string">"filename."</span></span></span><br><span class="line"><span class="meta">2&gt;</span><span class="bash">&gt;filename</span></span><br><span class="line"><span class="meta">   #</span><span class="bash"> Redirect and append stderr to file <span class="string">"filename."</span></span></span><br><span class="line">&amp;&gt;filename</span><br><span class="line"><span class="meta">   #</span><span class="bash"> Redirect both stdout and stderr to file <span class="string">"filename."</span></span></span><br><span class="line"><span class="meta">   #</span><span class="bash"> This operator is now functional, as of Bash 4, final release.</span></span><br></pre></td></tr></table></figure>
+<h2 id="closing-file-descriptors"><a class="markdownIt-Anchor" href="#closing-file-descriptors"></a> Closing File Descriptors</h2>
+<ul>
+<li>Close input file descriptor n. : n&lt;&amp;-</li>
+<li>Close stdin. : 0&lt;&amp;-, &lt;&amp;-</li>
+<li>Close output file descriptor n : n&gt;&amp;-</li>
+<li>Close stdout :1&gt;&amp;-, &gt;&amp;-</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Redirecting only stderr to a pipe.</span></span><br><span class="line"></span><br><span class="line">exec 3&gt;&amp;1                              # Save current "value" of stdout.</span><br><span class="line">ls -l 2&gt;&amp;1 &gt;&amp;3 3&gt;&amp;- | grep bad 3&gt;&amp;-    # Close fd 3 for 'grep' (but not 'ls').</span><br><span class="line"><span class="meta">#</span><span class="bash">              ^^^^   ^^^^</span></span><br><span class="line">exec 3&gt;&amp;-                              # Now close it for the remainder of the script.</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2022/01/28/ctf_solution2020/">ctf_solution2020</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-01-28</time><div class="content"><h2 id="reverse-engineering"><a class="markdownIt-Anchor" href="#reverse-engineering"></a> reverse engineering</h2>
 <h2 id="forensic"><a class="markdownIt-Anchor" href="#forensic"></a> forensic</h2>
 <h2 id="web"><a class="markdownIt-Anchor" href="#web"></a> web</h2>
 <h2 id="network"><a class="markdownIt-Anchor" href="#network"></a> network</h2>
@@ -288,6 +583,136 @@
 <ul>
 <li>2021년</li>
 </ul>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/08/16/architect-course-software-quality-attribute/">architect-course-software-quality-attribute</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-08-16</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/architect-course/">architect course</a></span><div class="content"><h3 id="국체-표준-약자"><a class="markdownIt-Anchor" href="#국체-표준-약자"></a> 국체 표준 약자</h3>
+<ul>
+<li>ISO : International Organization for Standardization, 국제표준화기구</li>
+<li>IEC : International Electrotechnical Commission, 국제전기기술위원회</li>
+<li>IEEE : Institute of Electrical and Electronics Engineers, 국제전기기술자협회</li>
+</ul>
+<h3 id="isoiec-9126-isoiec-25010"><a class="markdownIt-Anchor" href="#isoiec-9126-isoiec-25010"></a> ISO/IEC 9126, ISO/IEC 25010</h3>
+<ul>
+<li>소프트웨어 제품의 품질특성을 정의하고 품질을 평가하기 위한 기준(Metrics)을 정의한 표준</li>
+<li>소프트웨어 제품을 사용하는 사용자의 입장에서 어떤 특징을 가진 소프트웨어가 품질이 높은 소프트웨어라 할 수 있는가? 에 대한 관점으로 접근</li>
+<li>ISO/IEC 9126 : Software Engineering - Product Quality
+<ul>
+<li>기능성, 신뢰성, 사용성, 효율성, 유지보수성, 이식성</li>
+</ul>
+</li>
+<li>ISO/IEC 25010 : Systems and software engineering - Systems and software quality requirements and evaluation
+<ul>
+<li>기능적합성, 신뢰성, 사용성, 실행효율성, 유지보수성, 이식성, 호환성, 보안성</li>
+</ul>
+</li>
+</ul>
+<h3 id="제품-품질-특성"><a class="markdownIt-Anchor" href="#제품-품질-특성"></a> 제품 품질 특성</h3>
+<p><img src="/images/architect-course/ISO_25010.png" alt="" /></p>
+<ul>
+<li>기능 적합성 (Functional suitability) : 제품(시스템)이 명시된 조건에서 사용될경우, 명시되거나 암시된 요구를 충족시키는 기능을 제공하는 정도
+<ul>
+<li>기능 성숙도 (Functional Completeness) : 해당 기능들이 사용자의 모든목적을 만족하는 정도</li>
+<li>기능 정확도 (Functional Correctness) : 제품(시스템)이 정밀도의 필요 정도에따라 정확한 결과를 제공하는 정도</li>
+<li>기능 타당성 (Functional Appropriateness) : 기능이 명시된 작업 및 목적의 완수를 용이하게 하는 정도</li>
+</ul>
+</li>
+<li>수행 효율성 (Performance efficiency) : 주어진 조건에서 자원의 양에 따른 성능
+<ul>
+<li>시간반응성(Time Behavior) : 기능을 수행할 때 제품(시스템)의 응답 및 처리시간과 처리율이 요구사항을 충족시키는 정도</li>
+<li>자원 활용(Resource Utilization) : 기능을 수행할 때 제품(시스템)에서 사용하는 자원의 유형이나 양이 요구사항을 만족시키는 정도</li>
+<li>기억용량 : (Capacity)	제품(시스템파라미터)의 최대 한계가 요구사항을 만족시키는 정도</li>
+</ul>
+</li>
+<li>호환성 (Compatibility) : 다른 제품과 함께 동일한 SW(HW)  환경을 공유하면서 필요한 기능을 수행할 수 있는 정도
+<ul>
+<li>상호 공존성(Co-existence) : 제품(시스템)이 다른 제품(시스템)에 유해를 가하지 않고 일반적인 환경 및 자원을 공유하면서 제품에 요구된 기능을 효과적으로 수행할 수 있는 정도</li>
+<li>상호 운용성(Interoperability) : 둘 이상의 제품(시스템, 구성요소)이 서로 정보를 교환하거나 교환한 정보를 사용할 수 있는 정도</li>
+</ul>
+</li>
+<li>사용성 (Usability) : 명시된 사용 환경에서 제품(시스템)이 사용자에 의해 유효성, 효율성 및 만족의 목적을 달성하는 정도
+<ul>
+<li>타당성 식별력(Appropriateness Recognizability) : 제품(시스템)의 기능이 사용자의 요구에 적절한지 여부를 식별할 수 있는 정도</li>
+<li>학습성(Learnability) : 사용자가 제품(시스템)의 목적에 맞게 사용 방법을 학습하여 사용할 수 있는 정도</li>
+<li>운용성(Operability) : 제품(시스템)을 제어하거나 동작하는 것을 쉽게 할 수 있는 정도</li>
+<li>사용자 오류보호(User error Protection) : 발생한 오류로부터 시스템이 사용자를 보호하는 정도</li>
+<li>사용자 인터페이스 미학(User Interface Aesthetics) : 사용자 인터페이스가 사용자와의 상호작용에서 유쾌하고 만족스러울수 있는 정도</li>
+<li>접근성(Accessibility) : 지정한 상황에서 제품(시스템)이 다양한 특성을 가진(연령/장애) 사람에의해 명시된 목표를 달성하며 사용할 수 있는 정도</li>
+</ul>
+</li>
+<li>신뢰성 (Reliability) : 제품(시스템, 구성요소)이 명시된 기간과 조건하에서 명시된 기능을 유지하는 정도
+<ul>
+<li>성숙도 (Maturity) : 제품(시스템, 구성요소)이 표준 환경에서 고장을 회피하며 신뢰도를 충족시키는 정도</li>
+<li>가용성 (Availability) : 제품(시스템, 구성요소)을 사용할 필요가 있을 때 사용하거나 접근할 수 있는 정도</li>
+<li>오류 허용성 (Fault Tolerance) : 제품(시스템, 구성요소)에 SW(HW)  결함이 존재해도 의도한 성능 수준을 유지할 수 있는 정도</li>
+<li>회복 가능성 (Recoverbility) : 고장이 발생하였을 때 제품(시스템)이 직접 원하는 성능 수준으로 회복하며 데이터를 복구할 수 있는 정도</li>
+</ul>
+</li>
+<li>보안(Security) : 제품(시스템)이 정보(데이터를) 보호하는 정도
+<ul>
+<li>기밀성 (Confidentiality) : 제품(시스템)이 접근 허가된 권한만 있는 다른 제품(시스템)만 접근할 수 있게 하는 정도</li>
+<li>무결성 (Integrity) : 제품(시스템, 구성요소)이 컴퓨터 프로그램 혹은 데이터를 무단으로 접근(변경)하는것을 방지하는 정도</li>
+<li>부인방지 (Non-repudiation) : 사건(행동)이 발생한 뒤 그 사실을 거부할 수 없도록 사건(행동)에 대해 입증하는 정도</li>
+<li>책임성 (Accountability) : 사용자의 행동을 고유하게 식별하여 그 사용자의 행동을 추정할 수 있는 정도</li>
+<li>인증성 (Authenticity) : 사건 및 행동에 대해 주체임을 증명할 수 있는 능력</li>
+</ul>
+</li>
+<li>유지보수성(Maintainability) : 제품(시스템)을 효과적이고 효율적으로 의도된대로 변경할 수 있는 정도
+<ul>
+<li>모듈성 (Modularity) : 외부에 대하여 최소의 영향을 가진 개별 구성 요소로 시스템(SW)이 구성된 정도</li>
+<li>재사용성 (Reusability) : 자산(모듈)이 한 개 이상의 시스템에서 사용될 수 있거나, 다른 자산에 구축할 수 있는 정도</li>
+<li>분석성 (Analyzability) : 제품(시스템)의 문제를 식별하고, 고장의 원인을 진단하고 변경사항을 반영하기 위하여 수정하여야 하는 부분을 식별하기 쉬운 정도</li>
+<li>수정 가능성 (Modifiability) : 제품(시스템)을 수정할때, 기존 제품의 품질을 저하시키거나 장애를 발생시키지 않으면서 효과적이고 효율적으로 수정할 수 있는 정도</li>
+<li>시험 가능성 (Testability) : 제품(시스템, 구성요소)을 검증한 근거가 충분한지를 확인할 수 있는 정도</li>
+</ul>
+</li>
+<li>이식성 (Portability) : 제품(시스템, 구성요소)이 다른 다양한 환경(SW/HW/Network) 등으로의 전환이 용이한 정도
+<ul>
+<li>적합성 (Adaptability) : 제품(시스템)을 다른 SW(HW)나 사용환경에 효과적이고 효율적으로 적용할 수 있는 정도</li>
+<li>설치 가능성 (Installability) : 제품(시스템)이 성공적으로 설치/제거될 수 있는 정도</li>
+<li>대치성 (Replaceability) : 제품이 동일한 환경에서 동일한 목적을 위해 다른 지정된 SW 제품으로 대체될 수 있는 정도</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>characteristic</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>기능적합성</td>
+<td>제품 혹은 시스템이 명시된 조건에서 사용될 경우 명시되거나 암시된 요구를 충족시키는 기능을 제공하는 정도</td>
+</tr>
+<tr>
+<td>수행 효율성</td>
+<td>규정된 조건 하에 사용된 자원의 크기에 대한 상대적 성능</td>
+</tr>
+<tr>
+<td>호환성</td>
+<td>같은 하드웨어 혹은 SW 환경을 공유하는 동안 기타 제품,시스템 혹은 구성요소를 교환할 수 있고/혹은 요구된 기능을 구성할 수 있는 정도</td>
+</tr>
+<tr>
+<td>유용성</td>
+<td>제품 및 시스템이 명시된 사용 환경에서 유효성, 효율성 및 만족의 명시된 목적을 달성하는 명시된 사용자에 인해 사용될 수 있는 정도</td>
+</tr>
+<tr>
+<td>신뢰성</td>
+<td>시스템, 제품 혹은 구성요소가 시간이 명시된 기간에 대해 명시된 조건 하에서 명시된 기능을 구성하는 정도</td>
+</tr>
+<tr>
+<td>보안</td>
+<td>제품 혹은 시스템은 정보 및 데이터를 보호한다. 그래서 사람 혹은 기타 제품 혹은 시스템이 자신의 유형 및 인증 정도에 적절한 데이터 접근의 정도를 가지고 있다</td>
+</tr>
+<tr>
+<td>유지관리성</td>
+<td>제품 혹은 시스템의 유효성이 유지관리자로 인해 변경될 수 있는 정도</td>
+</tr>
+<tr>
+<td>이동성</td>
+<td>시스템, 제품 혹은 구성요소는 하드웨어, SW 혹은 기타 운영 혹은 다른 하나의 사용 환경으로 전환될 수 있는 유효성 및 효율성의 정도</td>
+</tr>
+</tbody>
+</table>
 </div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/08/09/startup-stock-type/">startup-stock-type</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-08-09</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/stock/">stock</a></span><div class="content"><h2 id="ps-preference-shares-우선주"><a class="markdownIt-Anchor" href="#ps-preference-shares-우선주"></a> PS (Preference Shares 우선주)</h2>
 <ul>
 <li>보통주보다 재산적 내용(이익, 이자배당, 잔여 재산 분배 등)에 있어서 우선적인 지위가 인정</li>
@@ -489,238 +914,7 @@ thread-safety 및 동시성을 가지는 데이터 구조와 같은 문제를 �
 </ul>
 </li>
 </ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/05/20/monitoring-prometheus/">monitoring-prometheus</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-05-20</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/monitoring/">monitoring</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/prometheus/">prometheus</a></span><div class="content"><h3 id="prometheus"><a class="markdownIt-Anchor" href="#prometheus"></a> Prometheus</h3>
-<ul>
-<li>Metric 기반 오픈소스 모니터링 시스템
-<ul>
-<li>데이터 모델 : Label (key-value time series)</li>
-<li>쿼리 언어</li>
-<li>CNCF 재단 멤버</li>
-<li>Integration Library를 통해 third-party App들 연계 가능</li>
-<li>알람 기능</li>
-</ul>
-</li>
-</ul>
-<h3 id="모니터링이란"><a class="markdownIt-Anchor" href="#모니터링이란"></a> 모니터링이란</h3>
-<ul>
-<li>Alerting(알림) : 문제가 발생한 시기나 시점을 파악하는 것이 모니터링에서는 가장 중요하다.</li>
-<li>Debugging(디버깅) : 문제의 근본 원인을 규명하고 문제가 무엇이든 간에 반드시 해결해야 한다.</li>
-<li>Trending(추세 파악) : 시스템이 어떻게 사용되고 시간에 따라 변화하는지를 확인할 수 있는 기능. Capacity Planning 과 같은 설계 결정과 프로세스에 영향을 미칠 수 있다.</li>
-<li>Plumbing(플러밍) : 망치를 가지고 있으면, 모든 것이 못처럼 보이기 시작한다. 데이터 처리 파이프라인으로</li>
-</ul>
-<h3 id="모니터링의-범주"><a class="markdownIt-Anchor" href="#모니터링의-범주"></a> 모니터링의 범주</h3>
-<ul>
-<li>HTTP 요청 수신</li>
-<li>HTTP 400 응답 송신</li>
-<li>entering a function (함수 시작)</li>
-<li>leaving a function (함수 종료)</li>
-<li>if 문의 else에 도달</li>
-<li>사용자 로그인</li>
-<li>디스크에 데이터 쓰기</li>
-<li>네트워크에서 데이터 읽기</li>
-<li>커널에 추가 메모리 요청</li>
-<li>모든 이벤트에는 컨텍스트가 있다.
-<ul>
-<li>HTTP 요청에는 들어오고 나가는 IP주소, 요청 URL 설정된 쿠키, 요청한 사용자 정보가 포함되어있다.</li>
-<li>HTTP 응답에는 응답에 걸린 시간, HTTP 상태 코드, 응답 본문의 길이가 있다.</li>
-<li>함수를 포함하는 이벤트에는 함수 상단에 있는 함수들의 콜 스택과 HTTP 요청처럼 무엇이 해당 스택의 일부를 트리거 했는지에 대한 정보가 담겨있다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="프로파일링"><a class="markdownIt-Anchor" href="#프로파일링"></a> 프로파일링</h3>
-<ul>
-<li>profiling (프로파일링)은 우리가 모든 시간에 대해 모든 이벤트의 컨텍스트를 가질 수 없지만, 제한된 기간의 일부 컨텍스트를 가질 수 있다는 방식으로 접근한다.</li>
-<li>Tcpdump는 프로파일링 도구의 하나로, 지정된 필터를 기반으로 네트워크 트래픽을 기록할 수 있다. Tcpdump는 필수적인 디버깅 도구지만, 실제로는 디스크 공간이 부족해 질수 있다.</li>
-<li>리눅스 커널의 eBPF(enhanced Berkeley Packet Filters)는 파일시스템부터 네트워크 기호까지 커널 이벤트에 대해 상세하게 프로파일링을 할 수 있다.</li>
-<li>오랜 시간 동안 프로프알링을 해야하는 경우, 다른 모니터링 방법과 함께 사용하려면 <em>반드시</em> 데이터의 양을 줄여야 한다.</li>
-</ul>
-<h3 id="트레이싱"><a class="markdownIt-Anchor" href="#트레이싱"></a> 트레이싱</h3>
-<ul>
-<li>tracing(트레이싱)은 모든 이벤트를 살펴보는 것이 아니라, 관심 기능을 통과하는 일부 이벤트 처럼 수백 개의 이벤트 중 특정 이벤트에만 집중한다.</li>
-<li>Stack Trace에서 관심 있는 부분의 함수들을 기록하고, 때때로 이러한 함수들이 얼마나 오랫동안 수행되었는지도 기록한다.</li>
-<li>트레이싱 시스템 중 일부는 관심 지정에서 스택 트레이스에 스냅샷을 수집하는 대신 관심 있는 함수 하위의 모든 함수 호출을 추적하고 타이밍을 기록한다.</li>
-<li>HTTP 요청 중 하나를 샘플링할 수 있고, 이 요청에 대해 데이터베이스나 캐시같은 백엔드와 통신하는 데 얼마나 오랜 시간이 소비되었는지 확인할 수 있다.</li>
-<li>Distributed tracing(분산 트레이싱)은 한단계 더 나아가 원격 프로시저 호출에서 다른 프로세스로 전달되는 요청에 고유 ID 를 추가해 해당 요청이 추적되어야 하는지 여부등 프로세스 전반에 걸친 작업을 추적한다.</li>
-<li>트레이싱에서 데이터 볼륭 유지 및 계측 성능에 영향을 미치는 것은 sampling(샘플링)이다.</li>
-</ul>
-<h3 id="로깅"><a class="markdownIt-Anchor" href="#로깅"></a> 로깅</h3>
-<ul>
-<li>logging은 제한된 이벤트 집합을 살펴보고 각 이벤트에 대한 컨텍스트 일부를 기록한다.</li>
-<li>로깅의 장점은 이벤트에 대한 샘플링이 없다는 점이다. 따라서 필드 개수를 제한하더라도, 시간이 오래 걸리는 요청이 특정 API 엔드포인트와 통신하는 특정 유저에게 얼마나 영향을 미치는지를 판단해야 한다.</li>
-</ul>
-<h4 id="로깅의-범주"><a class="markdownIt-Anchor" href="#로깅의-범주"></a> 로깅의 범주</h4>
-<ul>
-<li>Transaction Logs(트랜잭션 로그) : 어떠한 대가를 치르더라도 영원히 안전하게 보관해야 하는 중요한 비지니스 기록이다.<br />
-주로 비용과 연관된 기능이나 사용자가 직접 사용하는 주요 기능이 트랜잭션 로그에 속한다.</li>
-<li>Request logs(요청 로그) : 모든 HTTP 요청이나 데이터베이스 호출을 track(추적)하는 경우의 로그다.<br />
-요청 로그는 사용자가 직접 사용하는 기능이나 내부 최적화의 구현에 쓰인다. 대부분은 요청 로그가 삭제되는 것을 바라지 않겠지만, 그렇다고 로그 중 일부를 잃는다고 해서 큰 문제가 되진 않는다.</li>
-<li>Application Logs(애플리케이션 로그) : 모든 로그가 요청 로그인 것은 아니며, 프로세스 그 자체에 관한 로그도 있다. 시작 메시지, 백그라운드 유지보수 작업, 프로세스 수준의 로그<br />
-주로 사람들이 직접 읽기 때문에 정상적인 동작에서 1분당 몇 개 정도가 적절하다.</li>
-<li>Debug Logs(디버그 로그) : 디버그 로그는 굉장히 상세해서 생성과 저장에 비용이 많이 든다. 협소한 디버깅 상황에서만 사용되며, 데이터의 양 때문에 프로파일링의 특성을 띈다.</li>
-</ul>
-<h3 id="메트릭"><a class="markdownIt-Anchor" href="#메트릭"></a> 메트릭</h3>
-<ul>
-<li>metric(메트릭)은 컨텍스트를 대부분 무시하고 다양한 유형의 이벤트에 대해 시간에 따른 aggregation(집계)을 추적한다. 자원 사용을 정상적으로 유지하려면, 추적하는 메트릭의 개수를 제한해야한다.</li>
-<li>프로세스당 1만개의 메트릭 처리정도가 합리적인 상한선 일 것이다.</li>
-<li>metric을 이용하면 애플리케이션의 각 서브시스템에서의 대기 시간과 처리하는 데이터양을 추적해서 성능 저하의 원인이 정확히 무엇인지 손쉽게 알아낼 수 있다.</li>
-<li>어떤 서브시스템에 문제의 원인이 있는지 찾아낸 다음, 로그를 통해 해당 문제에 관련된 사용자 요청을 정확하게 파악할 수 있다.</li>
-<li>메트릭은 프로세스 전반에 걸쳐 이벤트 정보를 수집할 수 있지만, 일반적으로 카디널리티가 제한된 컨텍스트는 1~2개 이상의 필드를 갖지 않는다.</li>
-<li>로그는 한 가지 유형 이벤트에 대해 모든 정보를 수집할 수 있지만, 카디널리티가 제한되지 않은 컨텍스트에 대해 수백 개 필드만 추적할 수 있다.</li>
-</ul>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/04/13/exchange-ready-april/">exchange-ready-april</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-04-13</time><div class="content"><h1 id="철이-없었죠-front-end-를-우습게-봤다는게"><a class="markdownIt-Anchor" href="#철이-없었죠-front-end-를-우습게-봤다는게"></a> 철이 없었죠… Front-End 를 우습게 봤다는게</h1>
-<h1 id="front-end-역습"><a class="markdownIt-Anchor" href="#front-end-역습"></a> Front-end 역습</h1>
-<h2 id="front-end-project-어떻게-시작하나"><a class="markdownIt-Anchor" href="#front-end-project-어떻게-시작하나"></a> Front-end Project 어떻게 시작하나?</h2>
-<pre><code>##  Jquery를 썼다는건
-</code></pre>
-<h2 id="browser를-이해하면-front-end가-보인다"><a class="markdownIt-Anchor" href="#browser를-이해하면-front-end가-보인다"></a> Browser를 이해하면 Front-end가 보인다.</h2>
-<ul>
-<li>
-<p>Dom Tree, CSS OM</p>
-</li>
-<li>
-<p>Layout, Painting</p>
-</li>
-<li>
-<p>javascript로 화면을 조작을 하면, Reflow와 Repainting이 일어나서 성능이 저하된다<br />
-–&gt; 그래서 사람들이 Vue를 제어할때 onReady Event에 모아서 한번에 처리했었다.</p>
-</li>
-<li>
-<p>SSR에서 SPA가 나온 이유</p>
-<ul>
-<li>정적 리소스 다운로드에 대한 비용</li>
-<li>Ajax의 등장</li>
-<li>패러다임 시프트가 일어나 Client Side Rendering 으로 전환</li>
-<li>Client가 무거워짐</li>
-<li>이를 잘 관리하기 위해 Framework들이 등장</li>
-<li>Programming Model이 복잡해짐</li>
-<li>view - data bind 양방향 선택
-<ul>
-<li>특정상황에서 느려짐</li>
-</ul>
-</li>
-<li>이러한 부분에 대한것을 해결하기 위해 Virtual DOM을 쓰는 React의 등장</li>
-<li>Flux Architecture 등장</li>
-<li>React 와 VueJS 등장</li>
-</ul>
-</li>
-<li>
-<p>SPA --&gt; SSR로 다시</p>
-<ul>
-<li>SEO</li>
-<li>Meta Tag들</li>
-</ul>
-</li>
-<li>
-<p>Static Page Generator</p>
-</li>
-<li>
-<p>예전에 좋았는데 왜 지금 안좋아지는가?</p>
-</li>
-<li>
-<p>HTTP2</p>
-</li>
-<li>
-<p>Image Sprite</p>
-</li>
-<li>
-<p>Protocol</p>
-</li>
-<li>
-<p>HTTP</p>
-</li>
-</ul>
-<h2 id="추가로-알면-좋은-것들-etc"><a class="markdownIt-Anchor" href="#추가로-알면-좋은-것들-etc"></a> 추가로 알면 좋은 것들 etc)</h2>
-</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/03/29/designing-data-intensive-application-9/">designing-data-intensive-application-9</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-29</time><div class="content"><h3 id="데이터-일관성과-합의"><a class="markdownIt-Anchor" href="#데이터-일관성과-합의"></a> 데이터 일관성과 합의</h3>
-<ul>
-<li>분산 시스템에서는 내부 구성 요소 중 뭔가에 결함이 있더라도 서비스는 올바르게 동작할 방법을 찾아야 한다.</li>
-<li>내결합성을 지닌 시스템을 구축하는 가장 좋은 방법은 유용한 보장을 해주는 범용 추상화를 찾아 이를 구현하고 애플리케이션에서 이 보장에 의존하게 하는 것이다.</li>
-<li>분산 시스템에 가장 중요한 추상화 중 하나는 합의, 즉 모든 노드가 어떤 것에 동의하게 만드는 것이다.</li>
-</ul>
-<h3 id="일관성-보장"><a class="markdownIt-Anchor" href="#일관성-보장"></a> 일관성 보장</h3>
-<ul>
-<li>복제 데이터베이스는 대부분 최소한 최종적 일관성을 제공한다. (쓰기를 멈추고 불특정 시간 동안 기다리면 결국 모든 읽기 요청이 같은 값을 반환한다는 뜻이다.)</li>
-<li>불일치는 일시적이며 결국 스스로 해소한다. 모든 복제본이 결국 같은 값으로 수렴되기를 기대하므로 최종적 일관성보다 수렴이 더 나은 이름일지도 모른다.</li>
-<li>그러나 언제 복제본이 수렴될지에 대해서는 아무것도 이야기 하지 않는다.</li>
-<li>최종적 일관성은 보통 단일 스레드 프로그램에 있는 변수 동작과 매우 다르므로 애플리케이션 개발자는 주의를 요한다.</li>
-</ul>
-<h3 id="선형성"><a class="markdownIt-Anchor" href="#선형성"></a> 선형성</h3>
-<ul>
-<li>최종적 일관성을 지닌 데이터베이스에서 두 개의 다른 복제본에 같은 질문을 동시에 하면 두 가지 다른 응답을 받을지도 모른다.
-<ul>
-<li>데이터 베이스가 본제본이 하나만 있다는 환상을 만들어 준다면 훨씬 더 단순 해지지 않을까? 그러면 모든 클라이언트는 똑같은 데이터를 보고 복제 지연을 걱정할 필요가 없다.</li>
-</ul>
-</li>
-<li>위의 아이디어가 선형성을 뒷받침하는 아이디어다.
-<ul>
-<li>atomic consistency (원자적 일관성)</li>
-<li>strong consistency (강한 일관성)</li>
-<li>immediate consistency (즉각 일관성)</li>
-<li>external consistency (외부 일관성)</li>
-</ul>
-</li>
-<li>recency guarantee(최신성 보장) : 최근에 갱신된 값이며 뒤처진 캐시나 복제본에서 나온 값이 아니라고 보장<br />
-<img src="/images/data-intensive/chapter_9/nonlinear_action.png" alt="" /></li>
-<li>밥과 앨리스는 서로 다른 결과를 본다 (선형성 위반)</li>
-</ul>
-<h3 id="시스템에-선형성을-부여하는-것은-무엇인가"><a class="markdownIt-Anchor" href="#시스템에-선형성을-부여하는-것은-무엇인가"></a> 시스템에 선형성을 부여하는 것은 무엇인가?</h3>
-<p><img src="/images/data-intensive/chapter_9/register.png" alt="" /></p>
-<ul>
-<li>선형 데이터베이스에서 동시에 같은 키 x를 읽고 쓰는 세 클라이언트를 보여준다. 분산 시스템 분야에서 x는 register(레지스터)라고 불린다.
-<ul>
-<li>현실에서는 키-값 저장소의 키 하나, 관계형 데이터베이스의 로우 하나, 또는 문서 데이터베이스의 문서 하나가 될 수 있다.</li>
-</ul>
-</li>
-<li>이 예제에서 레지스터는 두 가지 종류 연산이 있다.
-<ul>
-<li>read(x) =&gt; v는 클라이언트가 레지스터 x의 값을 읽기를 요청했고 데이터베이스가 값 v를 반환했다는 것을 의미한다.</li>
-<li>write(x) =&gt; v은 클라이언트가 레지스터 x의 값을 v로 설정하라고 요청했고 데이터베이스가 응답r(ok or error)을 반환했다는 것을 의미한다.</li>
-</ul>
-</li>
-<li>실행되는 동안 클라이언트 A와 B는 최신 값을 읽기 위해 반복적으로 데이터베이스를 폴링한다. A와 B는 자신의 읽기 요청에 대해 어떤 응답을 받을 수 있을까?
-<ul>
-<li>A의 첫 연산은 0을 반환하는 것이 명백하다</li>
-<li>A의 마지막 읽기 연산은 쓰기가 완료된 후 시작하므로 데이터베이스가 선형적이라면 명백히 새로운 값 1을 반환해야 한다. 쓰기는 쓰기 연산의 시작과 끝 사이의 어느 시점에선가 처리됐어야 하고 읽기는 읽기 연산의 시작과 끝 사이의 어느 시점에선가 처리 됐어야 한다. 만약 쓰기가 끝난 후에 읽기가 시작하면 그 읽기는 쓰기 후에 처리됐어야 하고 따라서 새로 쓰여진 값을 볼 수 있어야 한다.</li>
-<li>쓰기 연산과 시간이 겹치는 읽기 연산은 0을 반환했을 수도 1을 반환했을 수도 있다. 읽기 연산이 처리되는 시점에 쓰기의 영향이 발생했는지 아닌지 알 수 없기 때문이다. 이 연산들은 쓰기와 동시에 실행된다.</li>
-</ul>
-</li>
-<li>시스템을 선형적으로 만들려면 또 다른 제약조건을 추가해야 한다.<br />
-<img src="/images/data-intensive/chapter_9/register_constraint.png" alt="" /></li>
-<li>선형성 시스템에서 우리는 x의 값이 원자적으로 0에서 1로 바뀌는 어떤 시점이 있어야 한다고 상상한다. 따라서 한 클라이언트의 읽기가 새로운 값 1을 반환하면 이후의 모든 읽기 또한 새로운 값을 반환해야 한다.
-<ul>
-<li>A는 새로운 값 1을 읽은 첫번째 클라이언트다. A의 읽기가 반환된 후 바로 B가 새로운 읽기를 시작한다. B의 읽기는 확실히 A의 읽기 뒤에 실행되므로 C가 실행한 쓰기가 아직 진행 중이라도 역시 1을 반환해야 한다.</li>
-<li>하나의 연산을 더 추가한다.
-<ul>
-<li>cas(x, v_old, v_new) =&gt; r 은 클라이언트가 atomic compare-and-set 연산을 요청했다는 뜻이다. 레지스터 x의 현재 값이 v_old와 같으면 원자적으로 v_new로 설정돼야 한다. X != v_old 라면 이 연산은 레지스터를 그대로 두고 오류를 반환해야 한다. r(ok or error)은 데이터베이스의 응답이다.<br />
-<img src="/images/data-intensive/chapter_9/register_cas.PNG" alt="" /></li>
-</ul>
-</li>
-<li>클라이언트 B가 X 읽기 요청을 보낸 후 클라이언트 D가 x를 0으로 설정하는 요청을 보내고 클라이언트 A가 x를 1로 설정하는 요청을 보낸다. 그렇지만 B의 읽기가 반환한 값은 1이다. 이것은 문제가 없으며 데이터베이스가 D의 쓰기를 먼저 처리한 수 A의 쓰기를 처리했고 마지막으로 B의 읽기를 처리했다는 의미다. 요청을 보낸 순서와는 다르지만 세 요청이 동시적이기 때문에 이는 허용된다.</li>
-<li>클라이언트 B의 읽기는 클라이언트 A가 데이터베이스로부터 값을 1로 쓰는 데 성공했다는 응답을 받기 전에 1을 반환했다. 이것도 괜찮다. 값이 쓰여지기 전에 읽혔다는 의미가 아니라 데이터베이스에서 클라이언트 A로 가는 ok응답이 네트워크에서 약간 지연됐다는 의미이다.</li>
-<li>이 모델은 어떤 트랜잭션 격리도 가정하지 않는다. 다른 클라이언트가 언제라도 값을 바꿀지 모른다. 예를 들어 C는 먼저 1을 읽고 그 다음에는 2를 읽었는데, 두 번의 읽기 사이에 B가 값을 변경했기 때문이다. 다른 클라이언트가 동시에 값을 바꾸지 않았는지 확인하기 위해 atomic compare and set 연산을 쓸 수 있다. B와 C의 cas 요청은 성공하지만 D의 cas 요청은 실패다 (데이터베이스가 그 요청을 처리하는 시점에 x의 값은 더 이상 0이 아니다.)</li>
-<li>클라이언트 B의 마지막 읽기는 선형적이지 않다. 이 연산은 x를 2에서 4로 갱신하는 C의 cas 쓰기와 동시적이다. 다른 요청이 없다면 B의 읽기가 2를 반환해도 괜찮다. 그러나 클라이언트 A는 B의 읽기가 시작하기 전에 이미 새로운 값 4를 읽었다. 따라서 B는 A가 읽은 것보다 과거의 값을 읽는 것은 허용되지 않는다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="선형성-대-직렬성"><a class="markdownIt-Anchor" href="#선형성-대-직렬성"></a> 선형성 대 직렬성</h3>
-<ul>
-<li>직렬성
-<ul>
-<li>모든 트랜잭션이 여러 객체(로우, 문서, 레코드)를 읽고 쓸 수 있는 상황에서의 트랜잭션들의 격리 속성이다. 직렬성은 트랜잭션이 어떤 순서에 따라 실행되는 것처럼 동작하도록 보장해준다. 그 순서가 트랜잭션들이 실제로 실행되는 순서와 달라도 상관없다.</li>
-</ul>
-</li>
-<li>선형성
-<ul>
-<li>레지스터(개볍 객체)에 실행되는 읽기와 쓰기에 대한 최신성 보장이다. 선형성은 연산을 트랜잭션으로 묶지 않아서 충돌 구체와 같은 부가적인 수단을 사용하지 않으면 쓰기 스큐 같은 문제를 막지 못한다.</li>
-</ul>
-</li>
-<li>데이터베이스는 직렬성과 선형성을 모두 제공할 수도 있으며 이런 조합은 strict serializability (엄격한 직렬성)이나 strong one-copy serializability, strong-1SR(강한 단일 복사본 직렬성)이라고 한다.
-<ul>
-<li>2단계 잠금(2PL)이나 실제적인 직렬실행을 기반으로 한 직렬성 구현은 보통 선형적이다.</li>
-</ul>
-</li>
-<li>그러나 직렬성 스냅숏 격리(SSI)는 선형적이지 않다. SSI 는 읽는 쪽이나 쓰는 쪽 사이의 잠금 경쟁을 피하기 위해 일관된 스냅숏에서 읽는다. 요점은 스냅숏에 스냅숏보다 나중에 실행된 쓰기를 포함하지 않는다는 것이고 따라서 스냅숏에서 읽으면 선형적이지 않다.</li>
-</ul>
-</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2021 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+</div><hr></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
   $('#nav').addClass('is-mobile')
   $('footer').addClass('is-mobile')
   $('#top-container').addClass('is-mobile')

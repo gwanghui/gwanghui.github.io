@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords" content=""><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>History | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="site-info"><div id="site-title">Gwang Story</div><div id="site-sub-title">History</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2019/11/21/spring-security-filter/">spring_security_filter</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-21</time><div class="content"><table>
+<thead>
+<tr>
+<th>순서</th>
+<th>제목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>WebAsyncManagerIntegrationFilter</td>
+<td>조사 요망</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SecurityContextPersistence Filter</td>
+<td>Security Context Repository에서 SecurityContext를 로드하고 저장</td>
+</tr>
+<tr>
+<td>3</td>
+<td>HeaderWriterFilter</td>
+<td>조사 요망</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Logout Filter</td>
+<td>로그아웃 URL로 지정된 가상 URL에 대한 요청 감시, 매칭되면 로그아웃</td>
+</tr>
+<tr>
+<td>5</td>
+<td>UsernamePasswordAuthenticationFilter</td>
+<td>사용자명과 비밀번호로 이뤄진 폼 기반 인증 URL 확인 및 인증 진행</td>
+</tr>
+<tr>
+<td>6</td>
+<td>RequestCacheAwareFilter</td>
+<td>로그인 성공 이후 인증 요청에 의해 가로 채어진 사용자의 원래 요청을 재구성</td>
+</tr>
+<tr>
+<td>7</td>
+<td>SecurityContextHolderAwareRequestFilter</td>
+<td>조사 요망</td>
+</tr>
+<tr>
+<td>8</td>
+<td>AnonymousAuthenticationFilter</td>
+<td>이 필터가 호출되는 시점까지 사용자가 아직 인증을 받지 못했다면 요청 관련 인증 토큰에서 사용자가 익명 사용자로 나타남</td>
+</tr>
+<tr>
+<td>9</td>
+<td>SessionManagementFilter</td>
+<td>인증된 주체를 바탕으로 세션 트래킹을 처리해 단일 주체와 관련된 모든 세션 트래킹</td>
+</tr>
+<tr>
+<td>10</td>
+<td>ExceptionTranslationFilter</td>
+<td>발생하는 예외 처리 담당</td>
+</tr>
+<tr>
+<td>11</td>
+<td>FilterSecurityFilter</td>
+<td>권한부여 등 여러 결정을 AccessDecisionManager에게 위임해 최종 제어</td>
+</tr>
+</tbody>
+</table>
+<p>하단은 타 블로그에서 참조</p>
+<p>SecurityContextPersistenceFilter</p>
+<p>SecurityContextRepository 에서 SecurityContext 를 로딩하거나 SecurityContextRepository 로 SecurityContext 를 저장하는 역할을 한다.SecurityContext 란 사용자의 보호및 인증된 세션을 의미한다.</p>
+<p>LogoutFilter</p>
+<p>로그아웃 URL(디폴트 값 : /j_spring_security_logout) 로의 요청을 감시하여 해당 사용자를 로그아웃 시킨다.</p>
+<p>UsernamePasswordAuthenticationFilter</p>
+<p>username 과 password 를 사용하는 폼기반 인증 요청 URL(디폴트 값: /j_spring_security_check) 을 감시하여 사용자를 인증하는 역할을 한다.</p>
+<p>DefaultLoginPageGeneratingFilter</p>
+<p>폼또는 OpenID 기반 인증을 위한 로그인폼 URL(디폴트 값: /spring_security_login)을 감시하여 로그인폼을 생성한다.</p>
+<p>BasicAuthenticationFilter</p>
+<p>HTTP 기본 인증 헤더를 감시하여 처리한다.</p>
+<p>RequestCacheAwareFilter</p>
+<p>로그인 성공 후, 원래 요청 정보를 재구성하기 위해 사용됨</p>
+<p>SecurityContextHolderAwareRequestFilter</p>
+<p>HttpServletRequestWrapper 를 상속한 SecurityContextHolderAwareRequestWapper 클래스로 HttpServletRequest 정보를 감싼다. SecurityContextHolderAwareRequestWrapper 클래스는 필터 체인상의 다음 필터들에게 추가 정보를 제공한다.</p>
+<p>AnonymousAuthenticationFilter</p>
+<p>이 필터가 호출되는 시점까지 사용자 정보가 인증되지 않았다면 사용자가 익명이라는 것 나타내는 인증토큰이 요청과 관련지어 진다.</p>
+<p>SessionManagementFilter</p>
+<p>이 필터는 하나의 인증된 사용자와 관련된 모든 세션을 추적하고, 인증된 사용자 정보를 기반으로 세션을 추적을 처리한다.</p>
+<p>ExceptionTranslationFilter</p>
+<p>이 필터는 보호된 요청을 처리하는 중에 발생하는 예상된 예외를 위임하거나 전달하는 역할을 한다.</p>
+<p>FilterSecurityInterceptor</p>
+<p>이 필터는 AccessDecisionManager 로 인증에 대한 결정권을 위임함으로써 인증허가 및  접근제어 결정을 용이하게 한다.</p>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/10/28/Setting/">Setting</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-28</time><div class="content"><p><a href="https://github.com/LouisBarranqueiro" target="_blank" rel="noopener">https://github.com/LouisBarranqueiro</a><br />
+<a href="https://github.com/LouisBarranqueiro/hexo-algoliasearch" target="_blank" rel="noopener">https://github.com/LouisBarranqueiro/hexo-algoliasearch</a><br />
+hello<br />
+olleh</p>
+<p><img src="/images/jvm_stack_01.gif" alt="" /></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2019/10/28/intro/">intro</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-28</time><div class="content"></div><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

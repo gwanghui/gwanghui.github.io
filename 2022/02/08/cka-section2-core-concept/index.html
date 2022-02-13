@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cka-section2-core-concept"><meta name="keywords" content=""><meta name="author" content="GwangHui Park"><meta name="copyright" content="GwangHui Park"><title>cka-section2-core-concept | Gwang Story</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cluster-architecture"><span class="toc-number">1.</span> <span class="toc-text"> Cluster Architecture</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#node"><span class="toc-number">1.1.</span> <span class="toc-text"> Node</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#etcd-cluster"><span class="toc-number">2.</span> <span class="toc-text"> ETCD Cluster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kube-api-server"><span class="toc-number">3.</span> <span class="toc-text"> Kube-API server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kube-controller-manager"><span class="toc-number">4.</span> <span class="toc-text"> kube controller manager</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kube-scheduler"><span class="toc-number">5.</span> <span class="toc-text"> kube-Scheduler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pod-with-yaml"><span class="toc-number">6.</span> <span class="toc-text"> POD with YAML</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">GwangHui Park</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">103</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">47</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Gwang Story</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">cka-section2-core-concept</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-02-08</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="cluster-architecture"><a class="markdownIt-Anchor" href="#cluster-architecture"></a> Cluster Architecture</h2>
+<h3 id="node"><a class="markdownIt-Anchor" href="#node"></a> Node</h3>
+<ul>
+<li>Master Nodes: Manage, Plan, Schedule, Monitor Nodes
+<ul>
+<li>ETCD Cluster: Etcd is a database that stores information in a key-value format</li>
+<li>kube-scheduler: identifies that right node to place a container
+<ul>
+<li>based on the containers Resource requirements the worker nodes capacity</li>
+<li>any other policies or constraints such as taint(얼룩) and toleration(관용) or node affinity rules that are on them</li>
+<li></li>
+</ul>
+</li>
+<li>Controller Manager
+<ul>
+<li>Node-Controller: takes care of nodes
+<ul>
+<li>they’re responsible for onboarding new nodes to the cluster handling situations where nodes become unavailable or gets destroyed</li>
+</ul>
+</li>
+<li>Replication-Controller: ensures that the desired number of containers are running at all times in your replication</li>
+</ul>
+</li>
+<li>Kube-api server
+<ul>
+<li>primary management component of kubernetes</li>
+<li>kube-api server is responsible for orchestrating all operations within the cluster</li>
+<li>it exposes the kubernetes API which is used by external user to perform management operations on the cluster as well as the various controllers to monitor the state of the cluster</li>
+<li>make the necessary changes as required and by the worker nodes to communicate with the server.</li>
+</ul>
+</li>
+<li>DNS Server</li>
+</ul>
+</li>
+<li>Worker Nodes: Host Application as Containers
+<ul>
+<li>Container Runtime Engine: Docker,</li>
+<li>kubelet
+<ul>
+<li>kubelet is responsible for managing all activities on these nodes.</li>
+<li>a kubelet is an agent that runs on each node in a cluster.</li>
+<li>it listens for instructions from the kube-api and deploys or destroys containers on the nodes as required.</li>
+<li></li>
+</ul>
+</li>
+<li>kube-proxy
+<ul>
+<li>Communication between worker nodes are enabled by another component that runs on the worker node known as the kube-proxy service.</li>
+<li>kube-proxy service ensures that the necessary rules are in place on the worker nodes to allow the containers running on them to reach each other</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://medium.com/finda-tech/overview-8d169b2a54ff" target="_blank" rel="noopener">쿠버네티스(k8s)설치 및 환경 구성하기</a></p>
+<h2 id="etcd-cluster"><a class="markdownIt-Anchor" href="#etcd-cluster"></a> ETCD Cluster</h2>
+<ul>
+<li>ETCD datastore stores information regarding the cluster
+<ul>
+<li>nodes</li>
+<li>pods</li>
+<li>config</li>
+<li>secrets</li>
+<li>accounts</li>
+<li>roles</li>
+<li>bindings</li>
+<li>others</li>
+</ul>
+</li>
+<li>two type of kubernetes deployment
+<ul>
+<li>scratch
+<ul>
+<li>set up a cluster we set ot up from scratch</li>
+</ul>
+</li>
+<li>other using kubeadm tool.
+<ul>
+<li>The practice test environments are deployed using the kubeadm tool</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>setup
+<ul>
+<li>kubectl get pods -n kube-system<br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/kubectl_get_pods.png" alt="" /></li>
+<li>kubectl exec etcd-master -n kube-system etcdctl get get / --prefix -keys-only<br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/keys_only.png" alt="" /><br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/registry.png" alt="" /><br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/registry.png" alt="" /><br />
+<img src="/images/certification/k8s/administrator/sections2/etcd/HA.png" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="kube-api-server"><a class="markdownIt-Anchor" href="#kube-api-server"></a> Kube-API server</h2>
+<ul>
+<li>primary management component in kubernetes<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-apiserver/kube-apiserver-main.png" alt="" /></li>
+<li>view api-server options - kubeadm
+<ul>
+<li>cat /etc/kubernetes/manifests/kube-apiserver.yaml</li>
+</ul>
+</li>
+<li>view api-server options
+<ul>
+<li>cat /etc/systemd/system/kube-apiserver.service</li>
+<li>ps -aux | grep kube-apiserver</li>
+</ul>
+</li>
+</ul>
+<h2 id="kube-controller-manager"><a class="markdownIt-Anchor" href="#kube-controller-manager"></a> kube controller manager</h2>
+<p><img src="/images/certification/k8s/administrator/sections2/kube-contoller/controller.png" alt="" /></p>
+<ul>
+<li>
+<p>node controller</p>
+<ul>
+<li>Watch status</li>
+<li>Remediate Situation</li>
+<li>Node Monitor period = 5s</li>
+<li>Node Monitor Grace Period = 40s</li>
+<li>POD Eviction Timeout = 5m<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/node_contoller.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>installing kube-controller-manager<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/install.png" alt="" /></p>
+</li>
+<li>
+<p>view kube-controller-manager - kubeadm</p>
+<ul>
+<li>kubectl get pods -n kube-system<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/kubeadm.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>view kube-controller-manager options - install kubeadm</p>
+<ul>
+<li>cat /etc/kubernetes/manifests/kube-controller-manager.yaml<br />
+<img src="/images/certification/k8s/administrator/sections2/kube-contoller/option_adm.png" alt="" /></li>
+</ul>
+</li>
+<li>
+<p>view kube-controller-manager options - non kubeadm setup</p>
+<ul>
+<li>cat /etc/systemd/system/kube-controller-manager.service</li>
+</ul>
+</li>
+</ul>
+<h2 id="kube-scheduler"><a class="markdownIt-Anchor" href="#kube-scheduler"></a> kube-Scheduler</h2>
+<ul>
+<li>
+<p>scheduling pods on nodes.</p>
+<ul>
+<li>only responsible for deciding which pod goes on which node.</li>
+<li>It doesn’t actually place the pod on the nodes. That’s the job of the kubelet.</li>
+<li>The kubelet is who creates the pod on the nodes.</li>
+<li>The scheduler only decides which pod goes where.</li>
+</ul>
+</li>
+<li>
+<p>how to work scheduler in high level architecture</p>
+<ul>
+<li>node status</li>
+<li>filter nodes</li>
+<li>rank nodes</li>
+</ul>
+</li>
+<li>
+<p>install</p>
+</li>
+<li></li>
+<li>
+<p>view kube-controller-manager options- install kubeadm</p>
+<ul>
+<li>cat /etc/kubernetes/manifests/kube-scheduler.yaml</li>
+</ul>
+</li>
+<li>
+<p>view kube-scheduler options</p>
+<ul>
+<li>ps -aux | grep kube-scheduler</li>
+</ul>
+</li>
+</ul>
+<h2 id="pod-with-yaml"><a class="markdownIt-Anchor" href="#pod-with-yaml"></a> POD with YAML</h2>
+<ul>
+<li>pod-definition.yml</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">myapp-pod</span></span><br><span class="line"><span class="attr">  labels:</span></span><br><span class="line"><span class="attr">    app:</span> <span class="string">myapp</span></span><br><span class="line"><span class="attr">spec:</span></span><br></pre></td></tr></table></figure>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" target="_blank" rel="noopener">GwangHui Park</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.devkwang.app/2022/02/08/cka-section2-core-concept/">https://blog.devkwang.app/2022/02/08/cka-section2-core-concept/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="next-post pull-right"><a href="/2022/01/28/fluentd/"><span>fluentd</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2022 By GwangHui Park</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script src="/js/katex.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
